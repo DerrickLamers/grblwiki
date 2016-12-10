@@ -1,7 +1,8 @@
 _This wiki is intended to provide various instructions on how to compile grbl. Once compiled, you should have a brand new .hex file to flash to your Arduino. Please feel free to contribute more up-to-date or alternative methods._
 
 #Via the Arduino IDE (All Platforms):
-_Last updated: 2016-12-09 by chamnit. (Tested on OS X 10.12 with Arduino IDE v1.6.12)_
+
+### RECOMMENDED: All other methods below are just for reference.
 
 Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. 
 NOTE: This method compiles the source code into a new hex and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
@@ -32,8 +33,11 @@ Once you have your ```Grbl``` library set up in the Arduino IDE, you can update,
 
 No fuss! No muss!
 
+_Last updated: 2016-12-09 by chamnit. (Tested on OS X 10.12 with Arduino IDE v1.6.12)_
 
-# For Mac OS X: 
+------
+
+## For Mac OS X: 
 _Last updated: 2012-01-29 by chamnit. (Tested on OS X 10.7, 10.6, 10.4 and the Arduino IDE r22,v1.0)_
 
 This method of compiling Grbl uses the Mac OSX terminal and command line to access the Arduino IDE's compilers  without having to use the Arduino IDE. This produces the same firmware as the Arduino IDE method above.
@@ -54,7 +58,7 @@ NOTE: If you are having problems, you may need to add this same PATH to your .ba
 
 
  
-# For Windows:
+## For Windows:
 _Last updated: 2012-01-28 by txjammer. (Tested on Windows XP and the Arduino IDE r23)_
 
 You can use the Arduino platform as well since it comes with "win-avr" avrgcc. 
@@ -120,7 +124,7 @@ The last 2 steps need to be done for both Debug and Release configurations
 
 Enjoy the benefits of Visual Studio for Atmel/AVR
 
-# For Linux:
+## For Linux:
 _Last updated: 2012-03-02 by speters. (Tested on ???)_
 
 Make sure you have the prerequisite libraries installed: _avr-gcc_ and _arduino_ (_sudo aptitude install arduino_)
@@ -131,7 +135,7 @@ make clean
 make grbl.hex
 ```
 
-# For Ubuntu:
+## For Ubuntu:
 _Last updated: 2014-01-20 by EliteEng._
 
 The following has been tested on Ubuntu 11.10 and an Arduino Uno.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of debian too.
