@@ -1,4 +1,4 @@
-_This wiki is intended to provide information on known bugs. Please feel free to contribute more known bugs and their work arounds as they are discovered. When a bug is fixed, they will be removed from this list._
+_This wiki is intended to provide information on known bugs or issues. Please feel free to contribute more known bugs and their work arounds as they are discovered._
 
 # Character-counting Streaming Protocol Issues
  
