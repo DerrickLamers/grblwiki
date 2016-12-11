@@ -1,5 +1,7 @@
 #### _Quick-Links:_
-* [Grbl's Settings and What They Mean](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-xval-settings-and-what-they-mean)
+* [Grbl Response Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-response-messages)
+* [Grbl Push Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-push-messages)
+* [Grbl Message Summary](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#message-summary)
 
 ***
 ### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
