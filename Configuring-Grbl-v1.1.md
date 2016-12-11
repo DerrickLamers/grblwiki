@@ -1,9 +1,7 @@
 #### _Quick-Links:_
-* [Getting Started](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#getting-started)
 * [Grbl Settings](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbl-settings)
 * [Grbl's Settings and What They Mean](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-xval-settings-and-what-they-mean)
 * [Grbl's Other `$` Commands](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-other--commands)
-* [Real-Time Commands](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#real-time-commands----and-ctrl-x)
 
 ***
 ### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
