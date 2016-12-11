@@ -31,6 +31,8 @@ _NOTE: If you are having upload issues, try re-burning the Arduino bootloader. I
 _Last updated: 2016-12-11_
 
 ------
+------
+# The following methods are for reference only. 
 
 ## For Mac OS X: 
 _Last updated: 2012-01-29 by chamnit. (Tested on OS X 10.7, 10.6, 10.4 and the Arduino IDE r22,v1.0)_
