@@ -1,3 +1,8 @@
+#### _Quick-Links:_
+* [Grbl `$` System Commands](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#grbl--commands)
+* [Grbl Real-Time Commands](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#grbl-v11-realtime-commands)
+
+
 *****
 ### More up-to-date documentation is in the /doc/markdown/ directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
 ******
@@ -6,9 +11,35 @@
 
 In general, Grbl assumes all characters and streaming data sent to it is g-code and will parse and try to execute it as soon as it can. However, Grbl also has two separate system command types that are outside of the normal g-code streaming. One system command type is streamed to Grbl like g-code, but starts with a `$` character to tell Grbl it's not g-code. The other is composed of a special set of characters that will immediately command Grbl to do a task in real-time. It's not part of the g-code stream. Grbl's system commands do things like control machine state, report saved parameters or what Grbl is doing, save or print machine settings, run a homing cycle, or make the machine move faster or slower than programmed. This document describes these "internal" system Grbl commands, what they do, how they work, and how to use them.
 
+## Getting Started
+
+First, connect to Grbl using the serial terminal of your choice.
+
+Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
+
+Once connected
+ you should get the Grbl-prompt, which looks like this:
+
+```
+Grbl 1.1e ['$' for help]
+```
+
+Type $ and press enter to have Grbl print a help message. You should not see any local echo of the $ and enter. Grbl should respond with:
+
+```
+[HLP:$$ $# $G $I $N $x=val $Nx=line $J=line $SLP $C $X $H ~ ! ? ctrl-x]
+```
+
+The ‘$’-commands are Grbl system commands used to tweak the settings, view or change Grbl's states and running modes, and start a homing cycle. The last four **non**-'$' commands are realtime control commands that can be sent at anytime, no matter what Grbl is doing. These either immediately change Grbl's running behavior or immediately print a report of the important realtime data like current position (aka DRO). There are over a dozen more realtime control commands, but they are not user type-able. See realtime command section for details.
+
+***
+
 ## Grbl '$' Commands
 
 The `$` system commands provide additional controls for the user, such as printing feedback on the current G-code parser modal state or running the homing cycle. This section explains what these commands are and how to use them.
+
+#### `$$`and `$x=val` - View and write Grbl settings
+See [Grbl v1.1 Configuration](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#grbl-settings) for more details on how to view and write setting and learn what they are.
 
 #### `$#` - View gcode parameters
 
