@@ -125,29 +125,18 @@ A lot has happened since the v0.7. We're pushing real hard to create a simple, y
 * More Robust G-Code Parser with Error Checking Feedback.
 * And much more!
 
-
-### Slated for Future Development
-Grbl is constantly under development with new features being added all the time. Here's a short list of upcoming features set for the next version, but click this [link](https://github.com/gnea/grbl/wiki/Development-Path-and-Future-Needs) to read up the details.
-
-* **Backlash Compensation:** Not sure it'll make it into the Uno version, but definitely when we support a bigger controller.
-
 ***
 _Grbl v0.8 (and prior) is distributed under the MIT-License and was developed by Simen Svale Skogsrud, Sungeun K. Jeon Ph.D., and Jens Geisler._
 
-_Grbl v0.9 is distributed under the GPLv3 license and is developed by Sungeun K. Jeon Ph.D.. See [Licensing](https://github.com/grbl/grbl/wiki/Licensing) for more details._
+_Grbl is distributed under the GPLv3 license and is developed by Sungeun K. Jeon Ph.D.. See [Licensing](https://github.com/gnea/grbl/wiki/Licensing) for more details._
 ***
 
-## Help
-* **[F.A.Q.](https://github.com/gnea/grbl/wiki/Frequently-Asked-Questions)**
+## Documentation for Previous Versions
 
-* **[Licensing](https://github.com/gnea/grbl/wiki/Licensing)**
+* **[Old Wiki Homepage](https://github.com/grbl/grbl/wiki)**
 
-* **[Compiling Grbl](https://github.com/gnea/grbl/wiki/Compiling-Grbl)**
+* **[Configuring Grbl v0.9](https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.9)**
 
-* **[Flashing Grbl to an Arduino](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino)**
+* **[Configuring Grbl v0.8](https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8)**
 
-* **[Connecting Grbl](https://github.com/gnea/grbl/wiki/Connecting-Grbl)**
-
-* **[Configuring Grbl](https://github.com/gnea/grbl/wiki/Configuring-Grbl)**
-
-* **[Using Grbl](https://github.com/gnea/grbl/wiki/Using-Grbl)**
+* **[Configuring Grbl v0.7](https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.7)**
