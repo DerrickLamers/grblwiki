@@ -1,7 +1,5 @@
 #### _Quick-Links:_
-* [Grbl Settings](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbl-settings)
 * [Grbl's Settings and What They Mean](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-xval-settings-and-what-they-mean)
-* [Grbl's Other `$` Commands](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-other--commands)
 
 ***
 ### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
@@ -17,7 +15,7 @@ Once connected
  you should get the Grbl-prompt, which looks like this:
 
 ```
-Grbl 1.1d ['$' for help]
+Grbl 1.1e ['$' for help]
 ```
 
 Type $ and press enter to have Grbl print a help message. You should not see any local echo of the $ and enter. Grbl should respond with:
