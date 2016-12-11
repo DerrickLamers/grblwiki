@@ -1,5 +1,3 @@
-NOTE: HANG TIGHT! THE WIKI IS BEING UPDATED!!! SEE /doc FOLDER FOR ADDITIONAL DOCUMENTATION ON v1.1!
-
 ***
 _Welcome to the grbl wiki! Please feel free to modify these pages to help keep grbl up-to-date!_
 
