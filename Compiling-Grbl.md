@@ -1,39 +1,34 @@
 _This wiki is intended to provide various instructions on how to compile grbl. Once compiled, you should have a brand new .hex file to flash to your Arduino. Please feel free to contribute more up-to-date or alternative methods._
 
-#Via the Arduino IDE (All Platforms):
+#Via the Arduino IDE (All Platforms): Recommended for all users.
 
-### RECOMMENDED: All other methods below are just for reference.
+Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
 
-Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. 
-NOTE: This method compiles the source code into a new hex and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
+_**NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```.**_
 
-_NOTE: Before starting, make sure that any older installation of Grbl has been completely removed from the Arduino IDE._
-
-_NOTE: There have been reports of upload failures on some older Arduino boards. Typically, re-flashing the Arduino boot loader fixes this problem. This can be performed by a separate Arduino quite easily, and there are numerous online resources to show you how._
-
-1. Download the Grbl source code from the home page.
- * Click the ```Download ZIP``` button on the lower right side of the home page. 
- * Once downloaded, unzip it and you'll have a folder called ```grbl-master``` or something similar. 
-2. Make sure you are using the most recent version of the Arduino IDE (last tested on v1.6.12).
-3. Trash all prior installed Grbl libraries from your Arduino library path! This can cause the compiler to point to the wrong files.
+1. Download the Grbl source code.
+ * Click the ```Download ZIP``` button on the Grbl home page. 
+ * Unzip the download and you'll have a folder called ```grbl-master```. 
+2. Launch the Arduino IDE
+ * Make sure you are using the most recent version of the Arduino IDE!
 3. Load Grbl into the Arduino IDE as a Library.
- * Launch the Arduino IDE.
- * Click the ```Sketch``` drop-down menu, navigate to ```Include Library```, and click ```Add .ZIP Library```, note that this still works with a folder (prior to IDE version 1.6.2 this will be ```Import Library...```, and click ```Add Library...```).
- * Select the ```Grbl``` folder **_inside_** the ```grbl-master``` folder when asked to select a library folder you'd like to add. The correct folder **only** contains the source files and an example directory.
- * It may take a few seconds for the Arduino IDE to import it.
- * _NOTE: For pre-v1.05 Arduino IDE users, you will need to manually add Grbl into your Arduino libraries, so that it will appear in the `Import Library...` menu. Search the internet for how to install, then skip to step 4._
-4. Open the GrblUpload Arduino example.
+ * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
+ * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-master``` folder, which **only** contains the source files and an example directory.
+ * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
+4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
 5. Compile and upload Grbl to your Arduino.
  * Connect your Arduino Uno to your computer.
  * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. 
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
-Once you have your ```Grbl``` library set up in the Arduino IDE, you can update, replace, or modify the Grbl source code in the library folder. On a Mac, it's located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. You may need to restart the Arduino IDE for this change to take effect.
+**_Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file in the Arduino library (**not download**) folder. This file enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
 
 No fuss! No muss!
 
-_Last updated: 2016-12-09 by chamnit. (Tested on OS X 10.12 with Arduino IDE v1.6.12)_
+_NOTE: If you are having upload issues, try re-burning the Arduino bootloader. If you have a spare Arduino, it's [easy](https://www.arduino.cc/en/Tutorial/ArduinoISP)!_
+
+_Last updated: 2016-12-11_
 
 ------
 
