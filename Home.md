@@ -150,16 +150,6 @@ _Grbl v0.9 is distributed under the GPLv3 license and is developed by Sungeun K.
 
 * **[Connecting Grbl](https://github.com/gnea/grbl/wiki/Connecting-Grbl)**
 
-* **[Configuring Grbl v0.9](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v0.9)**
-
-* **[Configuring Grbl v0.8](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v0.8)**
-
-* **[Configuring Grbl v0.7](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v0.7)**
+* **[Configuring Grbl](https://github.com/gnea/grbl/wiki/Configuring-Grbl)**
 
 * **[Using Grbl](https://github.com/gnea/grbl/wiki/Using-Grbl)**
-
-* **[Interfacing with Grbl](https://github.com/grbl/grbl/wiki/Interfacing-with-Grbl)**
-
-* **[G-Code Examples](https://github.com/grbl/grbl/wiki/G-Code-Examples)**
-
-* **[Known Bugs](https://github.com/grbl/grbl/wiki/Known-Bugs)**
