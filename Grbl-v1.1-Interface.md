@@ -1,7 +1,9 @@
 #### _Quick-Links:_
+* [Streaming G-Code to Grbl](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#streaming-a-g-code-program-to-grbl)
+* [Interaction with Grbl's Systems](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#interacting-with-grbls-systems)
+* [Grbl Message Summary](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#message-summary)
 * [Grbl Response Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-response-messages)
 * [Grbl Push Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-push-messages)
-* [Grbl Message Summary](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#message-summary)
 
 ***
 ### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
