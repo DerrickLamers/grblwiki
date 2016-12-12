@@ -11,7 +11,7 @@ When Simen Svale Skogsrud first sat down and wrote Grbl in 2009, he named it aft
 Grbl has been well-tested and vetted over the years, but we're human and still make dumb-ass mistakes. If you think you've found a problem, first do a quick search to see if we know about it or if there is already a fix. If not, then post a new issue here with a description of the problem and any instructions on how to reproduce the problem. Please post your `$I` build info string and `$$` settings too! It makes debugging much faster. Finally, if you are not using the most recent version of the Arduino IDE to upload Grbl or are flashing our pre-compiled hex file, let us know what IDE version or what you do to compile Grbl. Thanks!!
 
 #### What happened to v1.0? There was v0.9, then v1.1. What gives?
-Grbl v1.0 was a development version that was not officially released. Some OEMs and users started using this development v1.0 version anyway. Because of that, GUI developers started seeing v1.0 users asking to support it. To make it easier on GUI developers, Grbl v1.0 was just skipped, so they don't have to deal with trying to figure out which v1.0 was which.
+Grbl v1.0 was a development version that was not officially released. Some OEMs and users started using this development v1.0 version anyway. Because of that, GUI developers had v1.0 users asking to support it. To make it easier on GUI developers, Grbl v1.0 was just skipped, so they don't have to deal with trying to figure out which v1.0 was which.
 
 ## Compiling Grbl
 
