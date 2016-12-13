@@ -28,8 +28,9 @@ Grbl is great for light duty production. We use it for all our milling, running 
 
 Grbl is for three axis machines. No rotation axes (yet) – just X, Y, and Z.
 
-The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their g-code descriptions. [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html) and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) attempts to list all codes supported by Grbl with appropriate commentary. Note that there is only one deviation from their written g-code standard listed below. If you notice any other discrepancies, please let use know!
+The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their g-code descriptions. [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html) and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) attempts to list all codes supported by Grbl with appropriate commentary. Note that there are only two deviations from their written g-code standard listed below. If you notice any other discrepancies, please let use know!
 - Multiple full circle arcs with G2 and G3 arcs with a P word is not supported.
+- Laser mode alters the operation of M3, M4, and spindle speed S word changes. See the [Laser Mode](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Laser-Mode) page for details.
 
 * Supported G-Codes in **v1.1**
  * **G38.3, G38.4, G38.5:** _Probing_ 
