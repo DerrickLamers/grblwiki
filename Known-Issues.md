@@ -17,3 +17,7 @@ _This wiki is intended to provide information on known bugs or issues. Please fe
 * Genuine Arduino boards and clone Arduino boards using the Atmel 16U2 USB to Serial chip also experience occasional transmission errors and it is recommended that users re-flash the 16U2 chip with updated firmware. You can use the instructions here: https://www.arduino.cc/en/Hacking/DFUProgramming8U2 to falsh the new firmware, and the new firmware can be found here:https://github.com/AlexHolden/Arduino/tree/master/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial  Many thanks to user AlexHolden for taking the time to edit the firmware to solve this problem.
 
 * You can read more about the problem in the issue here: https://github.com/grbl/grbl/issues/845
+
+# Baud rate limitations
+
+* Using low baud rates can result in unpredictable behavior. This unpredictable behavior can be exacerbated by other factors such as enabled echoes. Discussion with Sonny indicates that the serial communication in GRBL is designed and tested at 115200, so at baud rates of 115200 and above there should be no problem. In short, unless there is a very good reason, just don't run below 115200 baud and this should not be a problem. 
