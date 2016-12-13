@@ -10,7 +10,9 @@ The main difference between default Grbl operation and the laser mode is how the
 
 However, if a laser starts and stops like this for every spindle change, this leads to scorching and uneven cutting/engraving! Grbl's new laser mode prevents unnecessary stops whenever possible and adds a new dynamic laser power mode that automagically scales power based on current speed related to programmed rate. So, you can get super clean and crisp results, even on a low-acceleration machine!
 
-Enabling Grbl's laser mode is easy, just alter the `$32` setting by sending Grbl a `$32=1` command. This will alter how `M3`, `M4`, and `S` spindle speed commands are executed to work smoother, faster, and safety with laser cutters and engravers.
+Enabling or disabling Grbl's laser mode is easy. Just alter the **$32** Grbl setting. 
+- **To Enable**: Send Grbl a `$32=1` command. 
+- **To Disable:** Send Grbl a `$32=0` command.
 
 **WARNING:** If you switch back from laser mode to a spindle for milling, you **MUST** disable laser mode by sending Grbl a `$32=0` command. Milling operations require the spindle to get up to the right rpm to cut correctly and to be **safe**, helping to prevent a tool from breaking and flinging metal shards everywhere. With laser mode disabled, Grbl will briefly pause upon any spindle speed or state change to give the spindle a chance to get up to speed before continuing.
 
