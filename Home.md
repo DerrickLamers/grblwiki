@@ -1,5 +1,5 @@
 ***
-_Welcome to the grbl wiki! Please feel free to modify these pages to help keep grbl up-to-date!_
+_Welcome to the Grbl wiki! Please feel free to modify these pages to help keep Grbl up-to-date!_
 
 ### About Grbl
 Grbl is a free, open source, high performance software for controlling the motion of machines that move, that make things, or that make things move, and will run on a straight Arduino. If the maker movement was an industry, Grbl would be the industry standard.
@@ -20,25 +20,19 @@ In 2009, **Simen Svale Skogsrud** (**http://bengler.no/grbl**) graced the open-s
 
 ### Who should use Grbl
 
-Makers who do milling or laser cutting and need a nice, simple controller for their system that will run the ubiquitous Arduino Uno. People who loathe to clutter their space with legacy PC-towers just for the parallel-port. Tinkerers who need a controller written in tidy, modular C as a basis for their project.
+Makers who do milling or laser cutting and need a nice, simple controller for their system that will run on   the ubiquitous Arduino Uno. People who loathe to clutter their space with legacy PC-towers just for the parallel-port. Tinkerers who need a controller written in tidy, modular C as a basis for their project.
 
 ###Nice features
 
-Grbl is great for light duty production. We use it for all our milling, running it from our laptops or Raspberry Pi's using superb GUIs written for Grbl to stream g-code jobs. Grbl is written in highly optimized C utilizing all the clever features of the Arduino's Atmega328p chips to achieve precise timing and asynchronous operation. It is able to maintain more than **30kHz** step rate and delivers a clean, jitter free stream of control pulses.
+Grbl is great for light duty production. We use it for all our milling, running it from our laptops or Raspberry Pis using superb GUIs written for Grbl to stream G-code jobs. Grbl is written in highly optimized C utilizing all the clever features of the Arduino's Atmega328p chips to achieve precise timing and asynchronous operation. It is able to maintain more than **30kHz** step rate and delivers a clean, jitter free stream of control pulses.
 
 Grbl is for three axis machines. No rotation axes (yet) – just X, Y, and Z.
 
-The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their g-code descriptions. [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html) and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) attempts to list all codes supported by Grbl with appropriate commentary. Note that there are only two deviations from their written g-code standard listed below. If you notice any other discrepancies, please let use know!
+The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their G-code descriptions, [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html), and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) which attempts to list all codes supported by Grbl with appropriate commentary. Note that there are only two deviations from the written G-code standard listed below. If you notice any other discrepancies, please let use know!
 - Multiple full circle arcs with G2 and G3 arcs with a P word is not supported.
 - Laser mode alters the operation of M3, M4, and spindle speed S word changes. See the [Laser Mode](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Laser-Mode) page for details.
 
 * Supported G-Codes in **v1.1**
- * **G38.3, G38.4, G38.5:** _Probing_ 
- * **G40:** _Cutter Radius Compensation Modes_
- * **G61:** _Path Control Modes_
- * **G91.1:** _Arc IJK Distance Modes_
- * **G38.2:** _Probing_ 
- * **G43.1, G49:** _Dynamic Tool Length Offsets_
  * **G0, G1:** _Linear Motions_
  * **G2, G3:** _Arc and Helical Motions_ 
  * **G4:** _Dwell_ 
@@ -47,10 +41,16 @@ The G-code interpreter implements a subset of the LinuxCNC standard and is suppo
  * **G20, G21:** _Units_ 
  * **G28, G30:** _Go to Pre-Defined Position_ 
  * **G28.1, G30.1:** _Set Pre-Defined Position_
+ * **G38.2:** _Probing_ 
+ * **G38.3, G38.4, G38.5:** _Probing_ 
+ * **G40:** _Cutter Radius Compensation Modes_
+ * **G43.1, G49:** _Dynamic Tool Length Offsets_
  * **G53:** _Move in Absolute Coordinates_
  * **G54, G55, G56, G57, G58, G59:** _Work Coordinate Systems_
+ * **G61:** _Path Control Modes_
  * **G80:** _Motion Mode Cancel_ 
  * **G90, G91:** _Distance Modes_ 
+ * **G91.1:** _Arc IJK Distance Modes_
  * **G92:** _Coordinate Offset_ 
  * **G92.1:** _Clear Coordinate System Offsets_ 
  * **G93, G94:** _Feedrate Modes_ 
@@ -60,7 +60,7 @@ The G-code interpreter implements a subset of the LinuxCNC standard and is suppo
 
 ###Acceleration management
 
-In the early days, Arduino-based CNC controllers did not have acceleration planning and couldn't run at full speed without some kind of easing. Grbl’s constant acceleration-management with look ahead planner solved this issue and has been replicated everywhere in the micro controller CNC world, from Marlin to TinyG. Grbl intentionally uses a simpler constant acceleration model, which is more than adequate for home CNC use. Because of this, we were able to invest our time optimizing our planning algorithms and making sure motions are solid and reliable. When the installation of all the feature sets we think are critical are complete and no longer requires us to modify our planner to accommodate them, we intend to research and implement more-advanced motion control algorithms, which are usually reserved for machines only with very high feed rates (i.e. pick-and-place) or in production environments. Lastly, here's a [link](http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/) describing the basis of our high speed cornering algorithm so motions ease into the fastest feed rates and brake before sharp corners for fast yet jerk free operation. 
+In the early days, Arduino-based CNC controllers did not have acceleration planning and couldn't run at full speed without some kind of easing. Grbl’s constant acceleration-management with look ahead planner solved this issue and has been replicated everywhere in the micro controller CNC world, from Marlin to TinyG. Grbl intentionally uses a simpler constant acceleration model, which is more than adequate for home CNC use. Because of this, we were able to invest our time optimizing our planning algorithms and making sure motions are solid and reliable. When the installation of all the feature sets we think are critical are complete and no longer requires us to modify our planner to accommodate them, we intend to research and implement more-advanced motion control algorithms, which are usually reserved for machines only with very high feed rates (i.e. pick-and-place) or in production environments. Lastly, here's a [link](http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/) describing the basis of our high speed cornering algorithm so motions ease into the fastest feed rates and brake before sharp corners for fast, yet jerk free operation. 
 
 ###Limitations by design
 
@@ -68,20 +68,20 @@ We have limited G-code-support by design. This keeps the Grbl source code simple
 
 ### New features in v1.1!
 Another **HUGE** update! This version includes the last remaining priority features that have been long been on the to-do list. Here's a summary of the new changes:
-* **Real-time Overrides** : Alters the machine running state immediately with feed, rapid, spindle speed, spindle stop, and coolant toggle controls. This awesome new feature is common only on industrial machines, often used to optimize speeds and feeds while a job is running. Most hobby CNC's try to mimic this behavior, but usually have large amounts of lag. Grbl executes overrides in realtime and within tens of milliseconds.
-* **Jogging Mode** : The new jogging commands are independent of the g-code parser, so that the parser state doesn't get altered and cause a potential crash if not restored properly. Documentation is included on how this works and how it can be used to control your machine via a joystick or rotary dial with a low-latency, satisfying response.
+* **Real-time Overrides** : Alters the machine running state immediately with feed, rapid, spindle speed, spindle stop, and coolant toggle controls. This awesome new feature is common only on industrial machines, often used to optimize speeds and feeds while a job is running. Most hobby CNCs try to mimic this behavior, but usually have large amounts of lag. Grbl executes overrides in realtime and within tens of milliseconds.
+* **Jogging Mode** : The new jogging commands are independent of the G-code parser, so that the parser state doesn't get altered and cause a potential crash if not restored properly. Documentation is included on how this works and how it can be used to control your machine via a joystick or rotary dial with a low-latency, satisfying response.
 * **Laser Mode** : The new "laser" mode will cause Grbl to move continuously through consecutive G1, G2, and G3 commands with spindle speed changes. When "laser" mode is disabled, Grbl will instead come to a stop to ensure a spindle comes up to speed properly. Spindle speed overrides also work with laser mode so you can tweak the laser power, if you need to during the job. Switch between "laser" mode and "normal" mode via a $ setting.
 * **Dynamic Laser Power Scaling with Speed** : If your machine has low accelerations, this option will automagically scale the laser power based on how fast Grbl is traveling, so you won't have burnt corners when your CNC has to make a turn! Enabled by the `M4` spindle CCW command when laser mode is enabled.
 * **Sleep Mode** : Grbl may now be put to "sleep" via a $SLP command. This will disable everything, including the stepper drivers. Nice to have when you are leaving your machine unattended and want to power down everything automatically. Only a reset exits the sleep state.
 * **Significant Interface Improvements**: Tweaked to increase overall performance, include lots more real-time data, and to simplify maintaining and writing GUIs. Based on direct feedback from multiple GUI developers and bench performance testing. NOTE: GUIs need to specifically update their code to be compatible with v1.1 and later.
 * **New Status Reports**: To account for the additional override data, status reports have been tweaked to cram more data into it, while still being smaller than before. Documentation is included, outlining how it has been changed.
 Improved Error/Alarm Feedback : All Grbl error and alarm messages have been changed to providing a code. Each code is associated with a specific problem, so users will know exactly what is wrong without having to guess. Documentation and an easy to parse CSV is included in the repo.
-* **Extended-ASCII realtime commands** : All overrides and future real-time commands are defined in the extended-ASCII character space. Unfortunately not easily type-able on a keyboard, but helps prevent accidental commands from a g-code file having these characters and gives lots of space for future expansion.
+* **Extended-ASCII realtime commands** : All overrides and future real-time commands are defined in the extended-ASCII character space. Unfortunately not easily type-able on a keyboard, but helps prevent accidental commands from a G-code file having these characters and gives lots of space for future expansion.
 * **Message Prefixes** : Every message type from Grbl has a unique prefix to help GUIs immediately determine what the message is and parse it accordingly without having to know context. The prior interface had several instances of GUIs having to figure out the meaning of a message, which made everything more complicated than it needed to be.
 New OEM specific features, such as safety door parking, single configuration file build option, EEPROM restrictions and restoring controls, and storing product data information.
 * **New safety door parking motion as a compile-option**. Grbl will retract, disable the spindle/coolant, and park near Z max. When resumed, it will perform these task in reverse order and continue the program. Highly configurable, even to add more than one parking motion. See config.h for details.
 * **New '$' Grbl settings for max and min spindle rpm**. Allows for tweaking the PWM output to more closely match true spindle rpm. When max rpm is set to zero or less than min rpm, the PWM pin D11 will act like a simple enable on/off output.
-* **Updated G28 and G30 behavior** from NIST to LinuxCNC g-code description. In short, if a intermediate motion is specified, only the axes specified will move to the stored coordinates, not all axes as before.
+* **Updated G28 and G30 behavior** from NIST to LinuxCNC G-code description. In short, if an intermediate motion is specified, only the axes specified will move to the stored coordinates, not all axes as before.
 * Lots of minor bug fixes and refactoring to make the code more efficient and flexible.
 * NOTE: Arduino Mega2560 support has been moved to an active, official Grbl-Mega project. All new developments here and there will be synced when it makes sense to.
 
