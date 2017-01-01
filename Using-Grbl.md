@@ -170,6 +170,18 @@ Laser optimized GUI for Grbl https://github.com/arkypita/LaserGRBL/
 
 ![LaserGRBL_preview](https://cloud.githubusercontent.com/assets/8782035/21350108/ed218200-c6b5-11e6-9712-21de7bf7a1ea.jpg)
 
+#### GRBL-Plotter [Windows]
+https://github.com/svenhb/GRBL-Plotter
+* Supporting GRBL 1.1 (and 0.9 also)  
+* Export / import machine specific settings (Joystick, Buttons)
+* Controlling a 2nd GRBL-Hardware
+* Tool exchange
+* User defined Buttons
+* Joystick like control
+* Import/creation and conversion into GCode 
+  - from SVG Graphics
+  - from Text (into Hershey Font)
+  - conversion of the Z-Dimension into Z-axis (router) or Spindle on/off (laser) or Spindle-Speed (RC-Servo PWM) 
 
 -------
 
