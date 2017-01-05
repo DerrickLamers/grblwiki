@@ -8,12 +8,12 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 1. Download the Grbl source code.
  * Click the ```Download ZIP``` button on the Grbl home page. 
- * Unzip the download and you'll have a folder called ```grbl-master```. 
+ * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
 3. Load Grbl into the Arduino IDE as a Library.
  * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
- * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-master``` folder, which **only** contains the source files and an example directory.
+ * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
 4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
