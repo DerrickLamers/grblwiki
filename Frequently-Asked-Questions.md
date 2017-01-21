@@ -137,5 +137,5 @@ This comes from a problem of how the arc are defined in G-codes. In radius mode 
 #### Grbl seems to be acting weird when streaming when there are G10, G28.1, or G30.1 commands in the program. What's going on?
 This has to do with EEPROM writing and how it automatically shuts down all interrupt processes while it's writing, including the serial interrupts. These pauses can happen up to 20 milliseconds, which means that a serial character can be lost within that time period. The G10, G28.1, and G30.1 commands all write to the EEPROM the coordinate offset parameters so that they are persistent between sessions. In practice, you almost never need to update these **in** a G-code program, since they are performed during machine setup and typically hand-coded. If you do need to stream these commands in a program for some reason, there unfortunately isn't really a way to get around this problem. If you come upon a good solution, please let us know.
 
-#### With this EEPROM read/write issue mentioned above, what data is kept in EEPROM? 
+#### With this EEPROM write issue mentioned above, what data is kept in EEPROM? 
 Grbl stores only a few things in EEPROM. The '$$' main settings array, G54-G59 work coordinate offsets, G28/G30 pre-defined positions, $N startup-line strings, and the $I build info user string.
