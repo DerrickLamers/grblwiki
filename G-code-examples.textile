@@ -1,0 +1,17 @@
+
+
+Basic movement
+-———————-
+X10
+Move X axis to 10
+
+X0
+Move X axis to 0
+
+Basic configuration
+-———————-
+$120=1
+Set X acceleration to 1mm/s^2
+
+$120=1000
+Set X acceleration to 1m/s^2
