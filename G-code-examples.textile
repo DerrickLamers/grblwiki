@@ -1,4 +1,4 @@
-
+In the Arduino serial monitor set baud rate to 115200 and type g commands into the serial terminal followed by Enter:
 
 Basic movement
 -———————-
