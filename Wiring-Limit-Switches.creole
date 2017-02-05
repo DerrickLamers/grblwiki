@@ -1,0 +1,9 @@
+The limit switches are used to detect the physical limits of the working area and to position the head in initial position during the homing process. Properly connected limit switches can increase significantly the reliability of the GRBL - the microcontroller pins connected to the switches are very vulnerable to any noises. 
+
+There are two types of end switches wiring:
+- Normally Opened end switches (NO) - switches are connected in parallel, if the head hits one of the switches the resistance becomes low (<10 Ohm). The wiring is simple but there is no indication if one of the switches is disconnected (broken wire).
+
+- Normally Closed end switches (NC) - switches are connected in serial, if the head hits one of the switches the resistance become high (> 1 MOhm). The wiring is more complicated but if any of the switches is disconnected (broken wire) this will be immediately detected. This is the way how all professional CNC machines end switches were wired.  
+
+The easiest way to attach limit switches to Arduino UNO is to just connect the switches to the corresponding pins and to rely on the internal weak pull up resistors (~47K) of the ATMega328 chip.
+
