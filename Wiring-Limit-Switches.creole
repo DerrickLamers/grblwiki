@@ -9,7 +9,7 @@ The easiest way to attach limit switches to Arduino UNO is to just connect the s
 
 {{https://cloud.githubusercontent.com/assets/5912573/22624674/cd5ec914-eb8b-11e6-9666-7c410cf81238.png|Normal Closed switches}}
 The Normal Open (NO) switch wiring is shown below:
-{{https://https://cloud.githubusercontent.com/assets/5912573/22624880/1b605600-eb91-11e6-9a87-54a98b1cb38c.png|Normal opened switches}}
+{{https://cloud.githubusercontent.com/assets/5912573/22624880/1b605600-eb91-11e6-9a87-54a98b1cb38c.png|Normal opened switches}}
 
 
 
