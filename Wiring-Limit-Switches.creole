@@ -91,3 +91,15 @@ The DXF file of the copper layer (view from bottom - ready for milling)
 The GCode generated in CopperCam for milling the board - by having some CNC and engraving bit it's possible to mill the board from FR4.
 
 [[https://github.com/gnea/grbl/files/752921/Simple.GRBL.zip|GCode]]
+
+
+----
+
+The gerber files and the NC drill files for producing properly the PCB (you can send these files to any PCB factory to get good quality boards).
+[[https://github.com/gnea/grbl/files/752923/Gerbers.zip|Gerbers]]
+
+
+----
+
+The schematic/BOM/PCBs and other layer images as single PDF for convenient documentation
+[[https://github.com/gnea/grbl/files/752926/End.switches.break.out.board.pdf|Doc]]
