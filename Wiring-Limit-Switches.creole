@@ -83,4 +83,4 @@ The bottom solder resist layer (viewed from top side of the board)
 ----
 
 The DXF file of the copper layer (view from bottom - ready for milling)
-{{https://github.com/gnea/grbl/files/752918/Simple.GRBL.V2.DXF.zip|DXF}}
+[[https://github.com/gnea/grbl/files/752918/Simple.GRBL.V2.DXF.zip|DXF file copper layer]]
