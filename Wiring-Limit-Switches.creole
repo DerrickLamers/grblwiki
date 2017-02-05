@@ -7,4 +7,4 @@ There are two types of end switches wiring:
 
 The easiest way to attach limit switches to Arduino UNO is to just connect the switches to the corresponding pins and to rely on the internal weak pull up resistors (~47K) of the ATMega328 chip.
 
-![nc simple](https://cloud.githubusercontent.com/assets/5912573/22624674/cd5ec914-eb8b-11e6-9666-7c410cf81238.png)
+https://cloud.githubusercontent.com/assets/5912573/22624674/cd5ec914-eb8b-11e6-9666-7c410cf81238.png
