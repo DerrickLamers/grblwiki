@@ -44,7 +44,7 @@ The ultimate solution for noise filtering on end switches is to add optocouplers
 ----
 
 
-During the discussion on GRBL forum (https://github.com/gnea/grbl/issues/96) we came to the following design of GRBL limit switch end sensor break out board - see the images below. Also attached the Gerber files for production.
+During the discussion on GRBL forum (https://github.com/gnea/grbl/issues/96) we came to the following design of GRBL limit switch end sensor break out board - see the images below. The board is single side PCB (1.0mm to 1.6mm FR4) and uses connector with screws for attaching the end sensor wires. We recommend to use crimping of the wires before inserting them into the connectors.
 
 
 ----
@@ -67,15 +67,20 @@ The 3D view of the board - this is how it will look like after assembly.
 
 ----
 
-
-
-----
-
-
+The bottom copper layer (viewed from top side of the board)
+{{https://cloud.githubusercontent.com/assets/5912573/22625856/926e2076-eba8-11e6-9e95-0e758be23097.jpg|Bottom copper}}
 
 ----
 
-
+The top silkscreen layer (viewed from top side of the board)
+{{https://cloud.githubusercontent.com/assets/5912573/22625869/dd9c9e92-eba8-11e6-8d64-644fa1b57167.jpg|Silk}}
 
 ----
 
+The bottom solder resist layer (viewed from top side of the board)
+{{https://cloud.githubusercontent.com/assets/5912573/22625870/e12a98e8-eba8-11e6-86b1-05590bbe71ea.jpg|Solder resist}}
+
+----
+
+The DXF file of the copper layer (view from bottom - ready for milling)
+{{https://github.com/gnea/grbl/files/752918/Simple.GRBL.V2.DXF.zip|DXF}}
