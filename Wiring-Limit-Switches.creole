@@ -10,6 +10,7 @@ The easiest way to attach limit switches to Arduino UNO is to just connect the s
 {{https://cloud.githubusercontent.com/assets/5912573/22624947/4abbfa48-eb92-11e6-8b16-5fff7d2a6a8f.png|Normal Closed switches}}
 The Normal Open (NO) switch wiring is shown below:
 {{https://cloud.githubusercontent.com/assets/5912573/22624880/1b605600-eb91-11e6-9a87-54a98b1cb38c.png|Normal opened switches}}
-
+One improvement is to connect 1K to 4.7K pull up resistors to 5V and 100nF capacitors to GND. The extra pull ups and capacitors have noticeable noise suppression effect over the GRBL performance.
+{{https://cloud.githubusercontent.com/assets/5912573/22625452/1671414a-eba0-11e6-9fb1-648a82bd19bf.png|NC Filtered}}  
 
 
