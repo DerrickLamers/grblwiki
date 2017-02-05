@@ -30,3 +30,20 @@ One improvement is to connect 1K to 4.7K pull up resistors to 5V and 100nF capac
 {{https://cloud.githubusercontent.com/assets/5912573/22625525/1a953482-eba2-11e6-9e60-08926e41fe0f.png|NO Filtered}} 
 
 
+----
+
+
+Adding shielded cables to the end sensors or at least using twisted pair of two wires reduces further the noises injected from the next door stepper motor cables.
+
+The ultimate solution for noise filtering on end switches is to add optocouplers - they have many benefits compared to the listed above solutions:
+- there is no direct galvanic connection between the end sensor and the microcontroller pin - any ESD discharges will not affect the GRBL controller
+- optocouplers are inert elements - short glitches will simply not pass at all
+- optocouplers are current driven elements and they require huge energy from the noises in order to pass - in normal operating conditions they effectively all the noises  
+
+
+----
+
+
+During the discussion on GRBL forum (https://github.com/gnea/grbl/issues/96) we came to the following design of GRBL limit switch end sensor break out board - see the images below. Also attached the Gerber files for production.
+
+
