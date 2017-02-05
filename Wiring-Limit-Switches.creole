@@ -83,4 +83,11 @@ The bottom solder resist layer (viewed from top side of the board)
 ----
 
 The DXF file of the copper layer (view from bottom - ready for milling)
-[[https://github.com/gnea/grbl/files/752918/Simple.GRBL.V2.DXF.zip|DXF file copper layer]]
+[[https://github.com/gnea/grbl/files/752920/GRBL.DXF.V2.zip|DXF file copper layer]]
+
+
+----
+
+The GCode generated in CopperCam for milling the board - by having some CNC and engraving bit it's possible to mill the board from FR4.
+
+[[https://github.com/gnea/grbl/files/752921/Simple.GRBL.zip|GCode]]
