@@ -8,10 +8,8 @@ There are two types of end switches wiring:
 The easiest way to attach limit switches to Arduino UNO is to just connect the switches to the corresponding pins and to rely on the internal weak pull up resistors (~47K) of the ATMega328 chip. The Normal connected (NC) switch wiring is shown below:
 
 {{https://cloud.githubusercontent.com/assets/5912573/22624674/cd5ec914-eb8b-11e6-9666-7c410cf81238.png|Simple wiring}}
-
 The Normal Open (NO) switch wiring is shown below:
-
-(https://cloud.githubusercontent.com/assets/5912573/22624839/32796fd0-eb90-11e6-8c41-280f116bd04b.png)
+{{(https://cloud.githubusercontent.com/assets/5912573/22624839/32796fd0-eb90-11e6-8c41-280f116bd04b.png)}}
 
 
 
