@@ -46,35 +46,36 @@ The ultimate solution for noise filtering on end switches is to add optocouplers
 
 During the discussion on GRBL forum (https://github.com/gnea/grbl/issues/96) we came to the following design of GRBL limit switch end sensor break out board - see the images below. Also attached the Gerber files for production.
 
-{{https://cloud.githubusercontent.com/assets/5912573/22625618/ac61e778-eba4-11e6-82d3-f9bb2296445a.jpg|Schematic}}
+
+----
+
+The schematic of the end sensor board which uses optocouplers
+{{https://cloud.githubusercontent.com/assets/5912573/22625815/7640a26c-eba7-11e6-9a5a-7d5e521488d8.jpg|Schematic}}
+
+
+----
+
+The BOM file of used components and the estimated price of the board
+{{https://cloud.githubusercontent.com/assets/5912573/22625825/a0426e4c-eba7-11e6-98d0-b9f09df72e89.jpg|BOM}}
+
+
+----
+
+The 3D view of the board - this is how it will look like after assembly.
+{{https://cloud.githubusercontent.com/assets/5912573/22625834/cd2eae48-eba7-11e6-9ec0-887fec41f2c7.jpg|Assembly}}
 
 
 ----
 
 
-{{https://cloud.githubusercontent.com/assets/5912573/22625619/ac62a01e-eba4-11e6-8eb5-f1fdf1f83eea.jpg|BOM}}
+
+----
+
 
 
 ----
 
-{{https://cloud.githubusercontent.com/assets/5912573/22625621/ac6308d8-eba4-11e6-99c3-c13256c77fed.jpg|Assembly}}
 
 
 ----
 
-{{https://cloud.githubusercontent.com/assets/5912573/22625620/ac62aca8-eba4-11e6-9db3-0e50ffbedc77.jpg|3D view}}
-
-
-----
-
-{{https://cloud.githubusercontent.com/assets/5912573/22625622/ac640d1e-eba4-11e6-8f94-84695b12cd9b.jpg|Bottom}}
-
-
-----
-
-{{https://cloud.githubusercontent.com/assets/5912573/22625623/ac7cfd24-eba4-11e6-983a-1c5b530e7f9d.jpg|Silk}}
-
-
-----
-
-{{https://cloud.githubusercontent.com/assets/5912573/22625624/ac7f8972-eba4-11e6-802f-278826037bfa.jpg|Solder resist}}
