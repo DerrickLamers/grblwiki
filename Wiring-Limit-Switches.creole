@@ -103,3 +103,13 @@ The gerber files and the NC drill files for producing properly the PCB (you can 
 
 The schematic/BOM/PCBs and other layer images as single PDF for convenient documentation
 [[https://github.com/gnea/grbl/files/752926/End.switches.break.out.board.pdf|Doc]]
+
+
+
+----
+
+
+For Woodpecker PCB the wiring of end switches should be done in the following way:
+![woodpecker](https://cloud.githubusercontent.com/assets/5912573/22929087/89c715ce-f2c2-11e6-9ffc-6f078f510d74.jpg)
+You can use some cable housing and crimp the wires to get more professional look (these connectors will fit straight into your header)
+http://uk.farnell.com/multicomp/2226a-02/crimp-housing-1-row-2-way/dp/1593506
