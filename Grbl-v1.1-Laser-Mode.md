@@ -63,7 +63,7 @@ Describe below are the operational changes to Grbl when laser mode is enabled. P
 	
 	- Please remember that `G0` is the default motion mode upon power up and reset. You will need to alter it to `G1`, `G2`, or `G3` if you want to manually turn on your laser. This is strictly a safety measure.
 	
-	- Example: `G0 M3 S1000` will not turn on the laser, but will set the laser modal state to `M3` enabled and power of `S1000`. A following `G1` command will then immediately be set to `M3` and `S1000`.   Note that there must be ACTUAL MOTION in the G1 command, G0 X10 followed by G1 X10 will NOT turn the laser on.
+	- Example: `G0 M3 S1000` will not turn on the laser, but will set the laser modal state to `M3` enabled and power of `S1000`. A following `G1` command will then immediately be set to `M3` and `S1000`.   Note that from some GUI's (like the Arduino serial console) there must be ACTUAL MOTION in the G1 command, G0 X10 followed by G1 X10 will NOT turn the laser on (but in UGS it WILL turn on).
 
 	- To have the laser powered during a jog motion, first enable a valid motion mode and spindle state. The following jog motions will inherit and maintain the previous laser state. Please use with caution though. This ability is primarily to allow turning on the laser on a _very low_ power to use the laser dot to jog and visibly locate the start position of a job.
 
