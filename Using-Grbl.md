@@ -162,11 +162,17 @@ http://www.contraptor.org/forum/t-287260/gcode-sender-program
 
 #### LaserGRBL [Windows]
 Laser optimized GUI for Grbl https://github.com/arkypita/LaserGRBL/
-- Simple & Minimal Interface
-- Image import (Grayscale Lines and image Vectorization)
+- Simple & Minimal Interface designed for Grbl v1.1
+- jpg,bmp,png Image import (Image Vectorization, Grayscale Lines, Dithering 1bit)
 - 2D Graphic preview for engraving/cutting (with grayscale mapping)
-- Designed for Grbl v1.1
 - Easy-To-Use Overrides control
+- User defined buttons, power to you!
+- Grbl Configuration Import/Export
+- Configuration, Alarm and Error codes decoding for Grbl v1.1 (with description tooltip)
+- Homing button, Feed Hold button, Resume button and Grbl Reset button
+- Job time preview and realtime projection
+- Jogging (for any Grbl version)
+- Feed overrides (for Grbl > v1.1) with easy-to-use interface
 
 ![LaserGRBL_preview](https://cloud.githubusercontent.com/assets/8782035/21350108/ed218200-c6b5-11e6-9712-21de7bf7a1ea.jpg)
 
