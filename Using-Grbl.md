@@ -161,7 +161,7 @@ https://github.com/downloads/OttoHermansson/GcodeSender/gcodesender.exe
 http://www.contraptor.org/forum/t-287260/gcode-sender-program
 
 #### LaserGRBL [Windows]
-Laser optimized GUI for Grbl https://github.com/arkypita/LaserGRBL/
+Laser optimized GUI for Grbl http://lasergrbl.com
 - Simple & Minimal Interface designed for Grbl v1.1
 - jpg,bmp,png Image import (Image Vectorization, Grayscale Lines, Dithering 1bit)
 - 2D Graphic preview for engraving/cutting (with grayscale mapping)
