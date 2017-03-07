@@ -176,7 +176,7 @@ Laser optimized GUI for Grbl http://lasergrbl.com
 
 ![LaserGRBL_preview](https://cloud.githubusercontent.com/assets/8782035/21350108/ed218200-c6b5-11e6-9712-21de7bf7a1ea.jpg)
 
-[<img src="https://cloud.githubusercontent.com/assets/8782035/23578353/fba95768-00d4-11e7-9357-99c00a30631d.jpg">](https://www.youtube.com/watch?v=Uk2fGoNL3Yk)
+[<img src="https://cloud.githubusercontent.com/assets/8782035/23578353/fba95768-00d4-11e7-9357-99c00a30631d.jpg">](https://www.youtube.com/watch?v=Uk2fGoNL3Yk&list=PLABqghG_gwj1-62OBAymMF9-KBXPyrW0P&index=1)
 
 #### GRBL-Plotter [Windows]
 https://github.com/svenhb/GRBL-Plotter
