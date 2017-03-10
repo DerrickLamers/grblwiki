@@ -40,6 +40,8 @@ The main differences are:
 - If soft-limits are enabled, jog commands that exceed the machine travel simply does not execute the command and return an error, rather than throwing an alarm in normal operation.
 - IMPORTANT: Jogging does not alter the g-code parser state. Hence, no g-code modes need to be explicitly managed, unlike previous ways of implementing jogs with commands like 'G91G1X1F100'. Since G91, G1, and F feed rates are modal and if they are not changed back prior to resuming/starting a job, a job may not run how its was intended and result in a crash.
 
+For GUIs and joysticks, there are times when the UI needs to know when Grbl has completed a jog cancel realtime command with minimal latency so it can immediately resume sending more jog commands. Unfortunately, Grbl currently does not provide feedback when a realtime command has been executed and completed. Often, just checking if status report state has changed from `Jog` to `Idle` will do the job, but this can be complicated to implement and isn't the most effective. Instead, after sending a jog cancel command, stop streaming and issue a `G4P0` command to Grbl. This will be executed immediately after the jog cancel has been completed with zero delay and return an 'ok' when done. This provides the least amount of latency and simplest syncing implementation.  
+
 ------
 
 ## Joystick Implementation
