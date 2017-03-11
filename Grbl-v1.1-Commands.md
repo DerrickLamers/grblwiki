@@ -93,7 +93,7 @@ A short list of the modal groups, supported by Grbl, is shown below, but more co
 In addition to the G-code parser modes, Grbl will report the active `T` tool number, `S` spindle speed, and `F` feed rate, which all default to 0 upon a reset. For those that are curious, these don't quite fit into nice modal groups, but are just as important for determining the parser state.
 
 #### `$I` - View build info
-This prints feedback to the user the Grbl version and source code build date. Optionally, `$I` can also store a short string to help identify which CNC machine you are communicating with, if you have more than machine using Grbl. To set this string, send Grbl `$I=xxx`, where `xxx` is your customization string that is less than 80 characters. The next time you query Grbl with a `$I` view build info, Grbl will print this string after the version and build date.
+This prints feedback to the user the Grbl version and source code build date. Optionally, `$I` can also store a short string to help identify which CNC machine you are communicating with, if you have more than machine using Grbl. To set this string, send Grbl `$I=xxx`, where `xxx` is your customization string that is less than 80 characters. This string will be saved as capitalized, white space removed, and can only contain alpha-numeric characters. The next time you query Grbl with a `$I` view build info, Grbl will print this string after the version and build date.
 
 NOTE: Some OEMs may block access to over-writing the build info string so they can store product information and codes there.
 
