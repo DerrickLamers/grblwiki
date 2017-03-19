@@ -1,6 +1,8 @@
 ***
 _Welcome to the Grbl wiki! Please feel free to modify these pages to help keep Grbl up-to-date!_
 
+![Grbl Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
+
 ### About Grbl
 Grbl is a free, open source, high performance software for controlling the motion of machines that move, that make things, or that make things move, and will run on a straight Arduino. If the maker movement was an industry, Grbl would be the industry standard.
 
@@ -23,7 +25,7 @@ _Grbl is an open-source project and fueled by the free-time of our intrepid admi
 
 Makers who do milling or laser cutting and need a nice, simple controller for their system that will run on   the ubiquitous Arduino Uno. People who loathe to clutter their space with legacy PC-towers just for the parallel-port. Tinkerers who need a controller written in tidy, modular C as a basis for their project.
 
-###Nice features
+### Nice features
 
 Grbl is great for light duty production. We use it for all our milling, running it from our laptops or Raspberry Pis using superb GUIs written for Grbl to stream G-code jobs. Grbl is written in highly optimized C utilizing all the clever features of the Arduino's Atmega328p chips to achieve precise timing and asynchronous operation. It is able to maintain more than **30kHz** step rate and delivers a clean, jitter free stream of control pulses.
 
@@ -59,11 +61,11 @@ The G-code interpreter implements a subset of the LinuxCNC standard and is suppo
  * **M3, M4, M5:** _Spindle Control_ 
  * **M8, M9:** _Coolant Control_ 
 
-###Acceleration management
+### Acceleration management
 
 In the early days, Arduino-based CNC controllers did not have acceleration planning and couldn't run at full speed without some kind of easing. Grbl’s constant acceleration-management with look ahead planner solved this issue and has been replicated everywhere in the micro controller CNC world, from Marlin to TinyG. Grbl intentionally uses a simpler constant acceleration model, which is more than adequate for home CNC use. Because of this, we were able to invest our time optimizing our planning algorithms and making sure motions are solid and reliable. When the installation of all the feature sets we think are critical are complete and no longer requires us to modify our planner to accommodate them, we intend to research and implement more-advanced motion control algorithms, which are usually reserved for machines only with very high feed rates (i.e. pick-and-place) or in production environments. Lastly, here's a [link](http://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/) describing the basis of our high speed cornering algorithm so motions ease into the fastest feed rates and brake before sharp corners for fast, yet jerk free operation. 
 
-###Limitations by design
+### Limitations by design
 
 We have limited G-code-support by design. This keeps the Grbl source code simple, lightweight, and flexible, as we continue to develop, improve, and maintain stability with each new feature. Grbl supports all the common operations encountered in output from CAM-tools, but leave some human G-coders frustrated. No variables, no tool databases, no functions, no canned cycles, no arithmetic and no control structures. Just the basic machine operations and capabilities. Anything more complex, we think interfaces can handle those quite easily and translate them for Grbl.
 
