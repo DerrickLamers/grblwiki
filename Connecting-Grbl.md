@@ -4,7 +4,7 @@ _This wiki is intended to provide various instructions on how to connect to grbl
 
 **For Grbl v0.9 and v1.1+ default builds:** (NOTE: Z-limit is on D12 and the spindle enable pin uses the hardware PWM on D11.) 
 
-![Grbl Pin Diagram with Variable Spindle PWM](https://dl.dropboxusercontent.com/u/2221997/Grbl_Pin_Diagram_v0.9.png)
+![Grbl Pin Diagram with Variable Spindle PWM](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Help/Grbl_Pin_Diagram_v0.9+.png?raw=true)
 
 **For Grbl v0.8 and v0.9+ with variable spindle disabled, Z-limit moves to D11 and spindle enable to D12. This is generally for backward compatibility on older boards.** 
 
