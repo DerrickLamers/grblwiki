@@ -132,6 +132,29 @@ make clean
 make grbl.hex
 ```
 
+## For Arch Linux
+_Last updated: 2017-03-26 by brownjohnf. (Tested on 2017-03-06)_
+
+You may encounter an error about a missing `libtinfo.so.5`. I got grbl to compile and run using
+the following. **WARNING:** The following is a hack, and there are probably better solutions, but this was
+quick and has worked for me.
+
+1. Install `libtinfo` from AUR with `yaourt -S libtinfo`
+2. Check to see what you've got installed. In my case, it looked like the following, where you can 
+  see that `libtinfo.so.6` is installed, but not `5`.
+
+  ```
+  $ ls -l /usr/lib | grep libtinfo
+  lrwxrwxrwx  1 root root       22 Mar 26 10:13 libtinfo.so -> /usr/lib/libtinfo.so.6
+  lrwxrwxrwx  1 root root       27 Mar 26 10:13 libtinfo.so.6 -> /usr/lib/libncursesw.so.6.0
+  ```
+
+3. You can get things working by symlinking `libncursesw.so.6.0` as `libtinfo.so.5`:
+
+  ```
+  $ sudo ln -s /usr/lib/libncursesw.so.6.0  /usr/lib/libtinfo.so.5
+  ```
+
 ## For Ubuntu:
 _Last updated: 2014-01-20 by EliteEng._
 
