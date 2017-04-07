@@ -96,4 +96,10 @@ TODO: Write an extensive description of how the homing cycle works and solutions
 
 - How to configure for custom homing cycles.
 - Common issues.
+- What's the homing cycle for? How do you use it? Is it really that use? YES.
+  - Explain work coordinate systems(WCS) and G28/30 move to predefined locations
+  - Explain how to save WCS and G28/30 coordinate frames using G10 and G28.1/30.1.
+  - Provide clear link to LinuxCNC g-code descriptions
+  - Explain how WCS and G28/30 are used in common scenarios.
+
 - And much more...
