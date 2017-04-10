@@ -7,30 +7,29 @@ TODO: Write an extensive description of how the homing cycle works and solutions
  * X, Y and Z Stepper motors have been connected to stepper motor drivers
  * You are able to move stepper motor by sending g-code
 
-# # Test Stepper Motors Moving Direction:
+# Test Stepper Motors Moving Direction
   At this point, you can simply use Arduino IDE to send command to Arduino Grbl board. When you start a "Serial Monitor" in Arduino IDE, you will see those lines appearing in the response window.
 
-  To move the motors, type in the command as below:
+## X axis:
 
-  ``G1 X5 F100``
-  Then:
-  ``G1 X0 F100``
+To move the motors, type ``G1 X5 F100`` followed by ``G1 X0 F100``. The spindle should move to the right, and back again.
 
-  See whether the X axis moving to the right direction, + to right, - to left.
+If the movement is the other way around, change setting `$3`. If `$3` is even, add 1, if `$3` is odd, subtract one.
 
-  ``G1 Y5 F100``
-  Then:
-  ``G1 Y0 F100``
+## Y axis:
 
-  See whether the Y axis moving to the right direction, if you are facing the CNC machine, spindle move away from you is Y+, and spindle moving toward you is Y-.
+Type `G1 Y5 F100` followed by `G1 Y0 F100`. 
 
-  ``G1 Z5 F100``
-  Then:
-  ``G1 Z0 F100``
+If you're using a mobile gantry, the spinle should move away from you, and back again. If you're using a moving bed, the bed should move towards you, and back again.
 
-  See whether the Z axis moving to the right direction, spindle moving up is Z+, and spindle moving down is Z-.
-  
-  If you see motor moving the direction as expected, continue. Otherwise, you will need to change the $3 parameters accordingly. see Grbl Configuration Wiki.
+If the movement is the other way around, change setting `$3`. If `$3` is one of 0, 1, 4 or 5, add 2. Otherwise, subtract 2.
+
+## Z axis
+
+Type `G1 Z-5 F100` followed by `G1 Z0 F00`. The spindle should move down and back again. (note that the initial movement is negative, typically the Z axis uses 0 as the top, so positive movement often isn't possible).
+
+If the movement is the other way around, change settint `$3`. If `$3` is greater or equal to 4, subtract 4, otherwise add 4.
+
 
 # # Home switches pins and wiring
   3 digital input pins are used for signaling Grbl. 
