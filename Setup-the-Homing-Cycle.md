@@ -1,14 +1,12 @@
-TODO: Write an extensive description of how the homing cycle works and solutions to common problems/misunderstanding.
+# Prerequisites:
 
-# # Prerequisites:
  * You have successfully uploaded the grbl onto your Arduino board
- * You have a way to communicate with grbl through USB connection
- * Communication between Arduino and Stepper Motor drivers has been established
+ * You have a way to communicate with grbl through USB connection. You can use the Arduino IDE to do this, by starting the serial monitor. Grbl should greet you with its version number.
+ * Communication between Arduino and Stepper Motor drivers has been established.
  * X, Y and Z Stepper motors have been connected to stepper motor drivers
  * You are able to move stepper motor by sending g-code
 
 # Test Stepper Motors Moving Direction
-  At this point, you can simply use Arduino IDE to send command to Arduino Grbl board. When you start a "Serial Monitor" in Arduino IDE, you will see those lines appearing in the response window.
 
 ## X axis:
 
@@ -31,65 +29,56 @@ Type `G1 Z-5 F100` followed by `G1 Z0 F00`. The spindle should move down and bac
 If the movement is the other way around, change settint `$3`. If `$3` is greater or equal to 4, subtract 4, otherwise add 4.
 
 
-# # Home switches pins and wiring
-  3 digital input pins are used for signaling Grbl. 
+# Home switches pins and wiring
 
-  ``Pin 9: X Axis limit/Home input pin``
+3 digital input pins are used for signaling Grbl:
 
-  ``Pin 10: Y Axis Limit/Home input pin``
+- *Pin 9* X Axis limit/Home input pin
+- *Pin 10* Y Axis limit/Home input pin
+- *Pin 11* Z Axis limit/Home input pin
 
-  ``Pin 12: Z Axis Limit/Home input pin``
+Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
 
-  You limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open and common.
+- *X- limit `NO` -> Arudino Pin 9
+- *X- limit `COM` -> Arudino Pin GND
+- *X+ limit `NO` -> Arudino Pin 9
+- *X+ limit `COM` -> Arudino Pin GND
+- *Y- limit `NO` -> Arudino Pin 10
+- *Y- limit `COM` -> Arudino Pin GND
+- *Y+ limit `NO` -> Arudino Pin 10
+- *Y+ limit `COM` -> Arudino Pin GND
+- *Z- limit `NO` -> Arudino Pin 11
+- *Z- limit `COM` -> Arudino Pin GND
+- *Z+ limit `NO` -> Arudino Pin 11
+- *Z+ limit `COM` -> Arudino Pin GND
 
-  ``X- Limit NO``  ==> ``Arduino Pin9``
+# Enable Home Cycle and Setup Home Parameters
 
-  ``X- Limit COM`` ==> ``Arduino GND``
+Homing is controlled by parameter `$22`. Type `$22=1` to enable it, `$22=0` to disable it. Homing can be triggered by typing `$H`.
 
-  ``X+ Limit NO``  ==> ``Arduino Pin 9``
+# Homing direction
 
-  ``X+ Limit COM`` ==> ``Arduino GND``
+The homing directions are controlled by setting `$23. In the default setting (`$23=0`), the home location is the top right of your work area, with the spindle all the way up. If you want the left to be the home location, add 1 to setting `$23`, if you want the bottom of your work area to be the home location, add 2 to `$23`. You probably don't want spindle down to be the home location, but if you do, add 4 to setting `$23`
 
-  ``Y- Limit NO``  ==> ``Arduino Pin 10``
+# Homing Cycle Steps
 
-  ``Y- Limit COM`` ==> ``Arduino GND``
+By default, the homing cycle goes through the following steps:
 
-  ``Y+ Limit NO``  ==> ``Arduino Pin 10``
-
-  ``Y+ Limit COM`` ==> ``Arduino GND``
-
-  ``Z- Limit NO``  ==> ``Arduino Pin 12``
-
-  ``Z- Limit COM`` ==> ``Arduino GND``
-
-  ``Z+ Limit NO``  ==> ``Arduino Pin 12``
-
-  ``Z+ Limit COM`` ==> ``Arduino GND``
-
-# # Enable Home Cycle and Setup Home Parameters
-
-    To enable home cycling, set parameter ``$23 = 1``
-
-# # Homing Cycle Steps
-
-1.    Z Axis will move up with Fast Rate
-1.    When Z home switch triggered, Z stop and back off a distance
-1.    Z Axis will move up slowly util touch Z home switch again
-1.    Z Axis back off a distance
-1.    X, Y Axis move both to Homing direction
-1.    The first Axis triggers the switch will stop and wait for the second axis to trigger
-1.    When second axis triggers the switch, both axis back off a distance
-1.    Both X and Y axis will move toward switches again slowly, until both switches triggered again
-1.    Both X and Y axis will back off a distance
-1.    Homing Cycle completed 
+- Z axis
+  1.    Z Axis will move up (positive) with Fast Rate
+  1.    When Z home switch triggered, Z stop and back off a distance
+  1.    Z Axis will move up slowly util it touches the Z home switch again
+  1.    Z Axis backs off a distance
+- X and Y axis
+  1.    X, Y Axis move both to Homing direction
+  1.    The first Axis triggers the switch will stop and wait for the second axis to trigger
+  1.    When second axis triggers the switch, both axis back off a distance
+  1.    Both X and Y axis will move toward switches again slowly, until both switches triggered again
+  1.    Both X and Y axis will back off a distance
 
 
+# TODO (documentation)
 
-
-- Ensure the machine is moving in the correct directions, i.e. Z+ up.
-- How to enable homing and invoke it. 
-- Default search is positive direction. Invert homing direction to look in other direction.
-- Explain homing process. Limit switch search and locate cycles.
 - Explain that homing search will look for switches within 1.5x max travel setting, and locate cycle within 5x pull off. 
 - What is pull-off and homing delay. Pull off setting must be large enough to clear switch to avoid homing error. 
 
@@ -100,5 +89,3 @@ If the movement is the other way around, change settint `$3`. If `$3` is greater
   - Explain how to save WCS and G28/30 coordinate frames using G10 and G28.1/30.1.
   - Provide clear link to LinuxCNC g-code descriptions
   - Explain how WCS and G28/30 are used in common scenarios.
-
-- And much more...
