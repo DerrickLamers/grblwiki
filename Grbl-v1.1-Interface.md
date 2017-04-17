@@ -147,7 +147,7 @@ Every G-code block sent to Grbl and Grbl `$` system command that is terminated w
 
 * **`error:X`**: Something went wrong! Grbl did not recognize the command and did not execute anything inside that message. The `X` is given as a numeric error code to tell you exactly what happened. The table below decribes every one of them.
 
-	| ID | Error Code Description |
+| ID | Error Code Description |
 |:-------------:|----|
 | **`1`** | G-code words consist of a letter and a value. Letter was not found. |
 | **`2`** | Numeric value format is not valid or missing an expected value. |
