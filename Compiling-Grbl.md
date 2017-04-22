@@ -8,7 +8,8 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 1. Download the Grbl source code.
  * Click on the <>Code Tab
- * Click the ```Clone or Download``` button on the Grbl home page. 
+ * Click the ```Clone or Download``` green button on the Grbl home page.
+ * Click the ```Download ZIP```
  * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
