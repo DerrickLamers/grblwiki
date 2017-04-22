@@ -47,9 +47,9 @@ Your limit switches usually have three terminals. One is common terminal, one is
 - *Y- limit `COM` -> Arduino Pin GND
 - *Y+ limit `NO` -> Arduino Pin 10
 - *Y+ limit `COM` -> Arduino Pin GND
-- *Z- limit `NO` -> Arduino Pin 11
+- *Z- limit `NO` -> Arduino Pin 12
 - *Z- limit `COM` -> Arduino Pin GND
-- *Z+ limit `NO` -> Arduino Pin 11
+- *Z+ limit `NO` -> Arduino Pin 12
 - *Z+ limit `COM` -> Arduino Pin GND
 
 # Enable Home Cycle and Setup Home Parameters
