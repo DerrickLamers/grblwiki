@@ -2,13 +2,13 @@
 * [Joystick Implementation](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging#joystick-implementation)
 * [Example: Joystick-Pendant Instructable](http://www.instructables.com/id/GRBL-CNC-Joystick-Pendant/)
 
-This document outlines how to use Grbl v1.1's new jogging commands. These command differ because they can be cancelled and all queued motions are automatically purged with a simple jog-cancel or feed hold real-time command. Jogging command do not alter the g-code parser state in any way, so you no longer have to worry if you remembered to set the distance mode back to `G90` prior to starting a job. Also, jogging works well with an analog joysticks and rotary dials! See the implementation notes below.
+This document outlines how to use Grbl v1.1's new jogging commands. These commands differ because they can be cancelled and all queued motions are automatically purged with a simple jog-cancel or feed hold real-time command. Jogging commands do not alter the g-code parser state in any way, so you no longer have to worry if you remembered to set the distance mode back to `G90` prior to starting a job. Also, jogging works well with an analog joysticks and rotary dials! See the implementation notes below.
 
 ## How to Use
 Executing a jog requires a specific command structure, as described below:
 
  - The first three characters must be '$J=' to indicate the jog.
- - The jog command follows immediate after the '=' and works like a normal G1 command.
+ - The jog command follows immediately after the '=' and works like a normal G1 command.
  - Feed rate is only interpreted in G94 units per minute. A prior G93 state is ignored during jog.
  - Required words:
    - XYZ: One or more axis words with target value.
@@ -17,7 +17,7 @@ Executing a jog requires a specific command structure, as described below:
    - G20 or G21 - Inch and millimeter mode
    - G90 or G91 - Absolute and incremental distances
    - G53 - Move in machine coordinates
-   - N line numbers are valid. Will show in reports, if enabled, but is otherwise ignored.
+   - N line numbers are valid. Will show in reports, if enabled, but are otherwise ignored.
  - All other g-codes, m-codes, and value words (including S and T) are not accepted in the jog command.
  - Spaces and comments are allowed in the command. These are removed by the pre-parser.
 
@@ -37,7 +37,7 @@ The main differences are:
 - A jog command will only be accepted when Grbl is in either the 'Idle' or 'Jog' states.
 - Jogging motions may not be mixed with g-code commands while executing, which will return a lockout error, if attempted.
 - All jogging motion(s) may be cancelled at anytime with a simple jog cancel realtime command or a feed hold or safety door event. Grbl will automatically flush Grbl's internal buffers of any queued jogging motions and return to the 'Idle' state. No soft-reset required.
-- If soft-limits are enabled, jog commands that exceed the machine travel simply does not execute the command and return an error, rather than throwing an alarm in normal operation.
+- If soft-limits are enabled, jog commands that exceed the machine travel simply do not execute the command and return an error, rather than throwing an alarm as in normal operation.
 - IMPORTANT: Jogging does not alter the g-code parser state. Hence, no g-code modes need to be explicitly managed, unlike previous ways of implementing jogs with commands like 'G91G1X1F100'. Since G91, G1, and F feed rates are modal and if they are not changed back prior to resuming/starting a job, a job may not run how its was intended and result in a crash.
 
 For GUIs and joysticks, there are times when the UI needs to know when Grbl has completed a jog cancel realtime command with minimal latency so it can immediately resume sending more jog commands. Unfortunately, Grbl currently does not provide feedback when a realtime command has been executed and completed. Often, just checking if status report state has changed from `Jog` to `Idle` will do the job, but this can be complicated to implement and isn't the most effective. Instead, after sending a jog cancel command, stop streaming and issue a `G4P0` command to Grbl. This will be executed immediately after the jog cancel has been completed with zero delay and return an 'ok' when done. This provides the least amount of latency and simplest syncing implementation.  
@@ -84,7 +84,7 @@ The time increment `dt` may be defined to whatever value you need. Obviously, yo
 
 - `dt > 10ms` - The time it takes Grbl to parse and plan one jog command and receive the next one. Depending on a lot of factors, this can be around 1 to 5 ms. To be conservative, `10ms` is used. Keep in mind that on some systems, this value may still be greater than `10ms` due to round-trip communication latency.
 
-- `dt > v^2 / (2 * a * (N-1))` - The time increment needs to be large enough to ensure the jog feed rate will be acheived. Grbl always plans to a stop over the total distance queued in the planner buffer. This is primarily to ensure the machine will safely stop if a disconnection occurs. This equation simply ensures that `dt` is big enough to satisfy this constraint. 
+- `dt > v^2 / (2 * a * (N-1))` - The time increment needs to be large enough to ensure the jog feed rate will be achieved. Grbl always plans to a stop over the total distance queued in the planner buffer. This is primarily to ensure the machine will safely stop if a disconnection occurs. This equation simply ensures that `dt` is big enough to satisfy this constraint. 
 
 	- For simplicity, use the max jog feed rate for `v` in mm/sec and the smallest acceleration setting between the jog axes being moved in mm/sec^2.
 
