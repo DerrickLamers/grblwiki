@@ -39,18 +39,18 @@ If the movement is the other way around, change settint `$3`. If `$3` is greater
 
 Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
 
-- *X- limit `NO` -> Arudino Pin 9
-- *X- limit `COM` -> Arudino Pin GND
-- *X+ limit `NO` -> Arudino Pin 9
-- *X+ limit `COM` -> Arudino Pin GND
-- *Y- limit `NO` -> Arudino Pin 10
-- *Y- limit `COM` -> Arudino Pin GND
-- *Y+ limit `NO` -> Arudino Pin 10
-- *Y+ limit `COM` -> Arudino Pin GND
-- *Z- limit `NO` -> Arudino Pin 11
-- *Z- limit `COM` -> Arudino Pin GND
-- *Z+ limit `NO` -> Arudino Pin 11
-- *Z+ limit `COM` -> Arudino Pin GND
+- *X- limit `NO` -> Arduino Pin 9
+- *X- limit `COM` -> Arduino Pin GND
+- *X+ limit `NO` -> Arduino Pin 9
+- *X+ limit `COM` -> Arduino Pin GND
+- *Y- limit `NO` -> Arduino Pin 10
+- *Y- limit `COM` -> Arduino Pin GND
+- *Y+ limit `NO` -> Arduino Pin 10
+- *Y+ limit `COM` -> Arduino Pin GND
+- *Z- limit `NO` -> Arduino Pin 11
+- *Z- limit `COM` -> Arduino Pin GND
+- *Z+ limit `NO` -> Arduino Pin 11
+- *Z+ limit `COM` -> Arduino Pin GND
 
 # Enable Home Cycle and Setup Home Parameters
 
