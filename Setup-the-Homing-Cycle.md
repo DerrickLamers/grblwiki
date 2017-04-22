@@ -35,7 +35,7 @@ If the movement is the other way around, change settint `$3`. If `$3` is greater
 
 - *Pin 9* X Axis limit/Home input pin
 - *Pin 10* Y Axis limit/Home input pin
-- *Pin 11* Z Axis limit/Home input pin
+- *Pin 12* Z Axis limit/Home input pin
 
 Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
 
