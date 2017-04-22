@@ -7,6 +7,7 @@ Thanks to the great people working on the Arduino IDE, it has everything you nee
 _**NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```.**_
 
 1. Download the Grbl source code.
+ * Click on the <>Code Tab
  * Click the ```Download ZIP``` button on the Grbl home page. 
  * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
 2. Launch the Arduino IDE
