@@ -65,22 +65,30 @@ The homing directions are controlled by setting `$23`. In the default setting (`
 By default, the homing cycle goes through the following steps:
 
 - Z axis
-  1.    Z Axis will move up (positive) with Fast Rate
-  1.    When Z home switch triggered, Z stop and back off a distance
-  1.    Z Axis will move up slowly util it touches the Z home switch again
-  1.    Z Axis backs off a distance
+  1.    Z Axis will move up (positive) with Fast Rate (`$24`)
+  1.    When Z home switch triggered, Z stop for a short time (`$26`) and back off a distance (`$27`)
+  1.    Z Axis will move up slowly util it touches the Z home switch again (`$25`)
+  1.    Z Axis backs off a small distance (`$27`)
 - X and Y axis
-  1.    X, Y Axis move both to Homing direction
+  1.    X, Y Axis move both to Homing direction at fast rate  (`$24`)
   1.    The first Axis triggers the switch will stop and wait for the second axis to trigger
-  1.    When second axis triggers the switch, both axis back off a distance
-  1.    Both X and Y axis will move toward switches again slowly, until both switches triggered again
-  1.    Both X and Y axis will back off a distance
+  1.    When second axis triggers the switch, both axis back off a distance  (`$27`)
+  1.    Both X and Y axis will move toward switches again slowly, until both switches triggered again  (`$25`)
+  1.    Both X and Y axis will back off a small distance (`$27`)
 
+# Homing speed
+
+As described above, homing is done in two distinct phases per axis: feed and seek. The feed speed is controlled by setting `$24`. In this phase, GRBL is just trying to find the limit switch within a reasonable amount of time.
+
+After the feed phase, the seek phase does exactly the same thing, but at a low speed, controlled by setting `$25`. This phase is all about accurately finding the trigger point for the limit switch.
+
+# Homing travel
+
+GRBL will give up searching for a limit switch after 1.5x the max travel distance. The max travel distance is controlled by `$130`, (for x), `$131` (for y) and `$132` (for z). These numbers are also used for soft-limits, and should be set slightly below the length of your axes.
+
+After the feed phase, the axis moves back a little, to un-trigger the switch. This distance is controlled by setting `$27`. Set this number high enough so the limit switch is cleared, even when the feed phase overshoots.
 
 # TODO (documentation)
-
-- Explain that homing search will look for switches within 1.5x max travel setting, and locate cycle within 5x pull off. 
-- What is pull-off and homing delay. Pull off setting must be large enough to clear switch to avoid homing error. 
 
 - How to configure for custom homing cycles.
 - Common issues.
