@@ -1,33 +1,6 @@
 # Prerequisites:
 
- * You have successfully uploaded the grbl onto your Arduino board
- * You have a way to communicate with grbl through USB connection. You can use the Arduino IDE to do this, by starting the serial monitor. Grbl should greet you with its version number.
- * Communication between Arduino and Stepper Motor drivers has been established.
- * X, Y and Z Stepper motors have been connected to stepper motor drivers
- * You are able to move stepper motor by sending g-code
-
-# Test Stepper Motors Moving Direction
-
-## X axis:
-
-To move the motors, type ``G1 X5 F100`` followed by ``G1 X0 F100``. The spindle should move to the right, and back again.
-
-If the movement is the other way around, change setting `$3`. If `$3` is even, add 1, if `$3` is odd, subtract one.
-
-## Y axis:
-
-Type `G1 Y5 F100` followed by `G1 Y0 F100`. 
-
-If you're using a mobile gantry, the spinle should move away from you, and back again. If you're using a moving bed, the bed should move towards you, and back again.
-
-If the movement is the other way around, change setting `$3`. If `$3` is one of 0, 1, 4 or 5, add 2. Otherwise, subtract 2.
-
-## Z axis
-
-Type `G1 Z-5 F100` followed by `G1 Z0 F00`. The spindle should move down and back again. (note that the initial movement is negative, typically the Z axis uses 0 as the top, so positive movement often isn't possible).
-
-If the movement is the other way around, change settint `$3`. If `$3` is greater or equal to 4, subtract 4, otherwise add 4.
-
+ * Correctly configured axes.
 
 # Home switches pins and wiring
 
