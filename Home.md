@@ -62,7 +62,8 @@ Supported G-Codes in **v1.1**
  * **M3, M4, M5:** _Spindle Control_ 
  * **M7*** **, M8, M9:** _Coolant Control_ 
  * **M56*** **:** _Parking Motion Override Control_
- * ** (*) ** denotes commands not enabled in config.h by default.
+
+(*) denotes commands not enabled in config.h by default.
 
 ### Acceleration management
 
