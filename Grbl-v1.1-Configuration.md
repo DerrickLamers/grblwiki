@@ -2,8 +2,6 @@
 * [Grbl's Settings and What They Mean](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-xval-settings-and-what-they-mean)
 
 ***
-### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
-***
 
 ## Getting Started
 
@@ -15,7 +13,7 @@ Once connected
  you should get the Grbl-prompt, which looks like this:
 
 ```
-Grbl 1.1e ['$' for help]
+Grbl 1.1f ['$' for help]
 ```
 
 Type $ and press enter to have Grbl print a help message. You should not see any local echo of the $ and enter. Grbl should respond with:
@@ -130,7 +128,7 @@ By default, the stepper enable pin is high to disable and low to enable. If your
 
 By default, the limit pins are held normally-high with the Arduino's internal pull-up resistor. When a limit pin is low, Grbl interprets this as triggered. For the opposite behavior, just invert the limit pins by typing `$5=1`. Disable with `$5=0`. You may need a power cycle to load the change.
 
-NOTE: If you invert your limit pins, you will need an external pull-down resistor wired in to all of the limit pins to prevent overloading the pins with current and frying them.
+NOTE: For more advanced usage, the internal pull-up resistor on the limit pins may be disabled in config.h.
 
 #### $6 -  Probe pin invert, boolean
 
@@ -189,9 +187,11 @@ Keep in mind, that a hard limit event is considered to be critical event, where 
 
 #### $22 - Homing cycle, boolean
 
-Ahh, homing. For those just initiated into CNC, the homing cycle is used to accurately and precisely locate a known and consistent position on a machine every time you start up your Grbl between sessions. In other words, you know exactly where you are at any given time, every time. Say you start machining something or are about to start the next step in a job and the power goes out, you re-start Grbl and Grbl has no idea where it is. You're left with the task of figuring out where you are. If you have homing, you always have the machine zero reference point to locate from, so all you have to do is run the homing cycle and resume where you left off.
+Ahh, homing. For those just initiated into CNC, the homing cycle is used to accurately and precisely locate a known and consistent position on a machine every time you start up your Grbl between sessions. In other words, you know exactly where you are at any given time, every time. Say you start machining something or are about to start the next step in a job and the power goes out, you re-start Grbl and Grbl has no idea where it is due to steppers being open-loop control. You're left with the task of figuring out where you are. If you have homing, you always have the machine zero reference point to locate from, so all you have to do is run the homing cycle and resume where you left off.
 
-To set up the homing cycle for Grbl, you need to have limit switches in a fixed position that won't get bumped or moved, or else your reference point gets messed up. Usually they are setup in the farthest point in +x, +y, +z of each axes. Wire your limit switches in with the limit pins and ground, just like with the hard limits, and enable homing. If you're curious, you can use your limit switches for both hard limits AND homing. They play nice with each other.
+To set up the homing cycle for Grbl, you need to have limit switches in a fixed position that won't get bumped or moved, or else your reference point gets messed up. Usually they are setup in the farthest point in +x, +y, +z of each axes. Wire your limit switches in with the limit pins, add a recommended RC-filter to help reduce electrical noise, and enable homing. If you're curious, you can use your limit switches for both hard limits AND homing. They play nice with each other.
+
+Prior to trying the homing cycle for the first time, make sure you have setup everything correctly, otherwise homing may behave strangely. First, ensure your machine axes are moving in the correct directions per Cartesian coordinates (right-hand rule). If not, fix it with the `$3` direction invert setting. Second, ensure your limit switch pins are not showing as 'triggered' in Grbl's status reports. If are, check your wiring and settings. Finally, ensure your `$13x` max travel settings are somewhat accurate (within 20%), because Grbl uses these values to determine how far it should search for the homing switches.
 
 By default, Grbl's homing cycle moves the Z-axis positive first to clear the workspace and then moves both the X and Y-axes at the same time in the positive direction. To set up how your homing cycle behaves, there are more Grbl settings down the page describing what they do (and compile-time options as well.)
 
@@ -218,7 +218,7 @@ Whenever a switch triggers, some of them can have electrical/mechanical noise th
 
 #### $27 - Homing pull-off, mm
 
-To play nice with the hard limits feature, where homing can share the same limit switches, the homing cycle will move off all of the limit switches by this pull-off travel after it completes. In other words, it helps to prevent accidental triggering of the hard limit after a homing cycle.
+To play nice with the hard limits feature, where homing can share the same limit switches, the homing cycle will move off all of the limit switches by this pull-off travel after it completes. In other words, it helps to prevent accidental triggering of the hard limit after a homing cycle. Make sure this value is large enough to clear the limit switch. If not, Grbl will throw an alarm error for failing to clear it.
 
 #### $30 - Max spindle speed, RPM
 
