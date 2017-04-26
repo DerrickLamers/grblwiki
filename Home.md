@@ -31,11 +31,12 @@ Grbl is great for light duty production. We use it for all our milling, running 
 
 Grbl is for three axis machines. No rotation axes (yet) – just X, Y, and Z.
 
-The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their G-code descriptions, [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html), and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) which attempts to list all codes supported by Grbl with appropriate commentary. Note that there are only two deviations from the written G-code standard listed below. If you notice any other discrepancies, please let use know!
+The G-code interpreter implements a subset of the LinuxCNC standard and is supported by most CAM-tools with no issues. For descriptions of these G-codes, see LinuxCNC's superb documentation for their G-code descriptions, [(G-code Quick Reference)](http://linuxcnc.org/docs/html/gcode.html), and the [Shapeoko wiki](http://www.shapeoko.com/wiki/index.php/G-Code) which attempts to list all codes supported by Grbl with appropriate commentary. Note that there are only a handful of deviations from the written G-code standard listed below. If you notice any other discrepancies, please let use know!
 - Multiple full circle arcs with G2 and G3 arcs with a P word is not supported.
 - Laser mode alters the operation of M3, M4, and spindle speed S word changes. See the [Laser Mode](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Laser-Mode) page for details.
+- Grbl-specific parking motion override control with an M56 command, where `M56 P0` temporarily disables parking motions and `M56`/`M56 Px` with `x` greater than zero re-enables them.
 
-* Supported G-Codes in **v1.1**
+Supported G-Codes in **v1.1**
  * **G0, G1:** _Linear Motions_
  * **G2, G3:** _Arc and Helical Motions_ 
  * **G4:** _Dwell_ 
@@ -59,7 +60,9 @@ The G-code interpreter implements a subset of the LinuxCNC standard and is suppo
  * **G93, G94:** _Feedrate Modes_ 
  * **M0, M2, M30:** _Program Pause and End_ 
  * **M3, M4, M5:** _Spindle Control_ 
- * **M8, M9:** _Coolant Control_ 
+ * **M7*** **, M8, M9:** _Coolant Control_ 
+ * **M56*** **:** _Parking Motion Override Control_
+ * ** (*) ** denotes commands not enabled in config.h by default.
 
 ### Acceleration management
 
