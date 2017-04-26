@@ -11,6 +11,7 @@
 - *Pin 12* Z Axis limit/Home input pin
 
 Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
+You can use all NC instead of NO by configuring $5=1
 
 - *X- limit `NO` -> Arduino Pin 9
 - *X- limit `COM` -> Arduino Pin GND
