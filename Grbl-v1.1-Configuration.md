@@ -26,7 +26,7 @@ The ‘$’-commands are Grbl system commands used to tweak the settings, view o
 
 ***
 
-##Grbl Settings
+## Grbl Settings
 
 #### $$ - View Grbl settings
 To view the settings, type `$$` and press enter after connecting to Grbl. Grbl should respond with a list of the current system settings, as shown in the example below. All of these settings are persistent and kept in EEPROM, so if you power down, these will be loaded back up the next time you power up your Arduino.
@@ -264,3 +264,23 @@ Again, like the max rate setting, the simplest way to determine the values for t
 #### $130, $131, $132 – [X,Y,Z] Max travel, mm
 
 This sets the maximum travel from end to end for each axis in mm. This is only useful if you have soft limits (and homing) enabled, as this is only used by Grbl's soft limit feature to check if you have exceeded your machine limits with a motion command.
+
+------
+
+## Quick Guide to Setting Up Your Machine for the First Time
+
+Grbl's default configuration is intentionally very generic to help ensure users can see successful motion without having to tweak settings. Generally, the first thing you'll want to do is get your stepper motors running, usually without it connected to the CNC. Wire Grbl to your stepper drivers and stepper motors according to your manufacturer guidelines. Connect to Grbl through a serial terminal or one of many Grbl GUIs. Send some [`G1`](http://linuxcnc.org/docs/html/gcode/g-code.html#gcode:g1) or [`G0`](http://linuxcnc.org/docs/html/gcode/g-code.html#gcode:g0) commands to Grbl. You should see your stepper motor rotating. If you are having trouble with your stepper motors, try the following:
+- Ensure everything is wired and powered correctly per your stepper driver manufacturer guidelines.
+- If your steppers are mounted in your CNC already, ensure your axes move freely and don't obviously bind. If you can't easily tell, try removing your steppers and check if they run under no load.
+- Ensure your stepper motors and axes linear mechanisms are all tight and secure. Small set screws on drivetrain components becoming loose is a very common problem. Re-tighten and try applying some non-permenant thread locker (Loctite blue) if it continually loosens.
+- For more difficult issues, try the process of elimination to quickly isolate the problem. Start by disconnecting everything from the Arduino. Test if Grbl is operating ok by itself. Then, add one thing at a time and test.
+- If your steppers are powered and making a grinding noise when trying to move, try lowering the '$' acceleration and max rate settings. This sound is a sign that your steppers is losing steps and not able to keep up due too much torque load or going too fast.
+- Grbl's default step pulse settings cover the vast majority of stepper drivers on the market. While very uncommon, check these settings if you are still experiencing problems or have a unusual setup.
+
+Next, you will need to make sure your machine is moving in the correct directions according to a Cartesian(XYZ) coordinate frame. Mount your stepper motors into your CNC, if you haven't already done so. Send Grbl some motion commands, such as `G91 G0 X1` or `G91 G0 X-1`, which will move the x-axis +1mm and -1mm, respectively. Check all axes. If an axis is not moving correctly, alter the `$3` direction port mask setting to invert the direction. 
+
+If you are unfamiliar with how coordinate frames are setup on CNC machines, see this great diagram by [LinuxCNC](http://linuxcnc.org/docs/html/user/user-concepts.html#_machine_configurations). Just keep in mind that motions are _relative_ to the tool. So on a typical CNC gantry router, the tool will move rather than the fixed table. If the x-axis is aligned positive to the right, a positive motion command will move the tool to the right. Whereas, a moving table with a fixed tool will move the table to the left for the same command, because the tool is moving to the right relative to the table.
+
+Finally, tune your settings to get close to your desired or max performance. Start by ensuring your `$100`,`$101`, and `$102` axes step/mm settings are correct for your setup. This is dependent on your stepper increments, micro steps on your driver, and mechanical parameters. There are multiple resources online to show you how to compute this for your particular machine, if your machine manufacturer has not supplied this for you. Tweak your `$11x` acceleration and `$12x` max rate settings to improve performance. Set to no greater than 80% of absolute max to account for inertia and cutting forces. Set your `$13x` max travel settings if you plan on using homing or soft limits. It's recommended to enter something approximately close to actual travel now to avoid problems in the future.
+
+At this point, you're pretty much ready to get going! Grbl can now move your CNC machine and run g-code jobs. If you need to add more features, such as limit switches for homing or hard limits or spindle/laser control. There are other Wiki pages to help you that. Good luck and have fun!
