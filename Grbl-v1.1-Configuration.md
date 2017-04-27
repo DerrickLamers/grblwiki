@@ -223,7 +223,7 @@ To play nice with the hard limits feature, where homing can share the same limit
 
 #### $30 - Max spindle speed, RPM
 
-This sets the spindle speed for the maximum 5V PWM pin output. For example, if you want to set 10000rpm at 5V, program `$30=10000`. For 255rpm at 5V, program `$30=255`. If a program tries to set a higher spindle RPM than the `$30` max spindle speed, Grbl will just output the max 5V, since it can't go any faster. By default, Grbl linearly relates the max-min RPMs to 5V-0.02V PWM pin output in 255 equally spaced increments. When the PWM pin reads 0V, this indicates spindle disabled. Note that there are additional configuration options are available in config.h to tweak how this operates.
+This sets the spindle speed for the maximum 5V PWM pin output. For example, if you want to set 10000rpm at 5V, program `$30=10000`. For 255rpm at 5V, program `$30=255`. If a program tries to set a higher spindle RPM greater than the `$30` max spindle speed, Grbl will just output the max 5V, since it can't go any faster. By default, Grbl linearly relates the max-min RPMs to 5V-0.02V PWM pin output in 255 equally spaced increments. When the PWM pin reads 0V, this indicates spindle disabled. Note that there are additional configuration options are available in config.h to tweak how this operates.
 
 #### $31 - Min spindle speed, RPM
 
