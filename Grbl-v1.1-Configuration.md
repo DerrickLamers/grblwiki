@@ -152,6 +152,7 @@ Use the table below enables and disable reporting options. Simply add the values
 
 | Report Type | Value | Description |
 |:-------------:|:----:|:----:|
+| Position Type | 0 | Enable `WPos:` Disable MPos:`. |
 | Position Type | 1 | Enabled `MPos:`. Disabled `WPos:`. |
 | Buffer Data | 2 | Enabled `Buf:` field appears with planner and serial RX available buffer.
 
