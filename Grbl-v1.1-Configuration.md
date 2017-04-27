@@ -153,7 +153,7 @@ Use the table below enables and disable reporting options. Simply add the values
 | Report Type | Value | Description |
 |:-------------:|:----:|:----:|
 | Position Type | 0 | Enable `WPos:` Disable `MPos:`. |
-| Position Type | 1 | Enabled `MPos:`. Disabled `WPos:`. |
+| Position Type | 1 | Enable `MPos:`. Disable `WPos:`. |
 | Buffer Data | 2 | Enabled `Buf:` field appears with planner and serial RX available buffer.
 
 #### $11 - Junction deviation, mm
@@ -223,7 +223,7 @@ To play nice with the hard limits feature, where homing can share the same limit
 
 #### $30 - Max spindle speed, RPM
 
-This sets the spindle speed for the maximum 5V PWM pin output. Higher programmed spindle RPMs are accepted by Grbl but the PWM output will not exceed the max 5V. By default, Grbl linearly relates the max-min RPMs to 5V-0.02V PWM pin output in 255 increments. When the PWM pin reads 0V, this indicates spindle disabled. Note that there are additional configuration options are available in config.h to tweak how this operates.
+This sets the spindle speed for the maximum 5V PWM pin output. For example, if you want to set 10000rpm at 5V, program `$30=10000`. For 255rpm at 5V, program `$30=255`. If a program tries to set a higher spindle RPM than the `$30` max spindle speed, Grbl will just output the max 5V, since it can't go any faster. By default, Grbl linearly relates the max-min RPMs to 5V-0.02V PWM pin output in 255 equally spaced increments. When the PWM pin reads 0V, this indicates spindle disabled. Note that there are additional configuration options are available in config.h to tweak how this operates.
 
 #### $31 - Min spindle speed, RPM
 
