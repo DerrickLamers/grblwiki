@@ -428,7 +428,7 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
       - A string may appear after the second `:` colon. It is a stored EEPROM string a user via a `$I=line` command or OEM can place there for personal use or tracking purposes.
   		- The `[OPT:]` line follows immediately after and contains character codes for compile-time options that were either enabled or disabled. The codes are defined below and a CSV file is also provided for quick parsing. This is generally only used for quickly diagnosing firmware bugs or compatibility issues.
 
-		| `OPT` Code | Setting Description, Units |
+| `OPT` Code | Setting Description, Units |
 |:-------------:|----|
 | **`V`** | Variable spindle enabled |
 | **`N`** | Line numbers enabled |
