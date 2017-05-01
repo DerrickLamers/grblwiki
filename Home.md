@@ -47,7 +47,7 @@ Supported G-Codes in **v1.1**
  * **G28.1, G30.1:** _Set Pre-Defined Position_
  * **G38.2:** _Probing_ 
  * **G38.3, G38.4, G38.5:** _Probing_ 
- * **G40:** _Cutter Radius Compensation Modes_
+ * **G40:** _Cutter Radius Compensation Modes OFF (Only)_
  * **G43.1, G49:** _Dynamic Tool Length Offsets_
  * **G53:** _Move in Absolute Coordinates_
  * **G54, G55, G56, G57, G58, G59:** _Work Coordinate Systems_
