@@ -10,8 +10,9 @@
 - *Pin 10* Y Axis limit/Home input pin
 - *Pin 12* Z Axis limit/Home input pin
 
-Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
-You can use all NC instead of NO by configuring $5=1
+Another place that explain the Limit switch configuration: [Wiring-Limit-Switches](https://github.com/gnea/grbl/wiki/Wiring-Limit-Switches)
+Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). You can use all NC instead of NO by configuring $5=1. All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
+
 
 - *X- limit `NO` -> Arduino Pin 9
 - *X- limit `COM` -> Arduino Pin GND
