@@ -21,3 +21,11 @@ _This wiki is intended to provide information on known bugs or issues. Please fe
 # Baud rate limitations
 
 * Using low baud rates can result in unpredictable behavior. This unpredictable behavior can be exacerbated by other factors such as enabled echoes. Discussion with Sonny indicates that the serial communication in GRBL is designed and tested at 115200, so at baud rates of 115200 and above there should be no problem. In short, unless there is a very good reason, just don't run below 115200 baud and this should not be a problem. 
+
+# Doesn't go slower than X mm/min! Or limitations at very slow step rates.
+
+* Grbl is limited to about 30 steps/sec (or 4 steps/sec if AMASS is disabled). This isn't really a bug, but a problem due to Arduino 328p 16-bit timer is only capable of timing at its slowest at 4ms increments (max prescaler and max count). Sure, Grbl can try to code in some conditions to emulate even slower step rates, but it's not worth the investment in previous flash space. It's far better to keep things simple and just move onto a processor with a better timer.
+
+* Most typical CNC applications do not come close to this low step rate. For example, a user wanted to build a star tracker machine with Grbl, but it needed to move at rates well below 1mm/min. If you have a special use case like this, you can try a few things. First, disable AMASS in config.h. This will bring down lowest step rate to 4 steps/sec. Second, increase your micro stepping on your stepper driver. This will increase the step/mm and increase your step rate without going any faster. Finally, increase your mechanical gear ratios, like switching out to a leadscrew with a lower pitch or a timing belt gear with a smaller radius. 
+
+* To compute your lowest mm/min of your machine, use this equation: `(lowest mm/min) = (30 steps/sec) * (60 sec/min) / (axis steps/mm setting)`. Use `(4 steps/sec)` if you have AMASS disabled.
