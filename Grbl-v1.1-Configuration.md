@@ -1,6 +1,6 @@
 #### _Quick-Links:_
-* [Grbl's Settings and What They Mean](https://github.com/gnea/grbl/wiki/Configuring-Grbl-v1.1#grbls-xval-settings-and-what-they-mean)
-* [Quick Guide to Setting Up Your Machine for the First Time](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#quick-guide-to-setting-up-your-machine-for-the-first-time)
+* [Grbl's Settings and What They Mean](#grbls-xval-settings-and-what-they-mean)
+* [Quick Guide to Setting Up Your Machine for the First Time](#quick-guide-to-setting-up-your-machine-for-the-first-time)
 
 ***
 
