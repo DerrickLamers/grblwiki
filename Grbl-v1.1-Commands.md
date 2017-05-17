@@ -1,6 +1,6 @@
 #### _Quick-Links:_
-* [Grbl `$` System Commands](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#grbl--commands)
-* [Grbl Real-Time Commands](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#grbl-v11-realtime-commands)
+* [Grbl `$` System Commands](#grbl--commands)
+* [Grbl Real-Time Commands](#grbl-v11-realtime-commands)
 
 
 *****
