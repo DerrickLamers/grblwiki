@@ -55,6 +55,9 @@ _RESERVATION:_
 
 - _If a g-code line is parsed and generates an error **response message**, a GUI should stop the stream immediately. However, since the character-counting method stuffs Grbl's RX buffer, Grbl will continue reading from the RX buffer and parse and execute the commands inside it. A GUI won't be able to control this. The interim solution is to check all of the g-code via the $C check mode, so all errors are vetted prior to streaming. This will get resolved in later versions of Grbl._
 
+#### XON/XOFF Flow control
+
+XON/XOFF flow control proved to be problematic and did not work at all on boards using the Atmel 8U2 and 16U2 USB converter chips. As such XON/XOFF flow control cannot be used on UNO or Mega 2560 platforms using these chips. For this reason the XON/XOFF flow control was removed from the code.
 
 ## Interacting with Grbl's Systems
 
