@@ -191,6 +191,26 @@ https://github.com/svenhb/GRBL-Plotter
   - from Text (into Hershey Font)
   - conversion of the Z-Dimension into Z-axis (router) or Spindle on/off (laser) or Spindle-Speed (RC-Servo PWM) 
 
+#### [Grbl Overseer](https://gitlab.com/Pilatomic/grbl-overseer) [Multiplatform Desktop + Android]
+Touch-friendly user interface with multiple jobs scheduling 
+* Simple, easy to use, touch-friendly user interface
+* 3D view of jobs and current tool position
+* Schedule multiple jobs, each has its specified origin
+* Automatically executes a simulation run before production, and compiles all errors
+* Adaptative jog controls (the longer you press, the faster it goes)
+* Smart serial console, GRBL message / responses are grouped with the corresponding command
+* Smart top bar, always showing the current GRBL status. Background color changes with status to allow easy state reading even fat from the device
+* Built-in editor for GRBL configuration
+* Multiplatform (tested on Windows, Linux and Android)
+* Support USB / serial interface on > Android 3.1 devices with USB API
+* Support Grbl >= v1.1
+
+Screenshot : 
+
+![Grbl Overseer screenshot](https://gitlab.com/Pilatomic/grbl-overseer/raw/master/doc/screenshot_jobs_panel.png)
+
+Developement is still ongoing, please report any issue your encounter
+
 -------
 
 ## Serial Emulators:
