@@ -199,7 +199,7 @@ Touch-friendly user interface with multiple jobs scheduling
 * Automatically executes a simulation run before production, and compiles all errors
 * Adaptative jog controls (the longer you press, the faster it goes)
 * Smart serial console, GRBL message / responses are grouped with the corresponding command
-* Smart top bar, always showing the current GRBL status. Background color changes with status to allow easy state reading even fat from the device
+* Smart top bar, always showing the current GRBL status. Background color changes with status to allow easy state reading even far from the device
 * Built-in editor for GRBL configuration
 * Multiplatform (tested on Windows, Linux and Android)
 * Support USB / serial interface on > Android 3.1 devices with USB API
