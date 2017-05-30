@@ -32,13 +32,13 @@ Yes, it should. The compiled HEX file is in hexidecimal format, not binary. So i
 #### How do I flash Grbl to my Arduino?
 Please check the Wiki help pages for details. If they are not up-to-date, please notify us or update them if you found they were in error or have another method. Thanks!
 
-#### Does grbl overwrite the Arduino bootloader?  
+#### Does Grbl overwrite the Arduino bootloader?  
 Nope! Grbl fits on the ATmega328P without having to overwrite the bootloader; you will still be able to upload Arduino sketches after flashing without having to re-burn the bootloader. NOTE: Grbl v1.0 may be too large for Arduino Duemilanove-compatible boards, as their boot loader takes up 1.5KB, rather than 0.5KB on the Uno. This means that there is 1KB less available flash.
 
 #### Grbl won't fit on my Arduino Nano (or FTDI-based Arduino)! Am I totally hosed?
 No! The default Grbl build will fit on an Arduino Nano. Just barely. If you enable compile-time options like CoreXY support, you can easily exceed the 30.5KB limit on the Nano. **BUT**, you have a few options to free up some more flash. First, you can write the much smaller Arduino Uno bootloader (0.5KB vs 1.5KB) to your Nano with a [spare Arduino](https://www.arduino.cc/en/Tutorial/ArduinoISP)! Just wire things up, select the Arduino Uno as your board, and write the Uno bootloader to your Nano. Congrats! Now you have one KB of extra flash. Your Arduino Nano will now behave like an Uno! Just make sure that Arduino IDE knows it by selecting the Uno as the board. (NOTE: On some Nanos, you might have to hard reset your Nano right at the start of flashing.) The second option is to just write Grbl directly to the 328p processor with your spare Arduino through the ISCP header. This will get rid of the bootloader completely and free all of the remaining flash. Don't worry, you can still write the bootloader back on, if you want to.
 
-## GRBL Porting
+## Grbl Porting
 
 #### Will you make a port for X MCU?
 
@@ -48,30 +48,30 @@ The Grbl based project is including multiple pin assignments with a hardware abs
 
 In the meanwhile here is a list of latest community ports, if you know of another please contribute here
 
-**GRBL 1.1**
+**Grbl 1.1**
 
 - [Mega2560](https://github.com/gnea/grbl-Mega)
 - [STM32F103](https://github.com/usbcnc/grbl)
 - [PSOC5](https://github.com/bdring/PSoC_Grbl)
 - [ARM LPC1769](https://github.com/gnea/grbl-LPC); [ARM Discussion GIT](https://github.com/gnea/grbl/issues/67)
 
-**GRBL 0.9**
+**Grbl 0.9**
 
 - [RAMPS and Sanguinololu](https://github.com/CarlosGS/grblForCyclone)
 
 ## Extending Grbl
 
 #### I want to add some new function to Grbl, how much space is left on the 328p?
-Literally none left, v1.1 exausted the last bits, use GRBL for [Mega2560](https://github.com/gnea/grbl-Mega) instead
+Literally none left, v1.1 exausted the last bits, use Grbl for [Mega2560](https://github.com/gnea/grbl-Mega) instead
 
 #### Ok I'm using a Mega, how do I add a LCD or another add-on?
-The best practice for doing this is to let GRBL do it's job and use another arduino to do the display and jog.
+The best practice for doing this is to let Grbl do it's job and use another arduino to do the display and jog.
 
 While it's possible to edit directly the source code for this it's easier and safer to write a sender to talk to Grbl, you don't risk breaking it, and you will not have trouble with future updates. 
 
 Here's some known contribuitions from the community on this matter;
-- [LCD on GRBL DRO](https://www.shapeoko.com/wiki/index.php/LCD_on_GRBL#Full_version_GRBL_1.1)
-- [GRBL + LCDKeypad Shield](https://forum.arduino.cc/index.php?topic=343638.0)
+- [LCD on Grbl DRO](https://www.shapeoko.com/wiki/index.php/LCD_on_GRBL#Full_version_GRBL_1.1)
+- [Grbl + LCDKeypad Shield](https://forum.arduino.cc/index.php?topic=343638.0)
 
 #### Why can't I use Arduino Libraries instead?
 Grbl is written in pure C and does not use any Arduino code and will break if you try to. It only uses the IDE as a vehicle to compile and flash it. 
@@ -97,7 +97,7 @@ When the Arduino board is USB powered and the stepper drivers have their own log
 We miss them too! In versions prior to Grbl v1.1, the `$$` machine settings printout used to have nice text descriptions after each one to let you know what you are looking at. In Grbl v1.1, these are gone. Basically, it came down to using nearly a 1KB for these nice settings descriptions or removing a feature like the new laser mode or real-time overrides. As you can tell, the features won! However, to help with this problem of just looking at a whole bunch of confusing numbers, we've asked GUI developers to help out and add these descriptions for users inside their programs. We've added some easy to parse CSV files in the `/doc/csv/` folder that will always be kept updated for them. If your GUI doesn't do that, let them know about the CSV files!
 
 #### Writing individual settings is tedious. Is there a way to speed this up?
-Yes, there is a very simple way to write all of your settings at once. Just copy and paste the current settings to a text file, meaning the whole print-out of the '$$' command with labels and all. Grbl will ignore those labels because they are inside '()' comments. Change the values after the '=' characters to whatever you need. Save the file and stream it to grbl using the 'simple_stream.py' streaming script in the '/script' folder of our repo. (Or, you can use the other streaming script `stream.py` with the `-s` settings-mode flag.) Once it's streamed, all your settings are updated!
+Yes, there is a very simple way to write all of your settings at once. Just copy and paste the current settings to a text file, meaning the whole print-out of the '$$' command with labels and all. Grbl will ignore those labels because they are inside '()' comments. Change the values after the '=' characters to whatever you need. Save the file and stream it to Grbl using the 'simple_stream.py' streaming script in the '/script' folder of our repo. (Or, you can use the other streaming script `stream.py` with the `-s` settings-mode flag.) Once it's streamed, all your settings are updated!
 
 #### My Grbl settings and parameters are all funky after flashing Grbl! How do I clear my EEPROM to start from a clean slate?!
 After flashing, Grbl tries to check the settings in EEPROM. If it finds an incompatibility, it will automatically clear the EEPROM and restore its default. We try to cover all scenarios within the limited flash space we can devote to checking it, but sometimes we miss something and the data in the EEPROM may be incompatible with the version you have. Or, something went wrong with flashing process and corrupted the EEPROM, which does happen every once in a while. This results in the data having weird numbers and values. In Grbl v0.9j and later, the easiest way to clear out the EEPROM is to use the `$RST=*` command. This will restore the EEPROM space that Grbl uses to their defaults. 
