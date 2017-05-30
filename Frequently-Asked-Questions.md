@@ -59,15 +59,15 @@ In the meanwhile here is a list of latest community ports, if you know of anothe
 
 - [RAMPS and Sanguinololu](https://github.com/CarlosGS/grblForCyclone)
 
-## Extending GRBL
+## Extending Grbl
 
-#### I want to add some new function how much space is left on the 328p?
+#### I want to add some new function to Grbl, how much space is left on the 328p?
 Literally none left, v1.1 exausted the last bits, use GRBL for [Mega2560](https://github.com/gnea/grbl-Mega) instead
 
 #### Ok I'm using a Mega, how do I add a LCD or another add-on?
 The best practice for doing this is to let GRBL do it's job and use another arduino to do the display and jog.
 
-While it's possible to edite directrly the source code for this it's easier and safer to write a sender to talk to Grbl, you don't risk breaking it, and you will not have trouble with future updates. 
+While it's possible to edit directly the source code for this it's easier and safer to write a sender to talk to Grbl, you don't risk breaking it, and you will not have trouble with future updates. 
 
 Here's some known contribuitions from the community on this matter;
 - [LCD on GRBL DRO](https://www.shapeoko.com/wiki/index.php/LCD_on_GRBL#Full_version_GRBL_1.1)
@@ -76,11 +76,11 @@ Here's some known contribuitions from the community on this matter;
 #### Why can't I use Arduino Libraries instead?
 Grbl is written in pure C and does not use any Arduino code and will break if you try to. It only uses the IDE as a vehicle to compile and flash it. 
 
-If you want to add functions You will have to edit and write the Grbl source code only.
+If you want to add functions You will have to edit and write in Grbl source code only.
 Avoid any Arduino function calls.
 
 #### What if I hardcode a Library?
-Arduino libraries have a ton of dependencies. Wading through that will require you to fully understand the Arduino source code in its entirety. Good luck with that.
+Arduino libraries have a ton of dependencies. Wading through that will require you to fully understand the Arduino source code in its entirety. It is doable, but good luck with that.
 
 ## Connecting Grbl
 
