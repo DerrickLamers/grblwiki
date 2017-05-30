@@ -209,7 +209,7 @@ Screenshot :
 
 ![Grbl Overseer screenshot](https://gitlab.com/Pilatomic/grbl-overseer/raw/master/doc/screenshot_jobs_panel.png)
 
-Developement is still ongoing, please report any issue your encounter
+Developement is still ongoing, please report any issue you encounter
 
 -------
 
