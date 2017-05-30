@@ -70,8 +70,8 @@ The best practice for doing this is to let GRBL do it's job and use another ardu
 While it's possible to edite directrly the source code for this it's easier and safer to write a sender to talk to Grbl, you don't risk breaking it, and you will not have trouble with future updates. 
 
 Here's some known contribuitions from the community on this matter;
-[LCD on GRBL DRO] (https://www.shapeoko.com/wiki/index.php/LCD_on_GRBL#Full_version_GRBL_1.1)
-[GRBL + LCDKeypad Shield] (https://forum.arduino.cc/index.php?topic=343638.0)
+- [LCD on GRBL DRO](https://www.shapeoko.com/wiki/index.php/LCD_on_GRBL#Full_version_GRBL_1.1)
+- [GRBL + LCDKeypad Shield](https://forum.arduino.cc/index.php?topic=343638.0)
 
 #### Why can't I use Arduino Libraries instead?
 Grbl is written in pure C and does not use any Arduino code and will break if you try to. It only uses the IDE as a vehicle to compile and flash it. 
