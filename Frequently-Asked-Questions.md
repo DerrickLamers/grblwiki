@@ -38,6 +38,28 @@ Nope! Grbl fits on the ATmega328P without having to overwrite the bootloader; yo
 #### Grbl won't fit on my Arduino Nano (or FTDI-based Arduino)! Am I totally hosed?
 No! The default Grbl build will fit on an Arduino Nano. Just barely. If you enable compile-time options like CoreXY support, you can easily exceed the 30.5KB limit on the Nano. **BUT**, you have a few options to free up some more flash. First, you can write the much smaller Arduino Uno bootloader (0.5KB vs 1.5KB) to your Nano with a [spare Arduino](https://www.arduino.cc/en/Tutorial/ArduinoISP)! Just wire things up, select the Arduino Uno as your board, and write the Uno bootloader to your Nano. Congrats! Now you have one KB of extra flash. Your Arduino Nano will now behave like an Uno! Just make sure that Arduino IDE knows it by selecting the Uno as the board. (NOTE: On some Nanos, you might have to hard reset your Nano right at the start of flashing.) The second option is to just write Grbl directly to the 328p processor with your spare Arduino through the ISCP header. This will get rid of the bootloader completely and free all of the remaining flash. Don't worry, you can still write the bootloader back on, if you want to.
 
+## GRBL Porting
+
+#### Will you make a port for X MCU?
+
+The intent for the soon-to-be released HAL for Grbl is to be able to spread out the workload to MCU 'experts' to tailor their port to a particular MCU and what that MCU can do. They are all different and have unique needs/capabilities.
+
+The Grbl based project is including multiple pin assignments with a hardware abstraction. But this will not include the 328p Uno. Only Mega, ARM, or any micro with enough ram and flash. Ports will not be supported by myself, but users interested in maintaining a particular port for the community.
+
+In the meanwhile here is a list of latest community ports, if you know of another please contribute here
+
+**GRBL 1.1**
+
+- [Mega2560](https://github.com/gnea/grbl-Mega)
+- [STM32F103](https://github.com/usbcnc/grbl)
+- [PSOC5](https://github.com/bdring/PSoC_Grbl)
+- [ARM LPC1769](https://github.com/gnea/grbl-LPC); [ARM Discussion GIT](https://github.com/gnea/grbl/issues/67)
+
+**GRBL 0.9**
+
+- [RAMPS and Sanguinololu](https://github.com/CarlosGS/grblForCyclone)
+
+
 ## Connecting Grbl
 
 #### My CNC moves erratically when I boot up my Arduino! Why does it do this?
