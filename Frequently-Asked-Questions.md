@@ -62,7 +62,7 @@ In the meanwhile here is a list of latest community ports, if you know of anothe
 ## Extending Grbl
 
 #### I want to add some new function to Grbl, how much space is left on the 328p?
-Literally none left, v1.1 exausted the last bits, use Grbl for [Mega2560](https://github.com/gnea/grbl-Mega) instead
+Literally none left, v1.1 exhausted the last bits, use Grbl for [Mega2560](https://github.com/gnea/grbl-Mega) instead!
 
 #### Ok I'm using a Mega, how do I add a LCD or another add-on?
 The best practice for doing this is to let Grbl do it's job and use another arduino to do the display and jog.
