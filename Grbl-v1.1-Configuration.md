@@ -279,7 +279,9 @@ Grbl's default configuration is intentionally very generic to help ensure users 
 - If your steppers are powered and making a grinding noise when trying to move, try lowering the '$' acceleration and max rate settings. This sound is a sign that your steppers is losing steps and not able to keep up due too much torque load or going too fast.
 - Grbl's default step pulse settings cover the vast majority of stepper drivers on the market. While very uncommon, check these settings if you are still experiencing problems or have a unusual setup.
 
-Next, you will need to make sure your machine is moving in the correct directions according to a Cartesian(XYZ) coordinate frame. Mount your stepper motors into your CNC, if you haven't already done so. Send Grbl some motion commands, such as `G91 G0 X1` or `G91 G0 X-1`, which will move the x-axis +1mm and -1mm, respectively. Check all axes. If an axis is not moving correctly, alter the `$3` direction port mask setting to invert the direction. 
+Next, you will need to make sure your machine is moving in the correct directions according to a Cartesian(XYZ) coordinate frame and satisfies the right-hand rule, as shown:
+![Right-hand Rule](/Users/chamnit/Desktop/images.png)
+Mount your stepper motors into your CNC, if you haven't already done so. Send Grbl some motion commands, such as `G91 G0 X1` or `G91 G0 X-1`, which will move the x-axis +1mm and -1mm, respectively. Check all axes. If an axis is not moving correctly, alter the `$3` direction port mask setting to invert the direction. 
 
 If you are unfamiliar with how coordinate frames are setup on CNC machines, see this great diagram by [LinuxCNC](http://linuxcnc.org/docs/html/user/user-concepts.html#_machine_configurations). Just keep in mind that motions are _relative_ to the tool. So on a typical CNC gantry router, the tool will move rather than the fixed table. If the x-axis is aligned positive to the right, a positive motion command will move the tool to the right. Whereas, a moving table with a fixed tool will move the table to the left for the same command, because the tool is moving to the right relative to the table.
 
