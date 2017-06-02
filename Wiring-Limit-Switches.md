@@ -61,7 +61,7 @@ The 3D view of the board - this is how it will look like after assembly.
 ----
 
 The bottom copper layer (viewed from top side of the board)
-![Bottom Copper Layer](https://cloud.githubusercontent.com/assets/5912573/22625856/926e2076-eba8-11e6-9e95-0e758be23097.jpg|Bottom copper)
+![Bottom Copper Layer](https://cloud.githubusercontent.com/assets/5912573/22625856/926e2076-eba8-11e6-9e95-0e758be23097.jpg)
 
 ----
 
