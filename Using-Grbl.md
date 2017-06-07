@@ -173,6 +173,7 @@ Laser optimized GUI for Grbl http://lasergrbl.com
 - Job time preview and realtime projection
 - Jogging (for any Grbl version)
 - Feed overrides (for Grbl > v1.1) with easy-to-use interface
+- Multilangual: english, italian, german, french, spanish, danish and brazilian
 
 ![LaserGRBL_preview](https://cloud.githubusercontent.com/assets/8782035/21350108/ed218200-c6b5-11e6-9712-21de7bf7a1ea.jpg)
 
