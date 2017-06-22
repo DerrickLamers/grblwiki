@@ -75,7 +75,7 @@ These active modes determine how the next G-code block or command will be interp
 
 A short list of the modal groups, supported by Grbl, is shown below, but more complete and detailed descriptions can be found at LinuxCNC's [website](http://www.linuxcnc.org/docs/2.4/html/gcode_overview.html#sec:Modal-Groups). The G-code commands in **bold** indicate the default modes upon powering-up Grbl or resetting it.
 
-| Modal Group Meaning	|  Member Words |
+| Modal Group |  Member Words |
 |:----:|:----:|
 | Motion Mode | **G0**, G1, G2, G3, G38.2, G38.3, G38.4, G38.5, G80 |
 |Coordinate System Select	| **G54**, G55, G56, G57, G58, G59|
@@ -91,6 +91,12 @@ A short list of the modal groups, supported by Grbl, is shown below, but more co
 |Coolant State	| M7, M8, **M9** |
 
 In addition to the G-code parser modes, Grbl will report the active `T` tool number, `S` spindle speed, and `F` feed rate, which all default to 0 upon a reset. For those that are curious, these don't quite fit into nice modal groups, but are just as important for determining the parser state.
+
+Note that this list does not include the **non-modal** g-code commands group and they are not listed in the `$G` parser report, because they only affect the current line they are commanded in. For completeness, here are the non-modal commands supported by Grbl: 
+
+| Supported Non-Modal Commands|
+|:----:|
+| G4, G10 L2, G10 L20, G28, G30, G28.1, G30.1, G53, G92, G92.1 |
 
 #### `$I` - View build info
 This prints feedback to the user the Grbl version and source code build date. Optionally, `$I` can also store a short string to help identify which CNC machine you are communicating with, if you have more than machine using Grbl. To set this string, send Grbl `$I=xxx`, where `xxx` is your customization string that is less than 80 characters. This string will be saved as capitalized, white space removed, and can only contain alpha-numeric characters. The next time you query Grbl with a `$I` view build info, Grbl will print this string after the version and build date.
