@@ -75,7 +75,7 @@ The quickest and easiest way to determine what the length of a jog motion needs 
 where:  
 
 - `s` - Incremental distance of jog command.
-- `dt` - Estimated execution time of a single jog command in seconds.  
+- `dt` - Estimated execution time of a single jog command **in seconds**.  
 - `v` - Current jog feed rate in **mm/sec**, not mm/min. Less than or equal to max jog rate.
 - `N` - Number of Grbl planner blocks (`N=15`)
 - `T = dt * N` - Computes total estimated latency in seconds.
