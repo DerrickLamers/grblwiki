@@ -229,4 +229,4 @@ To get out of the screen interface, simply press `Ctrl-a` followed by a `k`.
 
 GUI application for GRBL 0.9J with 2D G-Code visualizer.
 Contact us : diba.team2017@gmail.com
-download : [Diba controller 2.5.01](https://www.mediafire.com/file/dv3aoap3aa6mdda/Diba+controller+2.5.01.rar)
+download : [Diba controller 2.5.01](https://www.mediafire.com/file/ok7nc1t8em983b3/Diba+controller+2.5.01.rar)
