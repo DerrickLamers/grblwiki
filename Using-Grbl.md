@@ -221,3 +221,12 @@ Other than CoolTerm or PuTTY, Linux and Mac systems have a great lightweight ser
 If your device is connected on /dev/ttyACM0 (for Mac, /dev/tty.usbxxxx), type `screen /dev/ttyACM0 115200` to connect to the device at 115200 baud. There you'll be connected to Grbl. To exit
 
 To get out of the screen interface, simply press `Ctrl-a` followed by a `k`. 
+
+***
+
+# Diba controller [windows]
+![screenshot](http://s8.picofile.com/file/8299838934/Diba_screen.png)
+
+GUI application for GRBL 0.9J with 2D G-Code visualizer.
+Contact us : diba.team2017@gmail.com
+download : [Diba controller 2.5.01](https://www.mediafire.com/file/dv3aoap3aa6mdda/Diba+controller+2.5.01.rar)
