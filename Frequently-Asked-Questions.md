@@ -91,6 +91,11 @@ This may be an unavoidable problem with straight-up Arduinos. There are some pot
 
 When the Arduino board is USB powered and the stepper drivers have their own logic voltage supply, don't forget to connect the ground of both circuits.
 
+#### My spindle turns on when I boot up my Arduino for a second or two! Why does it do this? 
+This is only applicable to users that have certain custom compile-time options, namely disabling `VARIABLE_SPINDLE` or using the spindle direction pin as an enable pin, both of which use the spindle enable pin on pin D13. The problem comes from the Arduino boot loader itself. Upon power-up, it toggles pin D13 for a second or two to flash the D13 LED to let the user know that the Arduino is active. If your spindle enable pin is connected to this D13 pin, then it will tell your spindle to toggle on and off with each flash until Grbl is booted and the pin is finally initialized properly. 
+
+What can you do? There are a few options, described in increasing difficulty. First, you can try flashing Grbl without the Arduino boot loader. You'll need an ISCP programmer or spare Arduino (see Arduino as ISP) to directly flash Grbl. You just need to properly connect the programmer the target Grbl board and select the appropriate programmer in the Arduino IDE `Tools -> Programmer` menu. Second, a hardware solution would be to gate the D13 pin with something else that is inactive during boot time. Third, you can alter the Grbl firmware to try selecting another available pin to be used as a spindle enable pin. You should be able to alter the cpu_map.h file to use a different pin on the same port, but D13 can't be used as an input pin due to the LED present there. So you may have to combine limit pins to share axes, like Z and X, to make one available on the port. Otherwise, you'll need to alter the spindle_control source file to move the enable pin to a different port, such as pins A0-A5. Fourth, you can customize the Arduino boot loader to not flash pin D13 upon initialization. However, modifying, compiling, and flashing the boot loader can be a royal pain and is only for advanced users.
+
 ## Configuring Grbl
 
 #### What happened to the `$$` setting descriptions! They're missing! I'm so confused.
