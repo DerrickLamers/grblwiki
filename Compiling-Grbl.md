@@ -24,7 +24,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. 
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
-**_Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file in the Arduino library (**not download**) folder. This file enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
+**_Compiling GRBL or Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file in the Arduino library (**not where you downloaded it, it has been copied into Arduino Library**) folder. This file enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
 
 No fuss! No muss!
 
