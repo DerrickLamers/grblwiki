@@ -230,3 +230,25 @@ To get out of the screen interface, simply press `Ctrl-a` followed by a `k`.
 GUI application for GRBL 0.9J with 2D G-Code visualizer.
 Contact us : diba.team2017@gmail.com
 download : [Diba controller 2.5.01](https://www.mediafire.com/file/ok7nc1t8em983b3/Diba+controller+2.5.01.rar)
+
+# Zen Toolworks Controller (Zen CNC) (Under heavy development) 
+
+Contact Us: info@zencnc.com
+
+![](https://github.com/zentoolworks/zencnc/blob/master/doc/images/zencnc_01.jpg)
+
+This application is currently only available on Windows Platform, (Windows 7 and 10 Tested)
+
+The GUI provide very basic functions, such as Digital Read Out, Position Set To and Move To. X, Y and Z Jogging, Zero and Homing. Easy Grbl Parameter Editing.
+
+All other functions are based on Plugin Architecture. You can basically extend the functionality by defining your own panels and buttons. 
+
+![](https://github.com/zentoolworks/zencnc/blob/master/doc/images/ZTWTEST_01.JPG)
+
+Zen Toolworks also developed a Grbl Test Board, which can be used combined with our Zen CNC Application to test all features provided by Grbl. 
+
+[ZenCNC Wiki Page](https://github.com/zentoolworks/zencnc/wiki)
+
+ ***
+
+
