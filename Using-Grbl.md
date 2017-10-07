@@ -212,6 +212,23 @@ Screenshot :
 
 Developement is still ongoing, please report any issue you encounter
 
+#### [Grbl Controller](https://play.google.com/store/apps/details?id=in.co.gorest.grblcontroller) [Android Mobile Application]
+
+Compact user interface even for small screen mobile
+
+* Support Grbl >= v1.1
+* Supports real time overrides, feed rate, spindle speed, and toggle coolant.
+* Real time machine position, feed, buffer state reporting. (you need to enable buffer data in status report via $10=2)
+* Supports Sending G-Code files from mobile. (supported extensions are .gcode .nc and .tap)
+* Supports short text commands.
+* Auto adjusts Z-Axis on work surface using G38.3 probing.
+* Highly Configurable 4 Custom Buttons.
+
+Screenshots :
+![Axis Control](https://github.com/zeevy/grblcontroller/raw/master/doc/screenshots/Screenshot_01.png)
+![File Streaming](https://github.com/zeevy/grblcontroller/raw/master/doc/screenshots/Screenshot_03.png)
+
+
 -------
 
 ## Serial Emulators:
