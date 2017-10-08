@@ -12,7 +12,7 @@
 
 Another place that explain the Limit switch configuration: [Wiring-Limit-Switches](https://github.com/gnea/grbl/wiki/Wiring-Limit-Switches)
 
-Your limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). You can use all NC instead of NO by configuring $5=1. All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
+Limit switches usually have three terminals. One is common terminal, one is normally open to common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). Use of NC instead of NO is enabled by configuring $5=1. All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
 
 
 - *X- limit `NO` -> Arduino Pin 9
@@ -73,3 +73,4 @@ After the feed phase, the axis moves back a little, to un-trigger the switch. Th
   - Explain how to save WCS and G28/30 coordinate frames using G10 and G28.1/30.1.
   - Provide clear link to LinuxCNC g-code descriptions
   - Explain how WCS and G28/30 are used in common scenarios.
+- Clarify homing direction "add 2 to '23'", if that means "$23=2" then just put "$23=2".
