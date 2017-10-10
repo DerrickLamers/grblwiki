@@ -6,7 +6,7 @@
 * [Grbl Push Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-push-messages)
 
 ***
-### More up-to-date documentation is in the `/doc/markdown/` directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
+### Please help us maintain this page! If you spot a problem, feel free to update it or notify us.
 ***
 
 # Grbl Interface Basics
