@@ -4,7 +4,7 @@
 
 
 *****
-### More up-to-date documentation is in the /doc/markdown/ directory of the source code. This page is for quick reference. If you spot a problem, feel free to update it or notify us.
+### Please help us keep this page maintained! If you spot a problem, feel free to update it or notify us.
 ******
 
 # Grbl v1.1 Commands
