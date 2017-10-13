@@ -225,8 +225,8 @@ Compact user interface even for small screen mobile
 * Highly Configurable 4 Custom Buttons.
 
 Screenshots :
-![Axis Control](https://github.com/zeevy/grblcontroller/raw/master/doc/screenshots/Screenshot_01.png)
-![File Streaming](https://github.com/zeevy/grblcontroller/raw/master/doc/screenshots/Screenshot_03.png)
+![Axis Control](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090425.png)
+![File Streaming](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090518.png)
 
 
 -------
