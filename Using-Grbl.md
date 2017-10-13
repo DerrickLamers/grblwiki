@@ -224,9 +224,8 @@ Compact user interface even for small screen mobile
 * Auto adjusts Z-Axis on work surface using G38.3 probing.
 * Highly Configurable 4 Custom Buttons.
 
-| ![Axis Control](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090425.png) | ![File Streaming](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090518.png) |
-
-| ![Console Output](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090549.png) | ![Settings](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090603.png) |
+![Axis Control](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090425.png) ![File Streaming](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090518.png)
+![Console Output](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090549.png) ![Settings](https://raw.githubusercontent.com/zeevy/grblcontroller/master/doc/screenshots/resized/Screenshot_20171001-090603.png)
 
 -------
 
