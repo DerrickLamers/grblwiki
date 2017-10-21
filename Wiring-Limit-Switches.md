@@ -101,7 +101,7 @@ The schematic/BOM/PCBs and other layer images as single PDF for convenient docum
 ----
 
 
-For [Woodpecker PCB](https://es.aliexpress.com/store/product/GRBL-0-9J-USB-port-cnc-engraving-machine-control-board-3-axis-control-laser-engraving-machine/1941516_32713561151.html?detailNewVersion=&categoryId=4338) the wiring of end switches should be done in the following way:
+For [Woodpecker PCB](https://aliexpress.com/store/product/GRBL-0-9J-USB-port-cnc-engraving-machine-control-board-3-axis-control-laser-engraving-machine/1941516_32713561151.html?detailNewVersion=&categoryId=4338) the wiring of end switches should be done in the following way:
 
 ![Woodpecker PCB](https://cloud.githubusercontent.com/assets/5912573/22929087/89c715ce-f2c2-11e6-9ffc-6f078f510d74.jpg)
 
