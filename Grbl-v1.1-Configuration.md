@@ -34,42 +34,42 @@ To view the settings, type `$$` and press enter after connecting to Grbl. Grbl s
 
 The `x` of `$x=val` indicates a particular setting, while `val` is the setting value. In prior versions of Grbl, each setting had a description next to it in `()` parentheses, but Grbl v1.1+ no longer includes them unfortunately. This was done to free up precious flash memory to add the new features available in v1.1. However, most good GUIs will help out by attaching descriptions for you, so you know what you are looking at.
 
-```
-$0=10         ;; [Step pulse, microseconds](#0--step-pulse-microseconds)
-$1=25         ;; [Step idle delay, milliseconds](#1---step-idle-delay-milliseconds)
-$2=0          ;; [Step port invert, mask](#2--step-port-invert-mask)
-$3=0          ;; [Direction port invert, mask](#3--direction-port-invert-mask)
-$4=0          ;; [Step enable invert, boolean](#4---step-enable-invert-boolean)
-$5=0          ;; [Limit pins invert, boolean](#5----limit-pins-invert-boolean)
-$6=0          ;; [Probe pin invert, boolean](#6----probe-pin-invert-boolean)
-$10=1         ;; [Status report, mask](#10---status-report-mask)
-$11=0.010     ;; [Junction deviation, mm](#11---junction-deviation-mm)
-$12=0.002     ;; [Arc tolerance, mm](#12--arc-tolerance-mm)
-$13=0         ;; [Report inches, boolean](#13---report-inches-boolean)
-$20=0         ;; [Soft limits, boolean](#20---soft-limits-boolean)
-$21=0         ;; [Hard limits, boolean](#21---hard-limits-boolean)
-$22=1         ;; [Homing cycle, boolean](#22---homing-cycle-boolean)
-$23=0         ;; [Homing dir invert, mask](#23---homing-dir-invert-mask)
-$24=25.000    ;; [Homing feed, mm/min](#24---homing-feed-mmmin)
-$25=500.000   ;; [Homing seek, mm/min](#25---homing-seek-mmmin)
-$26=250       ;; [Homing debounce, milliseconds](#26---homing-debounce-milliseconds)
-$27=1.000     ;; [Homing pull-off, mm](#27---homing-pull-off-mm)
-$30=1000.     ;; [Max spindle speed, RPM](#30---max-spindle-speed-rpm)
-$31=0.        ;; [Min spindle speed, RPM](#31---min-spindle-speed-rpm)
-$32=0         ;; [Laser mode, boolean](#32---laser-mode-boolean)
-$100=250.000  ;; [X steps/mm](#100-101-and-102--xyz-stepsmm)
-$101=250.000  ;; [Y steps/mm](#100-101-and-102--xyz-stepsmm)
-$102=250.000  ;; [Z steps/mm](#100-101-and-102--xyz-stepsmm)
-$110=500.000  ;; [X Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)
-$111=500.000  ;; [Y Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)
-$112=500.000  ;; [Z Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)
-$120=10.000   ;; [X Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)
-$121=10.000   ;; [Y Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)
-$122=10.000   ;; [Z Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)
-$130=200.000  ;; [X Max travel, mm](#130-131-132--xyz-max-travel-mm)
-$131=200.000  ;; [Y Max travel, mm](#130-131-132--xyz-max-travel-mm)
-$132=200.000  ;; [Z Max travel, mm](#130-131-132--xyz-max-travel-mm)
-```
+| Settings and sample values | Description |
+| --- | --- |
+| $0=10        | [Step pulse, microseconds](#0--step-pulse-microseconds)             |
+| $1=25        | [Step idle delay, milliseconds](#1---step-idle-delay-milliseconds)  |
+| $2=0         | [Step port invert, mask](#2--step-port-invert-mask)                 |
+| $3=0         | [Direction port invert, mask](#3--direction-port-invert-mask)       |
+| $4=0         | [Step enable invert, boolean](#4---step-enable-invert-boolean)      |
+| $5=0         | [Limit pins invert, boolean](#5----limit-pins-invert-boolean)       |
+| $6=0         | [Probe pin invert, boolean](#6----probe-pin-invert-boolean)         |
+| $10=1        | [Status report, mask](#10---status-report-mask)                     |
+| $11=0.010    | [Junction deviation, mm](#11---junction-deviation-mm)               |
+| $12=0.002    | [Arc tolerance, mm](#12--arc-tolerance-mm)                          |
+| $13=0        | [Report inches, boolean](#13---report-inches-boolean)               |
+| $20=0        | [Soft limits, boolean](#20---soft-limits-boolean)                   |
+| $21=0        | [Hard limits, boolean](#21---hard-limits-boolean)                   |
+| $22=1        | [Homing cycle, boolean](#22---homing-cycle-boolean)                 |
+| $23=0        | [Homing dir invert, mask](#23---homing-dir-invert-mask)             |
+| $24=25.000   | [Homing feed, mm/min](#24---homing-feed-mmmin)                      |
+| $25=500.000  | [Homing seek, mm/min](#25---homing-seek-mmmin)                      |
+| $26=250      | [Homing debounce, milliseconds](#26---homing-debounce-milliseconds) |
+| $27=1.000    | [Homing pull-off, mm](#27---homing-pull-off-mm)                     |
+| $30=1000.    | [Max spindle speed, RPM](#30---max-spindle-speed-rpm)               |
+| $31=0.       | [Min spindle speed, RPM](#31---min-spindle-speed-rpm)               |
+| $32=0        | [Laser mode, boolean](#32---laser-mode-boolean)                     |
+| $100=250.000 | [X steps/mm](#100-101-and-102--xyz-stepsmm)                         |
+| $101=250.000 | [Y steps/mm](#100-101-and-102--xyz-stepsmm)                         |
+| $102=250.000 | [Z steps/mm](#100-101-and-102--xyz-stepsmm)                         |
+| $110=500.000 | [X Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)          |
+| $111=500.000 | [Y Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)          |
+| $112=500.000 | [Z Max rate, mm/min](#110-111-and-112--xyz-max-rate-mmmin)          |
+| $120=10.000  | [X Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)   |
+| $121=10.000  | [Y Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)   |
+| $122=10.000  | [Z Acceleration, mm/sec^2](#120-121-122--xyz-acceleration-mmsec2)   |
+| $130=200.000 | [X Max travel, mm](#130-131-132--xyz-max-travel-mm)                 |
+| $131=200.000 | [Y Max travel, mm](#130-131-132--xyz-max-travel-mm)                 |
+| $132=200.000 | [Z Max travel, mm](#130-131-132--xyz-max-travel-mm)                 |
 
 #### $x=val - Save Grbl setting
 
