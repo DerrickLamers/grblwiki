@@ -181,6 +181,7 @@ Laser optimized GUI for Grbl http://lasergrbl.com
 
 #### GRBL-Plotter [Windows]
 https://github.com/svenhb/GRBL-Plotter
+* Check videos on YouTube ['GRBL-Plotter'](https://www.youtube.com/results?search_query=grbl-plotter)  
 * Supporting GRBL 1.1 (and 0.9 also)  
 * Export / import machine specific settings (Joystick, Buttons)
 * Controlling a 2nd GRBL-Hardware
