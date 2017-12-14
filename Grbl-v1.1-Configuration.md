@@ -135,8 +135,6 @@ NOTE: For more advanced usage, the internal pull-up resistor on the limit pins m
 
 By default, the probe pin is held normally-high with the Arduino's internal pull-up resistor. When the probe pin is low, Grbl interprets this as triggered. For the opposite behavior, just invert the probe pin by typing `$6=1`. Disable with `$6=0`. You may need a power cycle to load the change.
 
-NOTE: If you invert your probe pin, you will need an external pull-down resistor wired in to the probe pin to prevent overloading it with current and frying it.
-
 
 #### $10 - Status report, mask
 
