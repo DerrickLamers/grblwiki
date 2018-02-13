@@ -49,7 +49,7 @@ During the [discussion on GRBL forum](https://github.com/gnea/grbl/issues/96) we
 
 The schematic of the end sensor board which uses optocouplers
 
-The LIMIT SWITCH side and the ARDUINO side should use 2 different supply to take real advantage of the opto isolation.
+The LIMIT SWITCH side and the ARDUINO side should use 2 different isolated power supply to take real advantage of the opto isolation.
 
 BEST
 ![opto_limit](https://user-images.githubusercontent.com/1461231/36128580-1c40fc8a-1031-11e8-9269-4489a7f49fbe.jpg)
