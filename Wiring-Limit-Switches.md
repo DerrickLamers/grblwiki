@@ -36,7 +36,7 @@ Adding shielded cables to the end sensors or at least using twisted pair of two 
 The ultimate solution for noise filtering on end switches is to add optocouplers - they have many benefits compared to the listed above solutions:
 - There is no direct galvanic connection between the end sensor and the microcontroller pin - any ESD discharges will not affect the GRBL controller
 - Optocouplers are inert elements - short glitches will simply not pass at all
-- Optocouplers are current driven elements and they require huge energy from the noises in order to pass - in normal operating conditions they effectively all the noises  
+- Optocouplers are current driven elements and they require huge energy from the noises in order to pass - in normal operating conditions they effectively cut all the noises  
 
 
 ----
@@ -48,8 +48,12 @@ During the [discussion on GRBL forum](https://github.com/gnea/grbl/issues/96) we
 ----
 
 The schematic of the end sensor board which uses optocouplers
-The LIMIT SWITCH side and the ARDUINO side should use 2 different supply to take real advantage of the opto isolation
+The LIMIT SWITCH side and the ARDUINO side should use 2 different supply to take real advantage of the opto isolation.
+
+BEST
 ![opto_limit](https://user-images.githubusercontent.com/1461231/36128580-1c40fc8a-1031-11e8-9269-4489a7f49fbe.jpg)
+
+OK
 ![Schematic](https://cloud.githubusercontent.com/assets/5912573/22625815/7640a26c-eba7-11e6-9a5a-7d5e521488d8.jpg)
 
 ----
