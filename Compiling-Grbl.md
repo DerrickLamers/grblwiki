@@ -14,8 +14,8 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
 3. Load the ```grbl folder``` into the Arduino IDE as a Library.
- * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
-   The ```Add .ZIP Library``` command supports both a .Zip file or a folder. In our case, there are no ```.ZIP``` file.
+ * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```. The ```Add .ZIP Library``` command supports both a .ZIP file or a folder. In our case, there is no ```.ZIP``` file.
+ * You can confirm that the library has been added. Click the ```Sketch``` drop-down menu again, navigate to ```Include Library```, then scroll to the bottom of the list where you should see ```grbl```.
  * **IMPORTANT:** Select the ```grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
 4. Open the `GrblUpload` Arduino example.
