@@ -5,7 +5,7 @@ After flashing Grbl to your Arduino, connecting to Grbl is pretty simple. You ca
 
 * Open up the Arduino IDE and make sure your Arduino with Grbl is connected to your USB port.
 * Select the Arduino's Serial Port in the Tools menu, as you would normally with an Arduino.
-* Open up the 'Serial Window' in the Tools menu.
+* Open up the 'Serial Monitor' window from the Tools menu.
 * If you are using Grbl v0.9 or later, make sure to change the baud rate from 9600 to 115200.
 * Once open, you should see a Grbl welcome message like ```Grbl v0.Xx ['$' for help]```. This means all is good! You're connected!
  * Make sure you change the "No line ending" drop-down menu to "Carriage return". If you are using any other serial port program, you must do the same.
