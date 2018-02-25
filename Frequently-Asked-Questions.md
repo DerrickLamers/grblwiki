@@ -13,6 +13,9 @@ Grbl has been well-tested and vetted over the years, but we're human and still m
 #### What happened to v1.0? There was v0.9, then v1.1. What gives?
 Grbl v1.0 was a development version that was not officially released. Some OEMs and users started using this development v1.0 version anyway. Because of that, GUI developers had v1.0 users asking to support it. To make it easier on GUI developers, Grbl v1.0 was just skipped, so they don't have to deal with trying to figure out which v1.0 was which.
 
+#### My GUI doesn’t connect to Grbl but connecting directly via serial terminal works fine! What gives?!
+The communication protocol was updated in Grbl v1.1 to accommodate the new and more complete real-time data, like the new overrides and pin states, and keep the streaming bandwidth efficient. This means older GUIs that used to work with Grbl, like older versions of UGS, may not if they have not been updated to support v1.1. First download the most recent version of your GUI to see if that fixes your problem. If not, try another Grbl GUI like UGS Platform or bCNC. 
+
 ## Compiling Grbl
 
 #### How do I compile Grbl and upload it?
