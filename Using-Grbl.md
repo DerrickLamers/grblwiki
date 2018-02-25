@@ -62,6 +62,8 @@ An advanced fully featured g-code sender for GRBL. bCNC is a cross platform prog
 
 A full-featured GUI, developed by @wwinder, that streams, visualizes G-code, and has complete control and feedback functionality for Grbl's higher level features. It's written in Java, which means it can be run on any Java-capable machine including the RaspberryPi! The Grbl group works closely with this project and highly recommend using this GUI. If you find any issues or would like to request more GUI features, @wwinder has done a wonderful job in completing many of the requests.
 
+Version 2.0 of UGS is required for full GRBL v1.1 compatibility.
+
 --------
 ### [Easel](http://app.easel.com) [Browser-based CAD + CAM + Grbl controller]
 
