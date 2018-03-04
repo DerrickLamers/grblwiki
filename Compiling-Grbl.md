@@ -20,6 +20,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
 4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+ * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
 5. Compile and upload Grbl to your Arduino.
  * Connect your Arduino Uno to your computer.
  * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. 
@@ -31,7 +32,7 @@ No fuss! No muss!
 
 _NOTE: If you are having upload issues, try re-burning the Arduino bootloader. If you have a spare Arduino, it's [easy](https://www.arduino.cc/en/Tutorial/ArduinoISP)!_
 
-_Last updated: 2016-12-11_
+_Last updated: 2018-03-04_
 
 ------
 ------
