@@ -4,7 +4,7 @@ _This wiki is intended to provide various instructions on how to compile grbl. O
 
 Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
 
-_**NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. On UBUNTU it's in ```/usr/share/arduino/librairies```**_
+_**NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. On UBUNTU it's in ```/usr/share/arduino/libraries```**_
 
 1. Download the Grbl source code.
  * Click on the ```<>Code``` Tab
