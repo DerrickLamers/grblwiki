@@ -182,7 +182,7 @@ Laser optimized GUI for Grbl http://lasergrbl.com
 [<img src="https://cloud.githubusercontent.com/assets/8782035/23578353/fba95768-00d4-11e7-9357-99c00a30631d.jpg">](https://www.youtube.com/watch?v=Uk2fGoNL3Yk&list=PLABqghG_gwj1-62OBAymMF9-KBXPyrW0P&index=1)
 
 #### GRBL-Plotter [Windows]
-https://github.com/svenhb/GRBL-Plotter
+https://github.com/svenhb/GRBL-Plotter  
 * Check videos on YouTube ['GRBL-Plotter'](https://www.youtube.com/results?search_query=grbl-plotter)  
 * Supporting GRBL 1.1 (and 0.9 also)  
 * Export / import machine specific settings (Joystick, Buttons)
@@ -190,11 +190,16 @@ https://github.com/svenhb/GRBL-Plotter
 * Tool exchange
 * User defined Buttons
 * Joystick like control
+* GamePad support
 * Import/creation and conversion into GCode 
-  - from SVG Graphics
+  - from SVG and DXF Graphics
+  - from Eagle Drill file
   - from Text (into Hershey Font)
   - conversion of the Z-Dimension into Z-axis (router) or Spindle on/off (laser) or Spindle-Speed (RC-Servo PWM) 
-
+  
+Screenshot of Main GUI  
+![GRBL-Plotter GUI](https://raw.githubusercontent.com/svenhb/GRBL-Plotter/master/doc/GRBLPlotter_GUI.png) 
+   
 #### [Grbl Overseer](https://gitlab.com/Pilatomic/grbl-overseer) [Multiplatform Desktop + Android]
 Touch-friendly user interface with multiple jobs scheduling 
 * Simple, easy to use, touch-friendly user interface
