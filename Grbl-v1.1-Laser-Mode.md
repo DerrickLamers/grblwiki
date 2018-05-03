@@ -74,7 +74,7 @@ Describe below are the operational changes to Grbl when laser mode is enabled. P
 
 
 -----
-###CAM Developer Implementation Notes
+### CAM Developer Implementation Notes
 
 TODO: Add some suggestions on how to write laser g-code for Grbl. 
 
