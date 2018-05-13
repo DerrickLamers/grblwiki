@@ -424,13 +424,13 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
  
       ```
       [VER:v1.1d.20161014:Some string]
-      [OPT:VL]
+      [OPT:VL,15,128]
       ok
       ```
       
   		- The first line `[VER:]` contains the build version and date.
       - A string may appear after the second `:` colon. It is a stored EEPROM string a user via a `$I=line` command or OEM can place there for personal use or tracking purposes.
-  		- The `[OPT:]` line follows immediately after and contains character codes for compile-time options that were either enabled or disabled. The codes are defined below and a CSV file is also provided for quick parsing. This is generally only used for quickly diagnosing firmware bugs or compatibility issues.
+  		- The `[OPT:]` line follows immediately after and contains character codes for compile-time options that were either enabled or disabled. The codes are defined below and a CSV file is also provided for quick parsing. This is generally only used for quickly diagnosing firmware bugs or compatibility issues. The value after the first comma contains the `blockBufferSize`, the value after the second comma contains the `rxBufferSize`, both as integers.
 
 | `OPT` Code | Setting Description, Units |
 |:-------------:|----|
