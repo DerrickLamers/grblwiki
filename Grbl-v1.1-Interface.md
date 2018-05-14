@@ -420,17 +420,27 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
     	- The `PRB:` probe parameter message includes an additional `:` and suffix value is a boolean. It denotes whether the last probe cycle was successful or not.
 
-  - `[VER:]` and `[OPT:]`: Indicates build info data from a `$I` user query. These build info messages are followed by an `ok` to confirm the `$I` was executed, like so:
- 
+  - `[VER:]` and `[OPT:]`: Indicates build info data from a `$I` user query. These build info messages are followed by an `ok` to confirm the `$I` was executed, like this:
+
       ```
-      [VER:v1.1d.20161014:Some string]
+      [VER:1.1d.20161014:]
+      [OPT:,15,128]
+      ok
+      ```
+
+      ```
+      [VER:1.1d.20161014:Some string]
       [OPT:VL,15,128]
       ok
       ```
       
-  		- The first line `[VER:]` contains the build version and date.
-      - A string may appear after the second `:` colon. It is a stored EEPROM string a user via a `$I=line` command or OEM can place there for personal use or tracking purposes.
-  		- The `[OPT:]` line follows immediately after and contains character codes for compile-time options that were either enabled or disabled. The codes are defined below and a CSV file is also provided for quick parsing. This is generally only used for quickly diagnosing firmware bugs or compatibility issues. The value after the first comma contains the `blockBufferSize`, the value after the second comma contains the `rxBufferSize`, both as integers.
+  	- `[VER:]` contains build version info and build date.
+      - a string may appear after the second `:` colon. It is a stored EEPROM string a user via a `$I=line` command or OEM can place there for personal use or tracking purposes.
+
+  	- `[OPT:]` line follows immediately after and contains character codes for compile-time options that were either enabled or disabled. 
+      - The codes are defined below and a CSV file is also provided for quick parsing. This is generally only used for diagnosing firmware bugs or compatibility issues. 
+      - The value after the first comma contains the `blockBufferSize`, as int.
+      - The value after the second comma contains the `rxBufferSize`, as int.
 
 | `OPT` Code | Setting Description, Units |
 |:-------------:|----|
