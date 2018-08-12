@@ -62,54 +62,37 @@ NOTE: If you are having problems, you may need to add this same PATH to your .ba
 
  
 ## For Windows:
-_Last updated: 2012-01-28 by txjammer. (Tested on Windows XP and the Arduino IDE r23)_
+_Last updated: 2018-08-11 by chamnit. (Tested on Windows 10 and the Arduino IDE 1.8.5)_
 
-You can use the Arduino platform as well since it comes with "win-avr" avrgcc. 
+You can use the Arduino platform as well since it comes with most of the stuff you need to compile Grbl through a command prompt interface.
+
+1. First download the Arduino IDE Windows installer from arduino.cc. Do not use the Windows App store version, as it hides these files. 
+
+2. Open the Arduino IDE and navigate to the 'Board Manager' in the the 'Tools'/'Board: "XXX"' drop-down menu.
+
+3. In the 'Board Manager', install the 'Arduino SAM Boards' (for the Arduino Due). This particular library contains the 'make' executable that Grbl needs to compile via Makefile.
+
+4. Search in the Windows search bar for 'Environment Variables'. An option 'Edit the system environment variables' in the control panel should be the first option in the list. Select it.
+
+5. A 'System Properties' windows should appear. Click the 'Environment Variables' button at the bottom of the window.
+
+6. Highlight the 'Path' Variable under the 'User variables' and click the 'Edit' button.
+
+7. Click the 'New' button and add these paths. Note that you may need to update the sam library version below.
+    * `C:\Program Files (x86)\Arduino\hardware\tools\avr\avr\bin\`
+
+    * `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\`
+
+    * `%USERPROFILE%\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system\CMSIS\Examples\cmsis_example\gcc_atmel
+​`
+
+    * `C:\Program Files (x86)\Arduino`
+
+8. Click 'Ok' for windows and reboot the computer.
+
+9. Once rebooted, open a windows command prompt (Search for 'command prompt'). Navigate to the Grbl source folder via 'cd' change directory commands. In the root of the Grbl source directory, where the Makefile is located, first type 'make clean' to wipe any old build files, then type 'make' and Grbl should compile.
 
 
-**You must add the paths the the executable's** like make.exe and avrdude.exe to windows environment variables.  Right click my computer on the start menu and click Properties. Go to the Advanced tab and on the bottom there will be a button that says environment variables. Under system variables there will be a Variable with the name "Path". Click edit and add the paths to the executable's eg, _C:\arduino-00xx\hardware\tools\avr\bin;C:\arduino-00xx\hardware\tools\avr\avr\bin;C:\arduino-00xx\hardware\tools\avr\utils\bin_ Do not erase your previous paths just add the new ones. Once this is done you can compile the source.  
-
-### For windows 7 and arduino 1.5.7
-*Add the following paths to your PATH variable* - be sure to include ; after each one, except the last in your PATH variable entry.
-
-`C:\Program Files (x86)\Arduino\hardware\tools\avr\avr\bin\`
-
-`C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\`
-
-`C:\Program Files (x86)\Arduino\hardware\arduino\sam\system\CMSIS\Examples\cmsis_example\gcc_atmel`
-
-`C:\Program Files (x86)\Arduino`
-
-You will very likely need to restart your computer in order for Windows to recognize the newly added paths.
-
-
-***
-
-Once your path has been updated, you can open a command prompt. To do so:
-
-Click start, in the run box, type `cmd`  or find the command prompt in your start menu, usually in Start -> Programs -> Accessories.
-
-Change your working directory to the directory that contains the grbl source code:
-
-`cd  C:\grblpath`
-
-type 
-
-`make clean`
-
-This will output something similar to this:
-
-`rm -f grbl.hex main.elf main.o motion_control.o gcode.o spindle_control
-t_control.o serial.o protocol.o stepper.o eeprom.o settings.o planner.o
-ts.o limits.o print.o probe.o report.o system.o main.d motion_control.d
-spindle_control.d coolant_control.d serial.d protocol.d stepper.d eepro
-ngs.d planner.d nuts_bolts.d limits.d print.d probe.d report.d system.d`
-
-Type `make grbl.hex` or simply `make`
-
-If all goes well grbl.hex should be created and you can upload to your atmega328p using avrdude. For instructions on how to flash your newly compiled grbl.hex file to your Arduino, see [this wiki entry](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino#for-windows)
-
-**Ruby is optional**, __but if you don't edit the Makefile you will need to download ruby__ and in the installation settings add the path to environment variables again. Then you can compile the full source with flash calculation. If you don't want to install ruby, edit the Makefile (removing?) everything after ruby (on line 84 only).
 
 **An alternative is to use Atmel Studio**, a customized version of Visual Studio.
 
@@ -117,7 +100,7 @@ _Last update: 2014-07-18 by gerritv (tested on Windows 8.1, 64bit)_
 
 * Install Atmel Studio
 * Install the Create From Makefile Extension (Tools/Extension Manager)
-* run Tools/Create Project From Makefile
+* run Tools/Create Project From Makefil
 * select the Makefile from your grbl code directory
 * Select Device, use ATmega328p for the Arduino Uno
 * In Projects/Properties, uncheck Use External Makefile
