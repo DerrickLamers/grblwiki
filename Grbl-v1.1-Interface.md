@@ -370,6 +370,8 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
   - `[MSG:Pgm End]` - M2/30 program end message to denote g-code modes have been restored to defaults according to the M2/30 g-code description.
 
   - `[MSG:Restoring defaults]` - Appears as an acknowledgement message when restoring EEPROM defaults via a `$RST=` command. An 'ok' still appears immediately after to denote the `$RST=` was parsed and executed.
+
+  - `[MSG:Restoring spindle]` - Appears when the spindle has been stopped during a feed hold via a spindle stop override command and when the cycle is resumed or the spindle stop is disabled.
   
   - `[MSG:Sleeping]` - Appears as an acknowledgement message when Grbl's sleep mode is invoked by issuing a `$SLP` command when in IDLE or ALARM states. Note that Grbl-Mega may invoke this at any time when the sleep timer option has been enabled and the timeout has been exceeded. Grbl may only be exited by a reset in the sleep state and will automatically enter an alarm state since the steppers were disabled.
 	  - NOTE: Sleep will also invoke the parking motion, if it's enabled. However, if sleep is commanded during an ALARM, Grbl will not park and will simply de-energize everything and go to sleep.
