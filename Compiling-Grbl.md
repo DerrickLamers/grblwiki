@@ -83,7 +83,7 @@ You can use the Arduino platform as well since it comes with most of the stuff y
 
     * `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\`
 
-    * `%USERPROFILE%\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system\CMSIS\Examples\cmsis_example\gcc_atmel
+    * `%USERPROFILE%\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system\CMSIS\Examples\cmsis_example\gcc_atmel\
 ​`
 
     * `C:\Program Files (x86)\Arduino`
