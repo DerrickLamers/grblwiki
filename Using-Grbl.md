@@ -195,18 +195,19 @@ Tool for converting images to g-code https://yadi.sk/d/1WtJudo23ZugjZ
 https://github.com/svenhb/GRBL-Plotter  
 * Check videos on YouTube ['GRBL-Plotter'](https://www.youtube.com/results?search_query=grbl-plotter)  
 * Supporting GRBL 1.1 (and 0.9 also)  
-* Export / import machine specific settings (Joystick, Buttons)
-* Controlling a 2nd GRBL-Hardware
-* Tool exchange
-* User defined Buttons
-* Joystick like control
-* GamePad support
 * Import/creation and conversion into GCode 
   - from SVG and DXF Graphics
+  - from [Images](https://github.com/svenhb/GRBL-Plotter/wiki/Image-import)  
   - from Eagle Drill file
   - from Text (into Hershey Font)
   - conversion of the Z-Dimension into Z-axis (router) or Spindle on/off (laser) or Spindle-Speed (RC-Servo PWM) 
-  
+* Export / import machine specific settings (Joystick, Buttons)
+* Controlling a 2nd GRBL-Hardware
+* Tool exchange [Video](https://youtu.be/GGtdwYdZWi8)  
+* User defined Buttons
+* Joystick like control
+* GamePad support
+    
 Screenshot of Main GUI  
 ![GRBL-Plotter GUI](https://raw.githubusercontent.com/svenhb/GRBL-Plotter/master/doc/GRBLPlotter_GUI.png) 
    
