@@ -37,7 +37,8 @@ Homing is controlled by parameter `$22`. Type `$22=1` to enable it, `$22=0` to d
 The homing directions are controlled by setting `$23`. 
 - Default setting (`$23=0`), the home location is the top right of your work area, with the spindle all the way up. 
 - `$23=1` Top left home location. 
-- `$23=2` Bottom of your work area to be the home location. 
+- `$23=2` Bottom right of your work area to be the home location. 
+- `$23=3` Bottom left.
 - `$23=4` Spindle down home location.
 
 # Homing Cycle Steps
