@@ -152,7 +152,7 @@ That's it! Re-compile and re-flash Grbl via the uploading procedure outlined in 
 
 #### How do I configure Grbl for a RAMPS board? Or an Arduino stepper shield? 
 
-In short, Grbl is not compatible with RAMPS or Arduino shields (unless they are specifically made for and advertised to work with Grbl). The main reason is the pin layout for Grbl is designed to ensure the maximum performance produced by the Arduino's micro controller. While it's still possible to alter Grbl to work with a RAMPS board, it'll require intimate knowledge of how Grbl works and non-beginner coding skills to do so. At this time, there is no plans to make the 328p version of Grbl RAMPS compatible. However, the Mega2560 version of Grbl may do so, but not in the near future.
+In short, Grbl is not compatible with RAMPS or Arduino shields (unless they are specifically made for and advertised to work with Grbl). The main reason is the pin layout for Grbl is designed to ensure the maximum performance produced by the Arduino's micro controller. While it's still possible to alter Grbl to work with a RAMPS board, it'll require intimate knowledge of how Grbl works and non-beginner coding skills to do so. At this time, there is no plans to make the 328p version of Grbl RAMPS compatible. However, the Mega2560 version of Grbl recently added simple RAMPS 1.4 support.
 
 ## Using Grbl
 
