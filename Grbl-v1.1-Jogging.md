@@ -2,7 +2,7 @@
 * [Joystick Implementation](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging#joystick-implementation)
 * [Example: Joystick-Pendant Instructable](http://www.instructables.com/id/GRBL-CNC-Joystick-Pendant/)
 
-This document outlines how to use Grbl v1.1's new jogging commands. These commands differ because they can be cancelled and all queued motions are automatically purged with a simple jog-cancel or feed hold real-time command. Jogging commands do not alter the g-code parser state in any way, so you no longer have to worry if you remembered to set the distance mode back to `G90` prior to starting a job. Also, jogging works well with an analog joysticks and rotary dials! See the implementation notes below.
+This document outlines how to use Grbl v1.1's new jogging commands. These commands differ because they can be cancelled and all queued motions are automatically purged with a simple jog-cancel (0x85 as explained in [Extended Ascii Realtime Command](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#extended-ascii-realtime-command-descriptions) ) or feed hold real-time command. Jogging commands do not alter the g-code parser state in any way, so you no longer have to worry if you remembered to set the distance mode back to `G90` prior to starting a job. Also, jogging works well with an analog joysticks and rotary dials! See the implementation notes below.
 
 ## How to Use
 Executing a jog requires a specific command structure, as described below:
