@@ -187,7 +187,7 @@ Every G-code block sent to Grbl and Grbl `$` system command that is terminated w
 | **`35`** | A `G2` or `G3` arc, traced with the offset definition, is missing the `IJK` offset word in the selected plane to trace the arc.|
 | **`36`** | There are unused, leftover G-code words that aren't used by any command in the block.|
 | **`37`** | The `G43.1` dynamic tool length offset command cannot apply an offset to an axis other than its configured axis. The Grbl default axis is the Z-axis.|
-
+| **`38`** | Tool number greater than max supported value.|
 
 ----------------------
 
