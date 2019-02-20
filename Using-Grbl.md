@@ -91,7 +91,7 @@ Maintained by retired computer professional @gerritv, **GrblPanel** is a GUI tha
 
 -----------
 
-### [grblControl](https://github.com/Denvi/grblControl) [Windows/Linux]
+### [Candle](https://github.com/Denvi/Candle) [Windows/Linux]
 ![screenshot_heightmap_original](https://cloud.githubusercontent.com/assets/5119037/9604203/7e979a52-50cf-11e5-8b10-23e54977a782.png)
 
 GUI application for GRBL-based CNC-machines with G-Code visualizer.
