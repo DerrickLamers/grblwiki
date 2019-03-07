@@ -8,7 +8,7 @@ _This wiki is intended to provide various instructions on how to connect to grbl
 
 **For Grbl v0.8 and v0.9+ with variable spindle disabled, Z-limit moves to D11 and spindle enable to D12. This is generally for backward compatibility on older boards.** 
 
-**For Laser mode, the pin used is the same a Spindle (PIN 11).**
+**For Laser mode, the pin used is the same as Spindle (PIN 11).**
 
 First, to connect your stepper motors to Grbl, you'll need some stepper motor drivers to power the steppers and connect your driver inputs to the Arduino controller pins. There are a number of drivers that can do this, available as fully pre-built, partially pre-built, or completely DIY. There are some examples farther down the page. The stepper drivers will need to share the stepper enable pin (D8) to their respective enable pins, while the direction and step pulse pins (D2-D7) will need to be connected to their respective pins on the drivers. Just make sure that all of your drivers and the Arduino share a common ground (star grounded with your motor driver power). This is about all you'll need to get started.
 
