@@ -239,7 +239,7 @@ Four realtime commands are type-able by users on a keyboard and shown in the `$`
   - Immediately halts and safely resets Grbl without a power-cycle.
   - Accepts and executes this command at any time.
   - If reset while in motion, Grbl will throw an alarm to indicate position may be lost from the motion halt.
-  - If reset while in not motion, position is retained and re-homing is not required.
+  - If reset while not in motion, position is retained and re-homing is not required.
   - An input pin is available to connect a button or switch.
 
 
