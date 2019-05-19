@@ -154,7 +154,7 @@ This command is the only way to perform the homing cycle in Grbl. Some other mot
 
 TIP: After running a homing cycle, rather jogging manually all the time to a position in the middle of your workspace volume. You can set a G28 or G30 pre-defined position to be your post-homing position, closer to where you'll be machining. To set these, you'll first need to jog your machine to where you would want it to move to after homing. Type G28.1 (or G30.1) to have Grbl store that position. So then after '$H' homing, you could just enter 'G28' (or 'G30') and it'll move there auto-magically. In general, I would just move the XY axis to the center and leave the Z-axis up. This ensures that there isn't a chance the tool in the spindle will interfere and that it doesn't catch on anything.
 
-#### `$Jx=line` - Run jogging motion
+#### `$J=line` - Run jogging motion
 
 New to Grbl v1.1, this command will execute a special jogging motion. There are three main differences between a jogging motion and a motion commanded by a g-code line. 
 
@@ -178,9 +178,9 @@ Executing a jog requires a specific command structure, as described below:
  - Spaces and comments are allowed in the command. These are removed by the pre-parser.
 
  - Example: G21 and G90 are active modal states prior to jogging. These are sequential commands.
-    - `$J=X10.0 Y-1.5` will move to X=10.0mm and Y=-1.5mm in work coordinate frame (WPos).
-    - `$J=G91 G20 X0.5` will move +0.5 inches (12.7mm) to X=22.7mm (WPos). Note that G91 and G20 are only applied to this jog command.
-    - `$J=G53 Y5.0` will move the machine to Y=5.0mm in the machine coordinate frame (MPos). If the work coordinate offset for the y-axis is 2.0mm, then Y is 3.0mm in (WPos).
+    - `$J=X10.0 Y-1.5 F100` will move to X=10.0mm and Y=-1.5mm in work coordinate frame (WPos) at a feed rate of 100.
+    - `$J=G91 G20 X0.5 F10` will move +0.5 inches (12.7mm) to X=22.7mm (WPos) at a feed rate of 10. Note that G91 and G20 are only applied to this jog command.
+    - `$J=G53 Y5.0 F10` will move the machine to Y=5.0mm in the machine coordinate frame (MPos) at a feed rate of 10. If the work coordinate offset for the y-axis is 2.0mm, then Y is 3.0mm in (WPos).
 
 Jog commands behave almost identically to normal g-code streaming. Every jog command will
 return an 'ok' when the jogging motion has been parsed and is setup for execution. If a
