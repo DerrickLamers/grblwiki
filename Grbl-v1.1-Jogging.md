@@ -22,9 +22,9 @@ Executing a jog requires a specific command structure, as described below:
  - Spaces and comments are allowed in the command. These are removed by the pre-parser.
 
  - Example: G21 and G90 are active modal states prior to jogging. These are sequential commands.
-    - `$J=X10.0 Y-1.5` will move to X=10.0mm and Y=-1.5mm in work coordinate frame (WPos).
-    - `$J=G91 G20 X0.5` will move +0.5 inches (12.7mm) to X=22.7mm (WPos). Note that G91 and G20 are only applied to this jog command.
-    - `$J=G53 Y5.0` will move the machine to Y=5.0mm in the machine coordinate frame (MPos). If the work coordinate offset for the y-axis is 2.0mm, then Y is 3.0mm in (WPos).
+    - `$J=X10.0 Y-1.5 F100` will move to X=10.0mm and Y=-1.5mm in work coordinate frame (WPos) at a feed rate of 100.
+    - `$J=G91 G20 X0.5 F10` will move +0.5 inches (12.7mm) to X=22.7mm (WPos) at a feed rate of 10. Note that G91 and G20 are only applied to this jog command.
+    - `$J=G53 Y5.0 F10` will move the machine to Y=5.0mm in the machine coordinate frame (MPos) at a feed rate of 10. If the work coordinate offset for the y-axis is 2.0mm, then Y is 3.0mm in (WPos).
 
 Jog commands behave almost identically to normal g-code streaming. Every jog command will
 return an 'ok' when the jogging motion has been parsed and is setup for execution. If a
