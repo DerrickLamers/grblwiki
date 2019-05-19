@@ -186,7 +186,7 @@ Jog commands behave almost identically to normal g-code streaming. Every jog com
 return an 'ok' when the jogging motion has been parsed and is setup for execution. If a
 command is not valid or exceeds a soft-limit, Grbl will return an 'error:'. Multiple jogging commands may be queued in sequence.
 
-NOTE: See additional jogging documentation for details on using this command to create a low-latency joystick or rotary dial interface.
+NOTE: See [jogging documentation](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging) for details on using this command to create a low-latency joystick or rotary dial interface.
 
 
 #### `$RST=$`, `$RST=#`, and `$RST=*`- Restore Grbl settings and data to defaults
