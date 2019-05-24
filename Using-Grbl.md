@@ -287,7 +287,7 @@ Zen Toolworks also developed a Grbl Test Board, which can be used combined with 
 
 # Grbl4P: gui implemented in Processing 3
 
-![Grbl4P screen shot](https://github.com/TPMoyer/Grbl4P/Grbl4P_0.5.png) 
+![Grbl4P screen shot](https://github.com/TPMoyer/Grbl4P/blob/master/Grbl4P_0.5.png) 
 
 Front end gui panel interface to grbl, within the Processing 3 framework.  
 Supports g-code file streaming and mouse/keyboard interaction.  
