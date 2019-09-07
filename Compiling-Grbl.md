@@ -23,7 +23,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
 5. Compile and upload Grbl to your Arduino.
  * Connect your Arduino Uno to your computer.
- * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (there are some controller boards that have the arduino pro bootloaded on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
+ * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
 _**NOTE:**_ If your environment is clean and Arduino IDE compiler still throws "warning: [...] redefined" messages, you may need to _**uncheck**_ File -> Preferences -> "Aggressively cache compiled core".
