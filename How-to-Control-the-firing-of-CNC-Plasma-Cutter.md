@@ -5,6 +5,7 @@ How can I automatically control the firing of the plasma cutter when the operati
 Need help guys.
 
 
+  This is what I have done.(10/25/19)  Hope this helps
 
 I found a relay very helpful.  The beefcake relay from sparkfunk.  The fire button on the plasma would be controled by the chosen controller (arduiono uno) via a relay.  The power to the plasma torch would be seperate and independent to the plasma controls.  You have power outlet to powerbox 120 to 24volts and the 240volt to the plasma torch but the two wires to the fire button would be controled by the arduino controler by way of relay (normal on, comm).
 Also, a well constructed toolpath is needed from software to the UG sender.
