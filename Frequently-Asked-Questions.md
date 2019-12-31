@@ -55,6 +55,8 @@ In the meanwhile here is a list of latest community ports, if you know of anothe
 
 - [Mega2560](https://github.com/gnea/grbl-Mega)
 - [STM32F103](https://github.com/usbcnc/grbl)
+- [STM32F103](https://github.com/robomechs/6-AXIS-USBCNC-GRBL)
+- [STM32F411](https://github.com/Schildkroet/GRBL-Advanced)
 - [PSOC5](https://github.com/bdring/PSoC_Grbl)
 - [ARM LPC1769](https://github.com/gnea/grbl-LPC); [ARM Discussion GIT](https://github.com/gnea/grbl/issues/67)
 
