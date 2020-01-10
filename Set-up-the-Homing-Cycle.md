@@ -34,7 +34,19 @@ Homing is controlled by parameter `$22`. Type `$22=1` to enable it, `$22=0` to d
 
 # Homing direction
 
-The homing directions are controlled by setting `$23`. 
+The homing directions are controlled by setting `$23` setting it to a value defined below:
+
+| Homing direction | Value  |
+| ---------------- | ------ |
+| X+ Y+ Z+         | 0      |
+| X- Y+ Z+         | 1      |
+| X+ Y- Z+         | 2      |
+| X- Y- Z+         | 3      |
+| X+ Y+ Z-         | 4      |
+| X- Y+ Z-         | 5      |
+| X+ Y- Z-         | 6      |
+| X- Y- Z-         | 7      |
+
 - Default setting (`$23=0`), the home location is the top right of your work area, with the spindle all the way up. 
 - `$23=1` Top left home location. 
 - `$23=2` Bottom right of your work area to be the home location. 
@@ -78,4 +90,3 @@ After the feed phase, the axis moves back a little, to un-trigger the switch. Th
   - Explain how to save WCS and G28/30 coordinate frames using G10 and G28.1/30.1.
   - Provide clear link to LinuxCNC g-code descriptions
   - Explain how WCS and G28/30 are used in common scenarios.
-- Clarify homing direction "add 2 to '23'", if that means "$23=2" then just put "$23=2".
