@@ -1,1 +1,0 @@
-jyrsimen arduiino-ohjaus
