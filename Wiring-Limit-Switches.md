@@ -112,6 +112,10 @@ For [Woodpecker PCB](https://aliexpress.com/store/product/GRBL-0-9J-USB-port-cnc
 
 ![Woodpecker PCB](https://cloud.githubusercontent.com/assets/5912573/22929087/89c715ce-f2c2-11e6-9ffc-6f078f510d74.jpg)
 
+for Woodpecker PCB v3.4 (the black one) :
+Silkscreen labels for X and Z limit switches on newly released (actually january 2020)Woodpecker 3.4 CNC control board appear to be wrong ( reversed )
+
+----------------
 You can use some cable housing and crimp the wires to get more professional look (these housing connectors will fit straight into the board header)
 
 http://uk.farnell.com/multicomp/2226a-02/crimp-housing-1-row-2-way/dp/1593506
