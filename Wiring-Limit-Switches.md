@@ -137,7 +137,9 @@ Assuming a NC switch is used..... If the switch is bad (in this case the contact
 
 So it does make a BIG difference which switch contact configuration you use for limit switches, NC or NO. Crash or no crash.
 
-**Now even if you do use NC contacts, you still need those 104 capacitors (0.1uF)**, as close to the Arduino as you can place them. You can argue all day that those caps won't make a difference since the caps are shorted out by the switches. The explanation for this phenomenon is quite long but the first power line glitch will convince you otherwise. (Plug in your blender next to the CNC's AC plug and turn it on. Your CNC should still behave normally despite the blender.)
+## Capacitors for noise filtering
+
+Even if you do use NC contacts, you still need those 104 (0.1uF) capacitors, as close to the Arduino as you can place them. You can argue all day that those caps won't make a difference since the caps are shorted out by the switches. The explanation for this phenomenon is quite long but the first power line glitch will convince you otherwise. (Plug in your blender next to the CNC's AC plug and turn it on. Your CNC should still behave normally despite the blender.)
 
 Side benefit: With NC switches, the connection is broken cleanly when you hit home position, therefore no contact bounce occurs. (Contact bounce occurs only during switch closure, NOT during switch opening.)
 
