@@ -1,138 +1,174 @@
-*****
-## Grbl v1.1 has been released at our new [site](https://github.com/gnea/grbl)! The old site will eventually be phased out. Find the new documentation [here](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino)
-*****
-_This wiki is intended to provide various instructions on how to flash grbl to an Arduino. Please feel free to contribute more up-to-date or alternative methods._  
+_This wiki is intended to provide various instructions on how to compile grbl. Once compiled, you should have a brand new .hex file to flash to your Arduino. Please feel free to contribute more up-to-date or alternative methods._
 
-# Via the Arduino IDE (All Platforms):
-_Last updated: 2014-07-26 by chamnit. (Tested on OS X 10.9 and Windows 7 with Arduino IDE v1.05)_
+# Via the Arduino IDE (All Platforms): Recommended for all users.
 
-Go to the [Compiling Grbl](https://github.com/grbl/grbl/wiki/Compiling-Grbl) wiki page for instructions on how compile and upload Grbl onto your Arduino simply through the Arduino IDE interface. No fuss! It just requires users to download the source code and add Grbl as a library to the IDE. 
+Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
 
-But, if all you have is a pre-compiled .hex file, you will need to use one of the methods below to flash it, as the Arduino IDE can't  flash a .hex file through the IDE interface.
+_**NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. On Linux (Ubuntu), it's in ```/usr/share/arduino/libraries```**_
 
-# For Mac OS X: 
+1. Download the Grbl source code.
+ * Click on the ```<>Code``` Tab
+ * Click the ![clonedownload](https://user-images.githubusercontent.com/1461231/34397688-3c20e426-eb46-11e7-8654-a7732f0f093c.png) button on the Grbl home page.
+ * Click the ```Download ZIP```
+ * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
+2. Launch the Arduino IDE
+ * Make sure you are using the most recent version of the Arduino IDE!
+3. Load the ```grbl folder``` into the Arduino IDE as a Library.
+ * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```. The ```Add .ZIP Library``` command supports both a .ZIP file or a folder. In our case, there is no ```.ZIP``` file.
+ * You can confirm that the library has been added. Click the ```Sketch``` drop-down menu again, navigate to ```Include Library```, then scroll to the bottom of the list where you should see ```grbl```.
+ * **IMPORTANT:** Select the ```grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
+ * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
+4. Open the `GrblUpload` Arduino example.
+ * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+ * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
+5. Compile and upload Grbl to your Arduino.
+ * Connect your Arduino Uno to your computer.
+ * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
+ * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
-**Try this first! Paul Kaplan from Inventables made this process much easier than before with a simple GUI app called [HexUploader](https://github.com/paulkaplan/HexUploader/wiki/Using-HexUploader). Let us know how it works!**
+_**NOTE:**_ If your environment is clean and Arduino IDE compiler still throws "warning: [...] redefined" messages, you may need to _**uncheck**_ File -> Preferences -> "Aggressively cache compiled core".
 
-_Last updated: 2012-02-12 by gregrebholz. (Tested on OS X 10.7, 10.6, and 10.4 and the Arduino Uno and IDE v1.0/r22; and OS X 10.6 and the Arduino Duemilanove and IDE v1.0)_
+**_Compiling GRBL or Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file. It is **extremely important** to edit the files **inside** the Arduino `library` folder **not** the folder you imported the grbl from. `config.h` enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
 
-As with compiling grbl, the tools for flashing grbl to an Arduino are included in the Arduino IDE [software](http://arduino.cc/en/Main/Software). All you need to do is directly access them through the Terminal.app. The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.
+**_Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file. It is **extremely important** to edit the files **inside** the Arduino library folder **not** the folder you imported the library from. This file enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
 
-For most people, the path to the Arduino compiler tools will be: _/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr_ (Note the absence of _/bin_ from the compiling grbl page.) Depending on where you place the Arduino IDE, the _/Applications/Arduino.app_ path may be different. So, lets call your compiler tools path _**$AVRPATH**_ to help shorten the following commands.
+No fuss! No muss!
 
-Next you will need to find the device path to your Arduino. First, connect your Arduino to a Mac USB port. To find the device path, from a Terminal.app window, type: _/dev/tty.usb_ and hit Tab once or twice. This will either give you one device path, which is your Arduino, or multiple paths, if you have more than one usbmodem type device connected to your computer. If you have multiple, simply unplug your Arduino, repeat the process, and eliminate the remaining devices that are still listed. Your Arduino device path should be something like this: _/dev/tty.usbmodem1811_ and lets call this _**$DEVPATH**_.
+_NOTE: If you are having upload issues, try re-burning the Arduino bootloader. If you have a spare Arduino, it's [easy](https://www.arduino.cc/en/Tutorial/ArduinoISP)!_
 
-**To Flash Grbl:** Using the Terminal.app, first make sure you're in the same directory as the _grbl.hex_ file you want to flash to the Arduino, which we'll call _**$GRBLHEX**_. Then, type the following commands to flash.
+_Last updated: 2018-03-04_
 
-**For Release 0023 and prior on the Uno:** `$AVRPATH/bin/avrdude -C$AVRPATH/etc/avrdude.conf -pm328p -cstk500v1 -P$DEVPATH -D -Uflash:w:$GRBLHEX`
+------
+------
+# The following methods are for reference only. 
 
-**For Release 0023 and prior on the Duemilanove:** `$AVRPATH/bin/avrdude -C$AVRPATH/etc/avrdude.conf -pm328p -cstk500v1 -P$DEVPATH -b57600 -D -Uflash:w:$GRBLHEX`
+## For Mac OS X: 
+_Last updated: 2012-01-29 by chamnit. (Tested on OS X 10.7, 10.6, 10.4 and the Arduino IDE r22,v1.0)_
 
-**For v1.0 on the Uno:** `$AVRPATH/bin/avrdude -C$AVRPATH/etc/avrdude.conf -pm328p -carduino -P$DEVPATH -D -Uflash:w:$GRBLHEX`
+This method of compiling Grbl uses the Mac OSX terminal and command line to access the Arduino IDE's compilers  without having to use the Arduino IDE. This produces the same firmware as the Arduino IDE method above.
 
-**For v1.0 on the Duemilanove:** `$AVRPATH/bin/avrdude -C$AVRPATH/etc/avrdude.conf -pm328p -carduino -P$DEVPATH -b57600 -D -Uflash:w:$GRBLHEX`
+First, you'll need to make sure you have the most up-to-date Arduino IDE version installed on your Mac. The trickiest part is setting up the environment path for the compilers included in the Arduino software. To do this, you'll need to first locate where they are. Depending on where you place your Arduino.app software, this will usually be located in _/Applications/Arduino.app_ for most people. The complete path is then: `/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/`
 
-Note the only change between the two versions is the _-c_ flag from the _stk500v1_ programmer to the _arduino_ programmer. This programmer flag was updated in the v1.0 IDE. If all goes according to plan, you should see three sequential progress bars of reading, writing, and verifying and you're good to go! 
+**To add the compiler path:** Open the Terminal.app in /Applications/Utilities. 
 
-### Additional Mac Resources:
-* **[DANK](http://dank.bengler.no/-/page/show/5471_gettinggrbl)** _(Last updated 2/2011)_
+Then type: `nano ~/.bashrc` to edit your shell config file. 
+
+Now add this line at the end of the file: `export PATH=$PATH:/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/` or whatever your path happens to be.
+
+Press _Crtl-X_ to exit and select _Yes_ to save the file. Now you have added the compiler path. You will need to close the current working window and re-open a new one for the path to be loaded correctly.
+
+NOTE: If you are having problems, you may need to add this same PATH to your .bash_profile file. The process is exactly the same, just switch out the names.
+
+**To compile:** Once your paths are setup, all you will need to do is go to your grbl directory and type `make`. (To clear all of the old compilation files from a previous build, type `make clean` first.) This should call _avr-gcc_, begin compiling grbl, and create a brand new firmware file called _grbl.hex_ that may then be flashed to your Arduino.
 
 
-# For Windows: 
-_Last updated: 2013-01-24 by dmalicky. (Tested on Windows XP/7 and Arduino Uno)_
+ 
+## For Windows:
+_Last updated: 2018-08-11 by chamnit. (Tested on Windows 10 and the Arduino IDE 1.8.5)_
 
-Flashing a hex file to your Arduino is simple with windows. First, plug in your Arduino into any USB port of your Windows machine and then determine the assigned COM port of your Arduino.
+You can use the Arduino platform as well since it comes with most of the stuff you need to compile Grbl through a command prompt interface.
 
-To Determine your Arduino's COM port: 
+1. First download the Arduino IDE Windows installer from arduino.cc. Do not use the Windows App store version, as it hides these files. 
 
-* Windows XP: Right click on "_My Computer_", select "_Properties_", select "_Device Manager_". 
+2. Open the Arduino IDE and navigate to the 'Board Manager' in the the 'Tools'/'Board: "XXX"' drop-down menu.
 
-* Windows 7: Click "Start" -> Right click "_Computer_" -> Select "_Manage_" -> Select "_Device Manager_" from left pane
+3. In the 'Board Manager', install the 'Arduino SAM Boards' (for the Arduino Due). This particular library contains the 'make' executable that Grbl needs to compile via Makefile.
 
-* In the tree, expand "_Ports (COM & LPT)_"
+4. Search in the Windows search bar for 'Environment Variables'. An option 'Edit the system environment variables' in the control panel should be the first option in the list. Select it.
 
-* Your Arduino will be the USB Serial Port (COMX), where the “X” represents the COM number, for example COM6.
+5. A 'System Properties' windows should appear. Click the 'Environment Variables' button at the bottom of the window.
 
-* If there are multiple USB serial ports, right click each one and check the manufacturer, the Arduino will be "_FTDI_". 
+6. Highlight the 'Path' Variable under the 'User variables' and click the 'Edit' button.
 
-To flash a grbl hex to an Arduino:
+7. Click the 'New' button and add these paths. Note that you may need to update the sam library version below.
+    * `C:\Program Files (x86)\Arduino\hardware\tools\avr\avr\bin\`
 
-1. Download and extract [**XLoader**.](http://xloader.russemotto.com)
+    * `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\`
 
-2. Open **XLoader** and select your Arduino's COM port from the drop down menu on the lower left.
+    * `%USERPROFILE%\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system\CMSIS\Examples\cmsis_example\gcc_atmel\
+​`
 
-3. Select the appropriate device from the dropdown list titled "_Device_".
+    * `C:\Program Files (x86)\Arduino`
 
-4. Check that Xloader set the correct baud rate for the device: 57600 for Duemilanove/Nano (ATmega 328) or 115200 for Uno (ATmega 328).
+8. Click 'Ok' for windows and reboot the computer.
 
-5. Now use the browse button on the top right of the form to browse to your grbl hex file.
+9. Once rebooted, open a windows command prompt (Search for 'command prompt'). Navigate to the Grbl source folder via 'cd' change directory commands. In the root of the Grbl source directory, where the Makefile is located, first type 'make clean' to wipe any old build files, then type 'make' and Grbl should compile.
 
-6. Once your grbl hex file is selected, click "_Upload_"
 
-After clicking upload, you'll see the RX/TX lights going wild on your Arduino. The upload process generally takes about 10 seconds to finish. Once completed, a message will appear in the bottom left corner of **XLoader** telling you how many bytes were uploaded. If there was an error, it would show instead of the total bytes uploaded.
-Steps should be similar and may be done through the command prompt.
 
-### Additional Windows HexUploader
+**An alternative is to use Atmel Studio**, a customized version of Visual Studio.
 
-APEHexLoader available from apecoder.co.za, is capable of uploading a hexfile to chips loaded with bootloaders implementing the stk500 protocol, all you have to do is select you file and manually reset your chip, wait for the 3 blinks indicating your bootloader is ready and hit the load firmware button.
+_Last update: 2014-07-18 by gerritv (tested on Windows 8.1, 64bit)_
 
-### Additional Windows Resources:
+* Install Atmel Studio
+* Install the Create From Makefile Extension (Tools/Extension Manager)
+* run Tools/Create Project From Makefil
+* select the Makefile from your grbl code directory
+* Select Device, use ATmega328p for the Arduino Uno
+* In Projects/Properties, uncheck Use External Makefile
+* Add -DF_CPU=16000000 -mmcu=atmega328p to Project/Properties/Toolchain/AVR Gnu Compiler/Miscellaneous Other Flags
 
-For those drawn to a CLI: Browse to the directory where you new hex files resides and enter the following command (replace COM3 with your actual COM number):
+The last 2 steps need to be done for both Debug and Release configurations
 
-`avrdude -p m328p -D -PCOM3 -c arduino -b 115200 -U flash:w:grbl.hex`
+Enjoy the benefits of Visual Studio for Atmel/AVR
 
-# For Linux:
+## For Linux:
+_Last updated: 2012-03-02 by speters. (Tested on ???)_
 
-`avrdude -v -patmega328p -Uflash:w:grbl_v0_9j_atmega328p_16mhz_115200.hex:i -carduino -b 57600 -P /dev/ttyUSBX`
+Make sure you have the prerequisite libraries installed: _avr-gcc_ and _arduino_ (_sudo aptitude install arduino_)
 
-_Last updated: 2012-01-30 by Atrixium. (Tested on Linux Mint 9 (Ubuntu 10.04) and the Arduino Uno and IDE V1.0)_
+At a terminal prompt, change directories to where the _grbl_ source code located. Then type the following to compile and build the firmware:
+```
+make clean
+make grbl.hex
+```
 
-The tools for flashing grbl to an Arduino (called AVRDUDE) are included with the Arduino IDE [software](http://arduino.cc/en/Main/Software). The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.  
+## For Arch Linux
+_Last updated: 2017-03-26 by brownjohnf. (Tested on 2017-03-06)_
 
-**Linux users can now use the [Easy Flash](http://dl.dropbox.com/u/54312401/grbl/grblflash) script to simplify the process.**  
+You may encounter an error about a missing `libtinfo.so.5`. I got grbl to compile and run using
+the following. **WARNING:** The following is a hack, and there are probably better solutions, but this was
+quick and has worked for me.
 
-**Note that in Linux all commands are Case Sensitive**
+1. Install `libtinfo` from AUR with `yaourt -S libtinfo`
+2. Check to see what you've got installed. In my case, it looked like the following, where you can 
+  see that `libtinfo.so.6` is installed, but not `5`.
 
-On a typical install, the AVRDUDE tools can be found in: _/home/$USER/arduino-1.0/hardware/tools/_, depending on where you placed the Arduino IDE, the _/home/$USER_ part of the path may be different. AVRDUDE has two files that we need to be aware of: _avrdude_ and _avrdude.conf_. For simplicity, this document will refer to these two files and their paths as _**$AVRPATH**_ and _**$CONFPATH**_ respectively.
+  ```
+  $ ls -l /usr/lib | grep libtinfo
+  lrwxrwxrwx  1 root root       22 Mar 26 10:13 libtinfo.so -> /usr/lib/libtinfo.so.6
+  lrwxrwxrwx  1 root root       27 Mar 26 10:13 libtinfo.so.6 -> /usr/lib/libncursesw.so.6.0
+  ```
 
-Next we need to find the device path for your Arduino. Connect your Arduino to a USB port, then, from a Terminal window, enter: _dmesg_. This will display a long list of text, the bottom of which should look something like the following: 
+3. You can get things working by symlinking `libncursesw.so.6.0` as `libtinfo.so.5`:
 
-    [ 3058.480208] usb 7-1: new full speed USB device using ohci_hcd and address 15
-    [ 3058.673379] usb 7-1: configuration #1 chosen from 1 choice
-    [ 3058.675293] cdc_acm 7-1:1.0: ttyACM0: USB ACM device
+  ```
+  $ sudo ln -s /usr/lib/libncursesw.so.6.0  /usr/lib/libtinfo.so.5
+  ```
 
-The part that says ttyACM0 is _my_ Arduino, your Arduino should be similarly named but may be ttyACM1 or ttyACM2, etc. depending on how many USB modem devices you have installed. When you've determined the name, your Arduino device path should like something like this: _/dev/ttyACM0_. from here on we'll call this path _**$DEVPATH**_.  Depending on your version of linux, it may also be something like \dev\ttyUSB0, this was the case for me running Ubuntu.
+## For Ubuntu:
+_Last updated: 2014-01-20 by EliteEng._
 
-**To Flash Grbl:** Using the Terminal, first make sure you're in the same directory as the _grbl.hex_ file you want to flash to the Arduino, which we'll call _**$GRBLHEX**_. Then, type **one** of the following command lines in to flash:
+The following has been tested on Ubuntu 11.10 and an Arduino Uno.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of debian too.
 
-**For IDE version 0023 and prior:** `$AVRPATH -C$CONFPATH -pm328p -cstk500v1 -P$DEVPATH -D -Uflash:w:$GRBLHEX`  
-**Example:** `\home\rob\arduino-1.0\hardware\tools\avrdude -C\home\rob\arduino-1.0\hardware\tools\avrdude.conf -pm328p -cstk500v1 -P\dev\ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
+On a brand new ubuntu box, the install process goes like this:
 
-**For v1.0:** `$AVRPATH -C$CONFPATH -pm328p -carduino -P$DEVPATH -D -Uflash:w:$GRBLHEX`  
-**Example:** `\home\rob\arduino-1.0\hardware\tools\avrdude -C\home\rob\arduino-1.0\hardware\tools\avrdude.conf -pm328p -carduino -P\dev\ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
+1) install the avr build tools by running:
+```
+sudo apt-get install arduino-core make unzip
+```
 
-Note that the only change between the two versions is the change from `-cstk500v1` and `-carduino`; the _stk500v1_ programmer to the _Arduino_ programmer. This programmer flag was updated in the v1.0 IDE. Also, note if you are using a Duemilanove it may require you add the flag `-b 57600` to manually set the baud rate.  This is similar to the instructions above in the Mac OS X section.  If all goes according to plan, you should see three sequential progress bars of reading, writing, and verifying and you're good to go! 
+2) Compile the GRBL source code and create the firmware file:
+```
+cd /home ## or a location you want to download the source code to.
+wget https://github.com/grbl/grbl/archive/master.zip
+unzip master.zip
+cd grbl-master
+sudo make grbl.hex
+```
 
-**To flash with USBASP:** 
-If you normally use Arduino IDE with the "Upload using programmer" option
-
-Call avrdude but with the USBASP options set
-
-`/home/user/arduino-nightly/hardware/tools/avr/bin/avrdude -C/home/dgtlmoon/arduino-nightly/hardware/tools/avr/etc/avrdude.conf -v -patmega328p -cusbasp -Pusb -Uflash:w:./grbl_v0_9j_atmega328p_16mhz_115200.hex:i`
-### Additional Linux Resources:
-* **[An easy linux flashing script by Atrixium](http://dl.dropbox.com/u/54312401/grbl/grblflash)**
-
-# Common Flashing Errors
-**error "avrdude: stk500_recv(): programmer is not responding Problem uploading to board"** 
-
-can present itself when your arduino UNO has a firmware <=3.3  <br> 
-workaround is to flash an updated bootloader using an ISP programmer. <br>
-to check your UNO firmware version: <br>
-go to File>Preferences>"show verbose output during"> Upload.<br>
-this issue is non-OS dependent.  <br>
-[see issue #760 for more](https://github.com/grbl/grbl/issues/760)  
-
-# Other General References for Flashing Grbl:
-
-* **[Synthetos grblshield](http://www.synthetos.com/wiki/index.php?title=Getting_grbl)** _(Last updated 1/2012)_
+3) To flash the firmware to your Arduino Uno, plug the Arduino in using the USB cable (Confirm that the device is located at /dev/ttyACM0 and run the following command:
+```
+sudo PROGRAMMER="-c arduino -P /dev/ttyACM0" make flash
+```
+That's it, the firmware should now be installed on your Arduino.
