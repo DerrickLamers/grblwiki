@@ -1,5 +1,5 @@
 ***
-_Welcome to the Grbl wiki! Please feel free to modify these pages to help keep Grbl up-to-date!_
+_Welcome to the Grbl wiki! Please feel free to modify these pages to help keep Grbl up-to-date !_
 
 ![Grbl Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
 
