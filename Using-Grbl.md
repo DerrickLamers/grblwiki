@@ -57,8 +57,7 @@ An advanced fully featured g-code sender for GRBL. bCNC is a cross platform prog
 - web pendant to be used via smart phones
 
 ### [Universal G-code Sender (UGS)](https://github.com/winder/Universal-G-Code-Sender) [Java Cross-Platform]
-![UGS main window](https://raw.github.com/winder/Universal-G-Code-Sender/master/pictures/1.0.6_command_table.png)
-![UGS visualizer](https://github.com/winder/Universal-G-Code-Sender/raw/master/pictures/1.0.6_visualizer.png)
+![UGS main window](https://github.com/winder/Universal-G-Code-Sender/raw/master/pictures/2.0_platform_ugs_platform.png)
 
 A full-featured GUI, developed by @wwinder, that streams, visualizes G-code, and has complete control and feedback functionality for Grbl's higher level features. It's written in Java, which means it can be run on any Java-capable machine including the RaspberryPi! The Grbl group works closely with this project and highly recommend using this GUI. If you find any issues or would like to request more GUI features, @wwinder has done a wonderful job in completing many of the requests.
 
