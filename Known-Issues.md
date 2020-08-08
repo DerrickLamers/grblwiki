@@ -24,7 +24,7 @@ _This wiki is intended to provide information on known bugs or issues. Please fe
 
 # Doesn't go slower than X mm/min! Or limitations at very slow step rates.
 
-* Grbl is limited to about 30 steps/sec (or 4 steps/sec if AMASS is disabled). This isn't really a bug, but a problem due to Arduino 328p 16-bit timer is only capable of timing at its slowest at 4ms increments (max prescaler and max count). Sure, Grbl can try to code in some conditions to emulate even slower step rates, but it's not worth the investment in previous flash space. It's far better to keep things simple and just move onto a processor with a better timer.
+* Grbl is limited to about 30 steps/sec (or 4 steps/sec if AMASS is disabled). This isn't really a bug, but a problem due to Arduino 328p 16-bit timer is only capable of timing at its slowest at 4ms increments (max prescaler and max count). Sure, Grbl can try to code in some conditions to emulate even slower step rates, but it's not worth the investment in precious flash space. It's far better to keep things simple and just move onto a processor with a better timer.
 
 * Most typical CNC applications do not come close to this low step rate. For example, a user wanted to build a star tracker machine with Grbl, but it needed to move at rates well below 1mm/min. If you have a special use case like this, you can try a few things. First, disable AMASS in config.h. This will bring down lowest step rate to 4 steps/sec. Second, increase your micro stepping on your stepper driver. This will increase the step/mm and increase your step rate without going any faster. Finally, increase your mechanical gear ratios, like switching out to a leadscrew with a lower pitch or a timing belt gear with a smaller radius. 
 
