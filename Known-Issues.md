@@ -14,7 +14,7 @@ _This wiki is intended to provide information on known bugs or issues. Please fe
 
 * Clone Arduino boards using the CH340G USB to Serial chip experience occasional transmission errors and their use is at your own risk. There is no current fix for this problem on CH340G equipped boards.
 
-* Genuine Arduino boards and clone Arduino boards using the Atmel 16U2 USB to Serial chip also experience occasional transmission errors and it is recommended that users re-flash the 16U2 chip with updated firmware. You can use the instructions here: https://www.arduino.cc/en/Hacking/DFUProgramming8U2 to falsh the new firmware, and the new firmware can be found here:https://github.com/AlexHolden/Arduino/tree/master/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial  Many thanks to user AlexHolden for taking the time to edit the firmware to solve this problem.
+* Genuine Arduino boards and clone Arduino boards using the Atmel 16U2 USB to Serial chip also experience occasional transmission errors and it is recommended that users re-flash the 16U2 chip with updated firmware. You can use the instructions here: https://www.arduino.cc/en/Hacking/DFUProgramming8U2 to flash the new firmware, and the new firmware can be found here:https://github.com/AlexHolden/Arduino/tree/master/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial  Many thanks to user AlexHolden for taking the time to edit the firmware to solve this problem.
 
 * You can read more about the problem in the issue here: https://github.com/grbl/grbl/issues/845
 
