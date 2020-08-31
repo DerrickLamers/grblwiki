@@ -462,6 +462,7 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 | **`E`** | Force sync upon EEPROM write disabled |
 | **`W`** | Force sync upon work coordinate offset change disabled |
 | **`L`** | Homing init lock sets Grbl into an alarm state upon power up|
+| **`2`** | Dual axis motors with self-squaring enabled |
 
   - `[echo:]` : Indicates an automated line echo from a command just prior to being parsed and executed. May be enabled only by a config.h option. Often used for debugging communication issues. A typical line echo message is shown below. A separate `ok` will eventually appear to confirm the line has been parsed and executed, but may not be immediate as with any line command containing motions.
       ```
