@@ -30,8 +30,6 @@ _**NOTE:**_ If your environment is clean and Arduino IDE compiler still throws "
 
 **_Compiling GRBL or Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file. It is **extremely important** to edit the files **inside** the Arduino `library` folder **not** the folder you imported the grbl from. `config.h` enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
 
-**_Advanced Users:_** Most users are just fine with Grbl's default build, but you can customize Grbl by editing the `config.h` file. It is **extremely important** to edit the files **inside** the Arduino library folder **not** the folder you imported the library from. This file enables or disables all of Grbl's additional compile-time options. There are descriptions in the file that explains what they all do. Once edited and saved, just follow the steps above to flash your custom Grbl build!
-
 No fuss! No muss!
 
 _NOTE: If you are having upload issues, try re-burning the Arduino bootloader. If you have a spare Arduino, it's [easy](https://www.arduino.cc/en/Tutorial/ArduinoISP)!_
