@@ -81,6 +81,7 @@ $0=10
 ```
 If everything went well, Grbl will respond with an 'ok' and this setting is stored in EEPROM and will be retained forever or until you change them. You can check if Grbl has received and stored your setting correctly by typing `$$` to view the system settings again.
 
+Note that some settings (such as $100, $101, $102) require a soft reset for the settings to be properly loaded. Any subsequent movement command could otherwise move the machine to the wrong coordinates causing damage to the machine.
 
 ***
 
