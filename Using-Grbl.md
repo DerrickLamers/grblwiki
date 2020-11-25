@@ -64,6 +64,21 @@ A full-featured GUI, developed by @wwinder, that streams, visualizes G-code, and
 Version 2.0 of UGS is required for full GRBL v1.1 compatibility.
 
 --------
+### [UltimateCNC] (https://ultimatecnc.softgon.net/)
+![UltimateCNC-Logo](https://ultimatecnc.softgon.net/img/UltimateCNC-logo.png)
+G-Code sender application for GRBL-based CNC-machines with G-Code visualizer
+for Windows, Linux and MacOS.
+
+Supported functions:
+
+* Controlling GRBL-based cnc-machine via console commands, buttons on form, numpad.
+* Monitoring cnc-machine state.
+* Autoleveling Z-axis for PCB milling.
+* Visualizing G-code files.
+* Importing g-code, stl, and images.
+* Supporting GRBL 1.1 (and 0.9 also)
+
+--------
 ### [Easel](http://app.easel.com) [Browser-based CAD + CAM + Grbl controller]
 
 ![Easel Screenshot](http://cl.ly/image/0m3Q0w0u0c1F/Screen%20Shot%202014-10-07%20at%205.22.00%20PM.png)
