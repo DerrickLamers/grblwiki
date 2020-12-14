@@ -2,7 +2,7 @@ When setting up a system with only two axes, such as a laser engraver or pen plo
 
 # Homing Configuration
 
-Ensure you've modified the config.h properly before uploading the GRBL code to your Arduino or homing may fail and it won't be obvious why. The default 3-axis homing mechanism is defined in config.h as:
+Ensure you've modified GRBL's config.h file properly before uploading the GRBL code to your Arduino or homing may fail and it won't be obvious why. The default 3-axis homing mechanism is defined in config.h as:
 
 ```
 #define HOMING_CYCLE_0 (1<<Z_AXIS)                // REQUIRED: First move Z to clear workspace.
