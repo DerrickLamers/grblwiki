@@ -41,6 +41,10 @@ The ultimate solution for noise filtering on end switches is to add optocouplers
 
 ----
 
+If you're building a two-axis system, such as a laser engraver or pen plotter, you may also wish to read the limit switch section of the [Two-Axis System Considerations page](https://github.com/gnea/grbl/wiki/Two-Axis-System-Considerations).
+
+----
+
 
 During the [discussion on GRBL forum](https://github.com/gnea/grbl/issues/96) we came to the following design of GRBL limit switch end sensor break out board - see the images below. The board is single side PCB (1.0mm to 1.6mm FR4) and uses connector with screws for attaching the end sensor wires. We recommend to use crimping of the wires before inserting them into the connectors.
 
