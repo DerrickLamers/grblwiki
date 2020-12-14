@@ -1,4 +1,4 @@
-When setting up a system with only two axes, such as a laser engraver or pen plotter, there are a couple of items that must be considered or you will run into strange errors and unexplainable behavior.
+When setting up a system with only two axes, such as a laser engraver or pen plotter, there are a couple of items that must be considered or you will run into strange errors and apparently unexplainable behavior.
 
 # Homing Configuration
 
