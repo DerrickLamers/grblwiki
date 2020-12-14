@@ -16,6 +16,9 @@ Enabling or disabling Grbl's laser mode is easy. Just alter the **$32** Grbl set
 
 **WARNING:** If you switch back from laser mode to a spindle for milling, you **MUST** disable laser mode by sending Grbl a `$32=0` command. Milling operations require the spindle to get up to the right rpm to cut correctly and to be **safe**, helping to prevent a tool from breaking and flinging metal shards everywhere. With laser mode disabled, Grbl will briefly pause upon any spindle speed or state change to give the spindle a chance to get up to speed before continuing.
 
+### Two-axis Systems
+
+If you're building a laser-grbl system, it's probably a two-axis system, since the Z axis is not usually needed. You may wish to read the [Two-Axis System Considerations page](https://github.com/gnea/grbl/wiki/Two-Axis-System-Considerations).
 
 ## Laser Mode Operation
 
