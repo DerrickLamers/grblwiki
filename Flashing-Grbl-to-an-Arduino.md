@@ -103,15 +103,15 @@ Next we need to find the device path for your Arduino. Connect your Arduino to a
     [ 3058.673379] usb 7-1: configuration #1 chosen from 1 choice
     [ 3058.675293] cdc_acm 7-1:1.0: ttyACM0: USB ACM device
 
-The part that says ttyACM0 is _my_ Arduino, your Arduino should be similarly named but may be ttyACM1 or ttyACM2, etc. depending on how many USB modem devices you have installed. When you've determined the name, your Arduino device path should like something like this: _/dev/ttyACM0_. from here on we'll call this path _**$DEVPATH**_.  Depending on your version of linux, it may also be something like \dev\ttyUSB0, this was the case for me running Ubuntu.
+The part that says ttyACM0 is _my_ Arduino, your Arduino should be similarly named but may be ttyACM1 or ttyACM2, etc. depending on how many USB modem devices you have installed. When you've determined the name, your Arduino device path should like something like this: _/dev/ttyACM0_. from here on we'll call this path _**$DEVPATH**_.  Depending on your version of linux, it may also be something like /dev/ttyUSB0, this was the case for me running Ubuntu.
 
 **To Flash Grbl:** Using the Terminal, first make sure you're in the same directory as the _grbl.hex_ file you want to flash to the Arduino, which we'll call _**$GRBLHEX**_. Then, type **one** of the following command lines in to flash:
 
 **For IDE version 0023 and prior:** `$AVRPATH -C$CONFPATH -pm328p -cstk500v1 -P$DEVPATH -D -Uflash:w:$GRBLHEX`  
-**Example:** `\home\rob\arduino-1.0\hardware\tools\avrdude -C\home\rob\arduino-1.0\hardware\tools\avrdude.conf -pm328p -cstk500v1 -P\dev\ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
+**Example:** `/home/rob/arduino-1.0/hardware/tools/avrdude -C/home/rob/arduino-1.0/hardware/tools/avrdude.conf -pm328p -cstk500v1 -P/dev/ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
 
 **For v1.0:** `$AVRPATH -C$CONFPATH -pm328p -carduino -P$DEVPATH -D -Uflash:w:$GRBLHEX`  
-**Example:** `\home\rob\arduino-1.0\hardware\tools\avrdude -C\home\rob\arduino-1.0\hardware\tools\avrdude.conf -pm328p -carduino -P\dev\ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
+**Example:** `/home/rob/arduino-1.0/hardware/tools/avrdude -C/home/rob/arduino-1.0/hardware/tools/avrdude.conf -pm328p -carduino -P/dev/ttyACM0 -D -Uflash:w:grbl_0_7d_atmega328p_16mhz_9600.hex`
 
 Note that the only change between the two versions is the change from `-cstk500v1` and `-carduino`; the _stk500v1_ programmer to the _Arduino_ programmer. This programmer flag was updated in the v1.0 IDE. Also, note if you are using a Duemilanove it may require you add the flag `-b 57600` to manually set the baud rate.  This is similar to the instructions above in the Mac OS X section.  If all goes according to plan, you should see three sequential progress bars of reading, writing, and verifying and you're good to go! 
 
