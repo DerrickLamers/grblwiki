@@ -15,10 +15,6 @@ In 2009, **Simen Svale Skogsrud** (**http://bengler.no/grbl**) graced the open-s
 
 ![Official Supporters](https://github.com/gnea/gnea-Media/blob/master/Contributors.png?raw=true)
 
-_Grbl is an open-source project and fueled by the free-time of our intrepid administrators and altruistic users. If you'd like to donate, all proceeds will be used to help keep this project sustainable and to fund supporting equipment. Thank you!_
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EBQWAWQAAT878) 
-
 -----
 
 ### Who should use Grbl
