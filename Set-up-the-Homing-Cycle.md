@@ -88,5 +88,6 @@ After the feed phase, the axis moves back a little, to un-trigger the switch. Th
 - What's the homing cycle for? How do you use it? Is it really that useful? YES.
   - Explain work coordinate systems(WCS) and G28/30 move to predefined locations
   - Explain how to save WCS and G28/30 coordinate frames using G10 and G28.1/30.1.
+   (All above explained perfectly in this video https://www.youtube.com/watch?v=fGtbkVJBXyE )
   - Provide clear link to LinuxCNC g-code descriptions
   - Explain how WCS and G28/30 are used in common scenarios.
