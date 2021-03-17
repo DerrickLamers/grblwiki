@@ -1,0 +1,8 @@
+I am setting up a new "Home Brew" laser cutter/engraver, using GRBL, Arduino UNO and CNC shield v3 (clone). The shield has a double Y axis using a cloned A driver in order to drive two Y axis motors. I am using LaserGRBL to control GRBL 1.1h in laser mode (I actually have laser mode turned off during testing so I can do some things that laser mode will not do while not in motion)
+
+I had all the setting done correctly I thought, I could move the machine in all the correct directions and then I came to doing the homing.
+I pressed the homing button and all moved in the right directions, Z was OK, Y gave a problem and X didn't complete due to Y having the problem. I checked out the wiring and found a bad connection on the Y switch and that has now been fixed.
+
+The strange problem is that after trying to home, the X and Y axis will now only move in a positive direction, no matter which direction I try to move in. The Z will work OK in both directions. If I try homing again, it will home in the negative direction (as it should), so the motors and drivers seem to be OK.
+I reset the program (LaserGRBL) and I even closed the program and restated it again, shut the computer and the machine down and restated them again, but still the problem persists.
+If I turn off homing cycle, I can manually (moving by hand) home to the front left hand corner and set X Y zero and all movements are then correct. Once I initiate homing, the problem returns and I can only move in a positive direction, no matter if I try positive or negative moves.
