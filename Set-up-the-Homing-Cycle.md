@@ -12,7 +12,15 @@
 
 Another place that explains the Limit switch configuration: [Wiring-Limit-Switches](https://github.com/gnea/grbl/wiki/Wiring-Limit-Switches)
 
-Limit switches usually have three terminals. One is common terminal, one is normally open to the common terminal and another one is normally closed to common. In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). Use of NC instead of NO is enabled by configuring $5=1. All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
+Limit switches usually have three terminals:
+
+One is common terminal (`COM`), one is normally open (`NO`) to the common terminal and another one is normally closed (`NC`) to common. 
+
+In this case, we are going to use two terminals, normally open (`NO`) and common (`COM`). 
+
+Use of (`NC`) instead of (`NO`) is enabled by configuring `$5=1` . 
+
+All the common lines go to the arduino's GND, the `NO` lines go to the pin for that axis. This will result in this wiring:
 
 
 - *X- limit `NO` -> Arduino Pin 9
@@ -47,9 +55,9 @@ The homing directions are controlled by setting `$23` setting it to a value defi
 | X+ Y- Z-         | 6      |
 | X- Y- Z-         | 7      |
 
-- Default setting (`$23=0`), the home location is the top right of your work area, with the spindle all the way up. 
-- `$23=1` Top left home location. 
-- `$23=2` Bottom right of your work area to be the home location. 
+- Default setting (`$23=0`), the home location is the top right of your work area, with the spindle all the way up.
+- `$23=1` Top left home location.
+- `$23=2` Bottom right of your work area to be the home location.
 - `$23=3` Bottom left.
 - `$23=4` Spindle down home location.
 
