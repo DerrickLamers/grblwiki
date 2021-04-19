@@ -19,6 +19,19 @@ When have started to feel comfortable with G-code/CNC and you're ready to run a 
 
 ## How to Stream G-Code Programs to Grbl
 
+
+### SourceRabbit GCode Sender - [https://www.sourcerabbit.com](https://www.sourcerabbit.com/Shop/pr-i-80-t-grbl-gcode-sender.htm) [Win, Mac, Linux]
+![screenshot_heightmap_original](https://github.com/SourceRabbit/gcode-sender/blob/master/Images/Screenshot.png)
+
+SourceRabbit GCode Sender turns a personal computer into a 3-Axis CNC machine controller. It is cross platform, it features a highly optimized and asynchronous (event-driven) UI and USB-to-Serial communication and can run on computers with small amount of RAM.
+
+**Features:**
+- Compatible with GRBL v0.9 and above
+- Semi auto tool changes with automatic tool height measurement
+- Event-Driven UI and USB-to-Serial communication
+
+-------
+
 ### [bCNC] (https://github.com/vlachoudis/bCNC)
 ![bCNC Screenshot](https://raw.githubusercontent.com/vlachoudis/bCNC/doc/Screenshots/bCNC.png)
 
@@ -116,13 +129,6 @@ Supported functions:
 * Loading, editing, saving and sending of G-code files to cnc-machine.
 * Visualizing G-code files.
 * Autoleveling Z-axis for PCB milling.
-
--------
-
-### [SourceRabbit GCode Sender](https://github.com/nsiatras/sourcerabbit-gcode-sender) [Java Cross-Platform]
-![screenshot_heightmap_original](https://github.com/nsiatras/sourcerabbit-gcode-sender/blob/master/Images/ControlForm.png)
-
-SourceRabbit GCode Sender is a GRBL compatible, cross platform G-Code sender written in Java. It features a highly optimized and asynchronous (event-driven) UI and USB-to-Serial communication and can be also used on computers with small amount of RAM and CPU.
 
 -----------
 
