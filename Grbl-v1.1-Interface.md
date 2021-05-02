@@ -88,7 +88,7 @@ For reference:
 
 #### G-code Error Handling
 
-Grbl's g-code parser is fully standards-compilant with complete error-checking. When a G-code parser detects an error in a G-code block/line, the parser will dump everything in the block from memory and report an `error:` back to the user or GUI. This dump is absolutely the right thing to do, because a g-code line with an error can be interpreted in multiple ways. However, this dump can be problematic, because the bad G-code block may have contained some valuable positioning commands or feed rate settings that the following g-code depends on.
+Grbl's g-code parser is fully standards-compliant with complete error-checking. When a G-code parser detects an error in a G-code block/line, the parser will dump everything in the block from memory and report an `error:` back to the user or GUI. This dump is absolutely the right thing to do, because a g-code line with an error can be interpreted in multiple ways. However, this dump can be problematic, because the bad G-code block may have contained some valuable positioning commands or feed rate settings that the following g-code depends on.
 
 It's highly recommended to do what all professional CNC controllers do when they detect an error in the G-code program, _**halt**_. Don't do anything further until the user has modified the G-code and fixed the error in their program. Otherwise, bad things could happen.
 
