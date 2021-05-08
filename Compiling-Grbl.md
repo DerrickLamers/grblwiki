@@ -145,15 +145,15 @@ quick and has worked for me.
   ```
 
 ## For Ubuntu:
-_Last updated: 2014-01-20 by EliteEng._
+_Last updated: 2021-05-08 by ooxi, based upon the work of EliteEng._
 
-The following has been tested on Ubuntu 11.10 and an Arduino Uno.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of debian too.
+The following has been tested on Ubuntu 20.04 and an Arduino Uno.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of Debian too.
 
-On a brand new ubuntu box, the install process goes like this:
+On a brand new Ubuntu box, the install process goes like this:
 
 1) install the avr build tools by running:
 ```
-sudo apt-get install arduino-core make unzip
+sudo apt-get install avrdude avr-libc gcc-avr make unzip
 ```
 
 2) Compile the GRBL source code and create the firmware file:
