@@ -159,7 +159,7 @@ sudo apt-get install avrdude avr-libc gcc-avr make unzip
 2) Compile the GRBL source code and create the firmware file:
 ```
 cd /home ## or a location you want to download the source code to.
-wget https://github.com/grbl/grbl/archive/master.zip
+wget https://github.com/gnea/grbl/archive/master.zip
 unzip master.zip
 cd grbl-master
 sudo make grbl.hex
