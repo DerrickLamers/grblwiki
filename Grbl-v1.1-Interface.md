@@ -5,7 +5,7 @@
 * [Grbl Response Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-response-messages)
 * [Grbl Push Messages](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface#grbl-push-messages)
 
-See [Using Grbl](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface) to learn about existing projects offering GUI and non-GUI interfaces to GRBL.
+See [Using Grbl](https://github.com/gnea/grbl/wiki/Using-Grbl) to learn about existing projects offering GUI and non-GUI interfaces to GRBL.
 
 ***
 ### Please help us maintain this page! If you spot a problem, feel free to update it or notify us.
