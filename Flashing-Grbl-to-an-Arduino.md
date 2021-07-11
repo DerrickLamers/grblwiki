@@ -58,7 +58,7 @@ To Determine your Arduino's COM port:
 
 To flash a grbl hex to an Arduino:
 
-1. Download and extract [**XLoader**.](http://xloader.russemotto.com)
+1. Download and extract [**XLoader**.](https://github.com/xinabox/xLoader)
 
 2. Open **XLoader** and select your Arduino's COM port from the drop down menu on the lower left.
 
