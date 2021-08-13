@@ -83,7 +83,7 @@ Version 2.0 of UGS is required for full GRBL v1.1 compatibility.
 
 --------
 ### [UltimateCNC] (https://ultimatecnc.softgon.net/)
-![UltimateCNC-Logo](https://ultimatecnc.softgon.net/img/UltimateCNC-logo.png)
+![UltimateCNC-Logo](https://ultimatecnc.softgon.net/img/screen_desktop.png)
 G-Code sender application for GRBL-based CNC-machines with G-Code visualizer
 for Windows, Linux and MacOS.
 
