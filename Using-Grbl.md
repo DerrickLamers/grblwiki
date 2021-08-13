@@ -89,15 +89,17 @@ for Windows, Linux and MacOS.
 
 Supported functions:
 
-* Controlling GRBL-based cnc-machine via console commands.
 * Monitoring cnc-machine state.
 * View g-code & trajectories in 2D and 3D.
 * Autoleveling Z-axis for PCB milling.
+* Support big files g-code.
 * Custom commands through macros.
 * Flashing Grbl to an Arduino.
 * Modern user interface for touchscreens and small screens.
 * Move your machine CNC using the keyboard.
-* Tool changes with automatic tool height measurement.
+* Tool changes with automatic tool height measurement. 
+* Easy configuration of GRBL using menus.
+* Controlling GRBL-based cnc-machine via console commands (MDI).
 * No Java required.
 --------
 ### [Easel](http://app.easel.com) [Browser-based CAD + CAM + Grbl controller]
