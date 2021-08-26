@@ -5,6 +5,8 @@
 
 *****
 ### Please help us keep this page maintained! If you spot a problem, feel free to update it or notify us.
+I plan to use Google to translate these materials into Chinese to help Chinese readers learn.
+[我计划借助Google将这些资料翻译成中文，以帮助中文读者学习。]
 ******
 
 # Grbl v1.1 Commands
@@ -12,12 +14,13 @@
 In general, Grbl assumes all characters and streaming data sent to it is g-code and will parse and try to execute it as soon as it can. However, Grbl also has two separate system command types that are outside of the normal g-code streaming. One system command type is streamed to Grbl like g-code, but starts with a `$` character to tell Grbl it's not g-code. The other is composed of a special set of characters that will immediately command Grbl to do a task in real-time. It's not part of the g-code stream. Grbl's system commands do things like control machine state, report saved parameters or what Grbl is doing, save or print machine settings, run a homing cycle, or make the machine move faster or slower than programmed. This document describes these "internal" system Grbl commands, what they do, how they work, and how to use them.
 
 [ 通常，Grbl假定发送给它的所有字符和流数据都是g代码，并且将解析并尝试尽快执行它。 但是，Grbl还具有两种单独的系统命令类型，它们不在常规g代码流传输之外。 一种系统命令类型像g代码一样流式传输到Grbl，但是以$字符开头告诉Grbl不是g代码。 另一个由一组特殊的字符组成，这些字符将立即命令Grbl实时执行任务。 它不是g代码流的一部分。 Grbl的系统命令可以执行以下操作：控制机器状态，报告已保存的参数或Grbl正在执行的操作，保存或打印机器设置，回参考点循环或使机器运动快于或慢于编程速度运动。 本文档介绍了这些“内部”系统Grbl命令，它们的作用，如何工作以及如何使用它们。]
-## Getting Started
+## Getting Started [入门介绍]
 
 First, connect to Grbl using the serial terminal of your choice.
-
+[首先，您应该选择的串行终端连软件接到 Grbl 控制板。
+译注: 国内流行的各种版本的“串口助手”可用]
 Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
-
+[第二步：设置串口参数：波特率：115200 ，数据位 8 , 停止位：1 效验位：无]
 Once connected
  you should get the Grbl-prompt, which looks like this:
 
