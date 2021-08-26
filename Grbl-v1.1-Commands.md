@@ -5,7 +5,8 @@
 
 *****
 ### Please help us keep this page maintained! If you spot a problem, feel free to update it or notify us.
-I plan to use Google to translate these materials into Chinese to help Chinese readers learn.
+I plan to use Google to translate these materials into Chinese ，to help Chinese readers learn.
+
 [我计划借助Google将这些资料翻译成中文，以帮助中文读者学习。]
 ******
 
@@ -19,11 +20,15 @@ In general, Grbl assumes all characters and streaming data sent to it is g-code 
 First, connect to Grbl using the serial terminal of your choice.
 [首先，您应该选择的串行终端连软件接到 Grbl 控制板。
 译注: 国内流行的各种版本的“串口助手”可用]
-Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
-[第二步：设置串口参数：波特率：115200 ，数据位 8 , 停止位：1 效验位：无]
+Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.) 
+
+\[第二步：设置串口参数：波特率：115200 ，数据位 8 , 停止位：1 效验位：无\]
+
 Once connected
  you should get the Grbl-prompt, which looks like this:
 
+\[一旦连接成功：
+你将看到Grbl 的提示信息 \]
 ```
 Grbl 1.1e ['$' for help]
 ```
