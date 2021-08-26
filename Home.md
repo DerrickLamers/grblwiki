@@ -39,7 +39,7 @@ Supported G-Codes in **v1.1**
  * **G10 L2, G10 L20:** _Set Work Coordinate Offsets_
  * **G17, G18, G19:** _Plane Selection_ 
  * **G20, G21:** _Units_ 
- * **G28, G30:** _Go to Pre-Defined Position_ 
+ * **G28, G30:** _Go to Pre-Defined Position_  [运动到预定义位置]
  * **G28.1, G30.1:** _Set Pre-Defined Position_
  * **G38.2:** _Probing_ 
  * **G38.3, G38.4, G38.5:** _Probing_ 
