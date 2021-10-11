@@ -1,6 +1,6 @@
-#### _Quick-Links:_
-* [Grbl `$` System Commands](#grbl--commands)
-* [Grbl Real-Time Commands](#grbl-v11-realtime-commands)
+#### _Quick-Links(快速链接):_
+* [Grbl `$` System Commands](#grbl--commands) [（将“$”系统命令分组）](#grbl--commands)
+* [Grbl Real-Time Commands](#grbl-v11-realtime-commands) [（Grbl实时命令）](#grbl-v11-realtime-commands)
 
 
 *****
@@ -10,7 +10,7 @@ I plan to use Google to translate these materials into Chinese ，to help Chines
 [我计划借助Google将这些资料翻译成中文，以帮助中文读者学习。]
 ******
 
-# Grbl v1.1 Commands
+# Grbl v1.1 Commands[命令]
 
 In general, Grbl assumes all characters and streaming data sent to it is g-code and will parse and try to execute it as soon as it can. However, Grbl also has two separate system command types that are outside of the normal g-code streaming. One system command type is streamed to Grbl like g-code, but starts with a `$` character to tell Grbl it's not g-code. The other is composed of a special set of characters that will immediately command Grbl to do a task in real-time. It's not part of the g-code stream. Grbl's system commands do things like control machine state, report saved parameters or what Grbl is doing, save or print machine settings, run a homing cycle, or make the machine move faster or slower than programmed. This document describes these "internal" system Grbl commands, what they do, how they work, and how to use them.
 
@@ -37,6 +37,7 @@ Grbl 1.1e ['$' for help]
 
 Type $ and press enter to have Grbl print a help message. You should not see any local echo of the $ and enter. Grbl should respond with:
 
+\[输入 $ 并按回车键可以让 Grbl 打印帮助信息。您不会看到 $ 的任何本地回声并输入。Grbl 应该回应：\]
 ```
 [HLP:$$ $# $G $I $N $x=val $Nx=line $J=line $SLP $C $X $H ~ ! ? ctrl-x]
 ok
@@ -44,23 +45,33 @@ ok
 
 The ‘$’-commands are Grbl system commands used to tweak the settings, view or change Grbl's states and running modes, and start a homing cycle. The last four **non**-'$' commands are realtime control commands that can be sent at anytime, no matter what Grbl is doing. These either immediately change Grbl's running behavior or immediately print a report of the important realtime data like current position (aka DRO). There are over a dozen more realtime control commands, but they are not user type-able. See realtime command section for details.
 
+\['$'命令是 Grbl 系统命令，用于调整设置、查看或更改 Grbl 的状态和运行模式，以及启动归位循环。最后四个非-'$'命令是实时控制命令，可以随时发送，不管Grbl在做什么。这些要么立即改变 Grbl 的运行行为，要么立即打印当前位置（又名 DRO）等重要实时数据的报告。还有十多个实时控制命令，但它们不是用户可以键入的。有关详细信息，请参阅实时命令部分。\]
 ***
 
-## Grbl '$' Commands
+## Grbl '$' Commands[Grbl“$”命令]
 
 The `$` system commands provide additional controls for the user, such as printing feedback on the current G-code parser modal state or running the homing cycle. This section explains what these commands are and how to use them.
 
+\[该$系统命令为用户提供额外的控制，如打印反馈对电流G-代码解析器模式状态或运行归位周期。本节说明的是这些命令是什么以及如何使用它们。\]
 #### `$$`and `$x=val` - View and write Grbl settings
+#### [`$$`和`$x=val`-查看和写入Grbl设置]
 See [Grbl v1.1 Configuration](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#grbl-settings) for more details on how to view and write setting and learn what they are.
 
-#### `$#` - View gcode parameters
+有关如何查看和编写设置以及了解它们是什么的更多详细信息，请参阅[GRBLV1.1配置](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#grbl-settings)
 
+#### `$#` - View gcode parameters
+#### [$# - 查看 gcode 参数]
 G-code parameters store the coordinate offset values for G54-G59 work coordinates, G28/G30 pre-defined positions, G92 coordinate offset, tool length offsets, and probing (not officially, but we added here anyway). Most of these parameters are directly written to EEPROM anytime they are changed and are persistent. Meaning that they will remain the same, regardless of power-down, until they are explicitly changed. The non-persistent parameters, which will are not retained when reset or power-cycled, are G92, G43.1 tool length offsets, and the G38.2 probing data.
+
+\[G 代码参数存储: G54-G59 工作坐标、G28/G30 预定义位置、G92 坐标偏移、刀具长度偏移和探测的坐标偏移值（不是正式的，但我们在这里添加了）。这些参数中的大多数在更改时都会直接写入 EEPROM 并且是持久的。这意味着它们将保持不变，无论断电如何，直到它们被明确更改。G92、G43.1 刀具长度偏置和 G38.2 探测数据等非持久性参数在复位或重新上电时不会保留。\]
 
 G54-G59 work coordinates can be changed via the `G10 L2 Px` or `G10 L20 Px` command defined by the NIST gcode standard and the EMC2 (linuxcnc.org) standard. G28/G30 pre-defined positions can be changed via the `G28.1` and the `G30.1` commands, respectively.
 
+\[G54-G59工作坐标可通过NIST gcode标准和EMC2（linuxcnc.org）标准定义的`G10 L2 Px` 或 `G10 L20 Px`命令进行更改。G28/G30预定义位置可分别通过 `G28.1` 和 `G30.1`命令进行更改。\]
+
 When `$#` is called, Grbl will respond with the stored offsets from machine coordinates for each system as follows. `TLO` denotes tool length offset (for the default z-axis), and `PRB` denotes the coordinates of the last probing cycle, where the suffix `:1` denotes if the last probe was successful and `:0` as not successful.
 
+\[当`$`被调用时，Grbl 将使用存储的每个系统的机器坐标偏移量进行响应，如下所示。`TLO`表示刀具长度偏移（对于默认的 z 轴），`PRB`表示最后一次探测循环的坐标，其中后缀`:1`表示最后一次探测是成功还是`:0`不成功。\]
 ```
 [G54:4.000,0.000,0.000]
 [G55:4.000,6.000,7.000]
@@ -76,50 +87,67 @@ When `$#` is called, Grbl will respond with the stored offsets from machine coor
 ```
 
 #### `$G` - View gcode parser state
+#### [`$G`查看 gcode 解析器状态]
 
 This command prints all of the active gcode modes in Grbl's G-code parser. When sending this command to Grbl, it will reply with a message starting with an `[GC:` indicator like: 
 
+\[此命令打印 Grbl 的 G 代码解析器中的所有活动 gcode 模式。将此命令发送到 Grbl 时，它将回复一条以`[GC:`指示符开头的消息，例如：\]
 ```
 [GC:G0 G54 G17 G21 G90 G94 M0 M5 M9 T0 S0.0 F500.0]
 ```
 
 These active modes determine how the next G-code block or command will be interpreted by Grbl's G-code parser. For those new to G-code and CNC machining, modes sets the parser into a particular state so you don't have to constantly tell the parser how to parse it. These modes are organized into sets called "modal groups" that cannot be logically active at the same time. For example, the units modal group sets whether your G-code program is interpreted in inches or in millimeters.
 
+\[这些活动模式决定了 Grbl 的 G 代码解析器将如何解释下一个 G 代码块或命令。对于 G 代码和 CNC 加工的新手，模式将解析器设置为特定状态，因此您不必经常告诉解析器如何解析它。这些模式被组织成称为“模式组”的集合，它们不能同时在逻辑上处于活动状态。例如，单位模态组设置您的 G 代码程序是以英寸还是毫米为单位进行解释的。\]
+
 A short list of the modal groups, supported by Grbl, is shown below, but more complete and detailed descriptions can be found at LinuxCNC's [website](http://www.linuxcnc.org/docs/2.4/html/gcode_overview.html#sec:Modal-Groups). The G-code commands in **bold** indicate the default modes upon powering-up Grbl or resetting it.
 
-| Modal Group |  Member Words |
+Grbl 支持的模态组的简短列表如下所示，但更完整和详细的描述可以在 LinuxCNC 的[网站上](http://www.linuxcnc.org/docs/2.4/html/gcode_overview.html#sec:Modal-Groups)找到。**粗体**的 G 代码命令表示 Grbl 上电或重置时的默认模式。
+
+| Modal Group \[模态组\] |  Member Words \[会员词\] |
 |:----:|:----:|
-| Motion Mode | **G0**, G1, G2, G3, G38.2, G38.3, G38.4, G38.5, G80 |
-|Coordinate System Select	| **G54**, G55, G56, G57, G58, G59|
-|Plane Select	| **G17**, G18, G19|
-|Distance Mode	| **G90**, G91|
-|Arc IJK Distance Mode | **G91.1** |
-|Feed Rate Mode	| G93, **G94**|
-|Units Mode	| G20, **G21**|
-|Cutter Radius Compensation | **G40** |
-|Tool Length Offset |G43.1, **G49**|
-|Program Mode | **M0**, M1, M2, M30|
-|Spindle State |M3, M4, **M5**|
-|Coolant State	| M7, M8, **M9** |
+| Motion Mode \[运动模式\] | **G0**, G1, G2, G3, G38.2, G38.3, G38.4, G38.5, G80 |
+|Coordinate System Select \[坐标系选择\]	| **G54**, G55, G56, G57, G58, G59|
+|Plane Select \[平面选择\]	| **G17**, G18, G19|
+|Distance Mode \[距离模式\]	| **G90**, G91|
+|Arc IJK Distance Mode \[圆弧 IJK 距离模式\] | **G91.1** |
+|Feed Rate Mode \[进给率模式\]	| G93, **G94**|
+|Units Mode \[单位模式\]	| G20, **G21**|
+|Cutter Radius Compensation \[刀具半径补偿\] | **G40** |
+|Tool Length Offset \[刀具长度偏移\] |G43.1, **G49**|
+|Program Mode \[程序模式\] | **M0**, M1, M2, M30|
+|Spindle State \[主轴状态\] |M3, M4, **M5**|
+|Coolant State \[冷却液状态\]	| M7, M8, **M9** |
 
 In addition to the G-code parser modes, Grbl will report the active `T` tool number, `S` spindle speed, and `F` feed rate, which all default to 0 upon a reset. For those that are curious, these don't quite fit into nice modal groups, but are just as important for determining the parser state.
 
+\[除了 G 代码解析器模式之外，Grbl 还将报告活动`T`刀具编号、`S`主轴速度和`F`进给率，这些在复位时均默认为 0。对于那些好奇的人来说，它们并不完全适合于好的模态组，但对于确定解析器状态同样重要。\]
+
 Note that this list does not include the **non-modal** g-code commands group and they are not listed in the `$G` parser report, because they only affect the current line they are commanded in. For completeness, here are the non-modal commands supported by Grbl: 
 
-| Supported Non-Modal Commands|
+\[请注意，此列表不包括**非模态**G代码命令组，并且它们未列在`$G`解析器报告中，因为它们只影响命令它们进入的当前线路。为完整起见，以下是Grbl支持的非模态命令：\]
+| Supported Non-Modal Commands\[支持的非模态命令\]|
 |:----:|
 | G4, G10 L2, G10 L20, G28, G30, G28.1, G30.1, G53, G92, G92.1 |
 
 #### `$I` - View build info
+#### [`$I` - 查看构建信息]
 This prints feedback to the user the Grbl version and source code build date. Optionally, `$I` can also store a short string to help identify which CNC machine you are communicating with, if you have more than one machine using Grbl. To set this string, send Grbl `$I=xxx`, where `xxx` is your customization string that is less than 80 characters. This string will be saved as capitalized, white space removed, and can only contain alpha-numeric characters. The next time you query Grbl with a `$I` view build info, Grbl will print this string after the version and build date.
+
+\[这会向用户打印 Grbl 版本和源代码构建日期的反馈。`$I`如果您有不止一台机器使用 Grbl ，也可以存储一个短字符串来帮助识别您正在与哪台 CNC 机器进行通信。要设置此字符串，请发送`$I=xxx`到 Grbl ，其中`xxx`是少于 80 个字符的自定义字符串。该字符串将被保存为大写，删除空格，并且只能包含字母数字字符。下次您使用`$I`视图构建信息查询 Grbl 时，Grbl 将在版本和构建日期之后打印此字符串。\]
 
 NOTE: Some OEMs may block access to over-writing the build info string so they can store product information and codes there.
 
-#### $N - View startup blocks
-
+\[注意：一些 OEM 可能会阻止访问覆盖构建信息字符串，以便他们可以在那里存储产品信息和代码。\]
+#### `$N` - View startup blocks
+#### [`$N` - 查看启动块]
 `$Nx` are the startup blocks that Grbl runs every time you power on Grbl or reset Grbl. In other words, a startup block is a line of G-code that you can have Grbl auto-magically run to set your G-code modal defaults, or anything else you need Grbl to do everytime you start up your machine. Grbl can store two blocks of G-code as a system default.
 
+\[`$Nx`是每次打开 Grbl 或重置 Grbl 时 Grbl 运行的启动块。换句话说，启动块是一行 G 代码，您可以让 Grbl 自动神奇地运行它来设置 G 代码模式默认值，或者每次启动机器时需要 Grbl 执行的任何其他操作。Grbl 可以存储两个 G 代码块作为系统默认值。\]
+
 So, when connected to Grbl, type `$N` and then enter. Grbl should respond with something short like:
+
+\[所以，当连接到 Grbl 时，输入`$N`然后回车。Grbl 应该以简短的方式回应，例如：\]
 ```
 $N0=
 $N1=
@@ -127,18 +155,29 @@ ok
 ```
 Not much to go on, but this just means that there is no G-code block stored in line `$N0` for Grbl to run upon startup. `$N1` is the next line to be run.
 
-#### $Nx=line - Save startup block
+\[=后面没什么，但这只是意味着Grbl在启动时运行`$N0`行中没有存储G代码块。`$N1`是要运行的下一行。\]
 
+#### $Nx=line - Save startup block
+#### [`$Nx=line` -保存启动块]
 **IMPORTANT: Be very careful when storing any motion (G0/1,G2/3,G28/30) commands in the startup blocks. These motion commands will run everytime you reset or power up Grbl, so if you have an emergency situation and have to e-stop and reset, a startup block move can and will likely make things worse quickly. Also, do not place any commands that save data to EEPROM, such as G10/G28.1/G30.1. This will cause Grbl to constantly re-write this data upon every startup and reset, which will eventually wear out your Arduino's EEPROM.**
+
+#### \[重要提示：在启动块中存储任何运动（G0/1、G2/3、G28/30）命令时要非常小心。这些运动命令将在您每次重置或启动 Grbl 时运行，因此，如果您遇到紧急情况，必须紧急停止并重置，启动块移动可能并且可能会使情况迅速恶化。另外，不要放置任何将数据保存到 EEPROM 的命令，例如 G10/G28.1/G30.1。这将导致 Grbl 在每次启动和重置时不断重写这些数据，最终会磨损 Arduino 的 EEPROM。\]
 
 **Typical usage for a startup block is simply to set your preferred modal states, such as G20 inches mode, always default to a different work coordinate system, or, to provide a way for a user to run some user-written unique feature that they need for their crazy project.**
 
+**启动块的典型用途是简单地设置您喜欢的模态状态，例如 G20 英寸模式，始终默认为不同的工作坐标系，或者为用户提供一种方式来运行他们需要的某些用户编写的独特功能为他们疯狂的项目。**
+
 To set a startup block, type `$N0=` followed by a valid G-code block and an enter. Grbl will run the block to check if it's valid and then reply with an `ok` or an `error:` to tell you if it's successful or something went wrong. If there is an error, Grbl will not save it.
+
+\[要设置启动块，请键入`$N0=`后跟有效的 G 代码块和回车。Grbl 将运行该块以检查它是否有效，然后用`ok`回复`error`:告诉您它是成功还是出错了。如果有错误，Grbl 不会保存。\]
 
 For example, say that you want to use your first startup block `$N0` to set your G-code parser modes like G54 work coordinate, G20 inches mode, G17 XY-plane. You would type `$N0=G20 G54 G17` with an enter and you should see an `ok` response. You can then check if it got stored by typing `$N` and you should now see a response like `$N0=G20G54G17`.
 
+\[例如，假设您想使用第一个启动块`$N0`来设置 G 代码解析器模式，如 G54 工作坐标、G20 英寸模式、G17 XY 平面。您将`$N0=G20 G54 G17`输入回车，您应该会看到`ok`响应。然后，您可以通过键入来检查它是否已存储，`$N`现在您应该会看到类似`$N0=G20G54G17`.\]
+
 Once you have a startup block stored in Grbl's EEPROM, everytime you startup or reset you will see your startup block printed back to you, starting with an open-chevron `>`, and a `:ok` response from Grbl to indicate if it ran okay. So for the previous example, you'll see:
 
+\[一旦您将启动块存储在 Grbl 的 EEPROM 中，每次启动或重置时，您都会看到您的启动块打印回给您，来自Grbl的响应的开头`>`和`:ok`结尾以指示它是否运行正常。因此，对于前面的示例，您将看到：\]
 ```
 Grbl 1.1d ['$' for help]
 >G20G54G17:ok
