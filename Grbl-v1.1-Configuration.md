@@ -12,7 +12,7 @@ First, connect to Grbl using the serial terminal of your choice.
 
 Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
 
-\[将波特率设置为**115200**为8-N-1（8位，无奇偶校验，1位停止）\]
+\[将波特率设置为**115200**为8-N-1（8位数据，无奇偶校验，1位停止）\]
 
 
 Once connected
