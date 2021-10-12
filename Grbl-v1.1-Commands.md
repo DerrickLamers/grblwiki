@@ -15,6 +15,7 @@ In general, Grbl assumes all characters and streaming data sent to it is g-code 
 \[ 通常，Grbl假定发送给它的所有字符和流数据都是g代码，并且将解析并尝试尽快执行它。 但是，Grbl还具有两种单独的系统命令类型，它们不在常规g代码流传输之外。 一种系统命令类型像g代码一样流式传输到Grbl，但是以$字符开头告诉Grbl不是g代码。 另一个由一组特殊的字符组成，这些字符将立即命令Grbl实时执行任务。 它不是g代码流的一部分。 Grbl的系统命令可以执行以下操作：控制机器状态，报告已保存的参数或Grbl正在执行的操作，保存或打印机器设置，回参考点循环或使机器运动快于或慢于编程速度运动。 本文档介绍了这些`内部`系统Grbl命令，它们的作用，如何工作以及如何使用它们。\]
 ## Getting Started 
    \[入门介绍\]
+
 First, connect to Grbl using the serial terminal of your choice.
 
 [首先，您应该选择的串行终端连软件接到 Grbl 控制板。
