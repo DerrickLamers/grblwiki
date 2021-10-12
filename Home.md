@@ -16,7 +16,7 @@ Most open source 3D printers have Grbl in their hearts. It has been adapted for 
 
 In 2009, **Simen Svale Skogsrud** (**http://bengler.no/grbl**) graced the open-source community by writing and releasing the early versions of Grbl to everyone ([inspired by the Arduino GCode Interpreter by Mike Ellery](http://www.contraptor.org/grbl-gcode-interpreter)). Since 2011, Grbl is pushing ahead as a community-driven open-source project under the pragmatic leadership of **Sungeun "Sonny" Jeon Ph.D.** (**@chamnit**).
 
- \[2009年，**Simen Svale Skogsrud**(**http://bengler.no/grbl**)通过编写Grbl的早期版本并将其发布给每个人(受Mike Ellery的Arduino GCode解释器启发)，为开源社区增光添彩(http://www.contraptor.org/grbl-gcode-interpreter)). 自2011年以来，Grbl在**Sungeun“Sonny”Jeon Ph.D.**（***chamnit***)的务实领导下，作为一个社区驱动的开源项目，正在向前推进。\]
+ \[2009年，**Simen Svale Skogsrud**(**http://bengler.no/grbl**) 通过编写Grbl的早期版本并将其发布给每个人(受Mike Ellery的Arduino GCode解释器启发)，为开源社区增光添彩(http://www.contraptor.org/grbl-gcode-interpreter)). 自2011年以来，Grbl在**Sungeun“Sonny”Jeon Ph.D.**（***chamnit***)的务实领导下，作为一个社区驱动的开源项目，正在向前推进。\]
 
 -----
 ### Official Supporters of the Grbl CNC Project \[Grbl CNC项目的官方支持者\]
