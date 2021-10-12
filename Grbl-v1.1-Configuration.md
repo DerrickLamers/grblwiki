@@ -32,7 +32,7 @@ Type $ and press enter to have Grbl print a help message. You should not see any
 ```
 The `$`-commands are Grbl system commands used to tweak the settings, view or change Grbl's states and running modes, and start a homing cycle. The last four **non**-'$' commands are realtime control commands that can be sent at anytime, no matter what Grbl is doing. These either immediately change Grbl's running behavior or immediately print a report of the important realtime data like current position (aka DRO).
 
-\[键入`$`并按enter键，让Grbl打印帮助消息。您不应该看到$and enter的任何本地回显。Grbl应回复：\]
+\[这些 `$`-开头的命令是 Grbl 系统命令，用于调整设置、查看或更改 Grbl 的状态和运行模式，以及启动归位循环。 最后四个 非 -'$'命令是实时控制命令，可以随时发送，不管Grbl在做什么。 这些要么立即改变 Grbl 的运行行为，要么立即打印当前位置（又名 DRO）等重要实时数据的报告。\]
 
 ***
 
