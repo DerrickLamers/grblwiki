@@ -2,7 +2,7 @@ When setting up a system with only two axes, such as a laser engraver or pen plo
 
 \[当设置只有两个轴的系统（如激光雕刻机或笔式绘图仪）时，必须考虑几个项目，否则您将遇到奇怪的错误和明显无法解释的行为。\]
 
-# Homing Configuration \[寻的配置\]
+# Homing Configuration \[归位配置\]
 
 Ensure you've modified GRBL's config.h file properly before uploading the GRBL code to your Arduino or homing may fail and it won't be obvious why. The default 3-axis homing mechanism is defined in config.h as:
 
