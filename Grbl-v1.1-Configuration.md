@@ -26,7 +26,7 @@ Grbl 1.1f ['$' for help]
 
 Type $ and press enter to have Grbl print a help message. You should not see any local echo of the $ and enter. Grbl should respond with:
 
-\[键入$并按enter键，让Grbl打印帮助消息。您不应该看到$and enter的任何本地回显。Grbl应回复：\]
+\[键入$并按enter键，让Grbl打印帮助消息。如果本地没有回显，您应该看不到刚刚发送的$和enter。Grbl应回复：\]
 ```
 [HLP:$$ $# $G $I $N $x=val $Nx=line $J=line $SLP $C $X $H ~ ! ? ctrl-x]
 ```
