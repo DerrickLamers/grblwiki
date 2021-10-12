@@ -10,7 +10,8 @@ I plan to use Google to translate these materials into Chinese ，to help Chines
 [我计划借助Google将这些资料翻译成中文，以帮助中文读者学习。]
 ******
 
-# Grbl v1.1 Commands[命令]
+# Grbl v1.1 Commands
+  [Grbl v1.1 命令]
 
 In general, Grbl assumes all characters and streaming data sent to it is g-code and will parse and try to execute it as soon as it can. However, Grbl also has two separate system command types that are outside of the normal g-code streaming. One system command type is streamed to Grbl like g-code, but starts with a `$` character to tell Grbl it's not g-code. The other is composed of a special set of characters that will immediately command Grbl to do a task in real-time. It's not part of the g-code stream. Grbl's system commands do things like control machine state, report saved parameters or what Grbl is doing, save or print machine settings, run a homing cycle, or make the machine move faster or slower than programmed. This document describes these "internal" system Grbl commands, what they do, how they work, and how to use them.
 
