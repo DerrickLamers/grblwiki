@@ -12,7 +12,7 @@ Grbl is a free, open source, high performance software for controlling the motio
 
 Most open source 3D printers have Grbl in their hearts. It has been adapted for use in hundreds of projects including laser cutters, automatic hand writers, hole drillers, graffiti painters and oddball drawing machines. Due to its performance, simplicity and frugal hardware requirements Grbl has grown into a little open source phenomenon.
 
- \大多数开源3D打印机心中都有Grbl。它已被改造用于数百个项目，包括激光切割机、自动手写笔、钻孔机、涂鸦画家和古怪绘图机。由于它的性能、简单性和节省的硬件需求，Grbl已经发展成为一种开源现象。[\]
+ \[大多数开源3D打印机心中都有Grbl。它已被改造用于数百个项目，包括激光切割机、自动手写笔、钻孔机、涂鸦画家和古怪绘图机。由于它的性能、简单性和节省的硬件需求，Grbl已经发展成为一种开源现象。\]
 
 In 2009, **Simen Svale Skogsrud** (**http://bengler.no/grbl**) graced the open-source community by writing and releasing the early versions of Grbl to everyone ([inspired by the Arduino GCode Interpreter by Mike Ellery](http://www.contraptor.org/grbl-gcode-interpreter)). Since 2011, Grbl is pushing ahead as a community-driven open-source project under the pragmatic leadership of **Sungeun "Sonny" Jeon Ph.D.** (**@chamnit**).
 
