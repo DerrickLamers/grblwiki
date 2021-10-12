@@ -1,4 +1,4 @@
-#### _Quick-Links[快速链接]:_
+#### _Quick-Links [快速链接]:_
 * [Grbl `$` System Commands](#grbl--commands) [	Grbl`$`系统命令](#grbl--commands)
 * [Grbl Real-Time Commands](#grbl-v11-realtime-commands) [Grbl实时命令](#grbl-v11-realtime-commands)
 
