@@ -4,7 +4,7 @@
 
 ***
 
-## Getting Started\[新手手册\]
+## Getting Started \[新手手册\]
 
 First, connect to Grbl using the serial terminal of your choice.
 
