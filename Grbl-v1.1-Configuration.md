@@ -1,6 +1,6 @@
-#### _Quick-Links\[快的链接\]:_
-* [Grbl's Settings and What They Mean\[Grbl的设置及其含义\]](#grbls-xval-settings-and-what-they-mean)
-* [Quick Guide to Setting Up Your Machine for the First Time\[第一次安装机器的快速指南\]](#quick-guide-to-setting-up-your-machine-for-the-first-time)
+#### _Quick-Links \[快的链接\]:_
+* [Grbl's Settings and What They Mean \[Grbl的设置及其含义\]](#grbls-xval-settings-and-what-they-mean)
+* [Quick Guide to Setting Up Your Machine for the First Time \[第一次安装机器的快速指南\]](#quick-guide-to-setting-up-your-machine-for-the-first-time)
 
 ***
 
