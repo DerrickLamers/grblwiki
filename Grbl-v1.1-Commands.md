@@ -50,6 +50,7 @@ The ‘$’-commands are Grbl system commands used to tweak the settings, view o
 
 ## Grbl '$' Commands
    [Grbl`$`命令]
+
 The `$` system commands provide additional controls for the user, such as printing feedback on the current G-code parser modal state or running the homing cycle. This section explains what these commands are and how to use them.
 
 \[该`$`系统命令为用户提供额外的控制，如打印反馈对电流G-代码解析器模式状态或运行归位周期。本节说明的是这些命令是什么以及如何使用它们。\]
