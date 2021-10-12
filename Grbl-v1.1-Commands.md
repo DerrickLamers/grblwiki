@@ -16,8 +16,8 @@ I plan to use Google to translate these materials into Chinese ，to help Chines
 In general, Grbl assumes all characters and streaming data sent to it is g-code and will parse and try to execute it as soon as it can. However, Grbl also has two separate system command types that are outside of the normal g-code streaming. One system command type is streamed to Grbl like g-code, but starts with a `$` character to tell Grbl it's not g-code. The other is composed of a special set of characters that will immediately command Grbl to do a task in real-time. It's not part of the g-code stream. Grbl's system commands do things like control machine state, report saved parameters or what Grbl is doing, save or print machine settings, run a homing cycle, or make the machine move faster or slower than programmed. This document describes these "internal" system Grbl commands, what they do, how they work, and how to use them.
 
 [ 通常，Grbl假定发送给它的所有字符和流数据都是g代码，并且将解析并尝试尽快执行它。 但是，Grbl还具有两种单独的系统命令类型，它们不在常规g代码流传输之外。 一种系统命令类型像g代码一样流式传输到Grbl，但是以$字符开头告诉Grbl不是g代码。 另一个由一组特殊的字符组成，这些字符将立即命令Grbl实时执行任务。 它不是g代码流的一部分。 Grbl的系统命令可以执行以下操作：控制机器状态，报告已保存的参数或Grbl正在执行的操作，保存或打印机器设置，回参考点循环或使机器运动快于或慢于编程速度运动。 本文档介绍了这些`内部`系统Grbl命令，它们的作用，如何工作以及如何使用它们。]
-## Getting Started [入门介绍]
-
+## Getting Started 
+   [入门介绍]
 First, connect to Grbl using the serial terminal of your choice.
 
 [首先，您应该选择的串行终端连软件接到 Grbl 控制板。
@@ -49,8 +49,8 @@ The ‘$’-commands are Grbl system commands used to tweak the settings, view o
 \['$'命令是 Grbl 系统命令，用于调整设置、查看或更改 Grbl 的状态和运行模式，以及启动归位循环。最后四个非-'$'命令是实时控制命令，可以随时发送，不管Grbl在做什么。这些要么立即改变 Grbl 的运行行为，要么立即打印当前位置（又名 DRO）等重要实时数据的报告。还有十多个实时控制命令，但它们不是用户可以键入的。有关详细信息，请参阅实时命令部分。\]
 ***
 
-## Grbl '$' Commands[Grbl`$`命令]
-
+## Grbl '$' Commands
+   [Grbl`$`命令]
 The `$` system commands provide additional controls for the user, such as printing feedback on the current G-code parser modal state or running the homing cycle. This section explains what these commands are and how to use them.
 
 \[该`$`系统命令为用户提供额外的控制，如打印反馈对电流G-代码解析器模式状态或运行归位周期。本节说明的是这些命令是什么以及如何使用它们。\]
