@@ -8,7 +8,7 @@
 
 First, connect to Grbl using the serial terminal of your choice.
 
-Set the baud rate  to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
+Set the baud rate to **115200** as 8-N-1 (8-bits, no parity, and 1-stop bit.)
 
 Once connected
  you should get the Grbl-prompt, which looks like this:
@@ -23,7 +23,7 @@ Type $ and press enter to have Grbl print a help message. You should not see any
 [HLP:$$ $# $G $I $N $x=val $Nx=line $J=line $SLP $C $X $H ~ ! ? ctrl-x]
 ```
 
-The ‘$’-commands are Grbl system commands used to tweak the settings, view or change Grbl's states and running modes, and start a homing cycle. The last four **non**-'$' commands are realtime control commands that can be sent at anytime, no matter what Grbl is doing. These either immediately change Grbl's running behavior or immediately print a report of the important realtime data like current position (aka DRO).
+The ‘$’-commands are Grbl system commands used to tweak the settings, view or change Grbl's states and running modes, and start a homing cycle. The last four **non**-'$' commands are real-time control commands that can be sent at anytime, no matter what Grbl is doing. These either immediately change Grbl's running behavior or immediately print a report of the important real-time data like current position (aka DRO).
 
 ***
 
@@ -231,7 +231,7 @@ This sets the spindle speed for the minimum 0.02V PWM pin output (0V is disabled
 
 #### $32 - Laser mode, boolean
 
-When enabled, Grbl will move continuously through consecutive `G1`, `G2`, or `G3` motion commands when programmed with a `S` spindle speed (laser power). The spindle PWM pin will be updated instantaneously through each motion without stopping. Please read the [GRBL laser documentation](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Laser-Mode) and your laser device documentation prior to using this mode. Lasers are very dangerous. They can instantly damage your vision permanantly and cause fires. Grbl does not assume any responsibility for any issues the firmware may cause, as defined by its GPL license. 
+When enabled, Grbl will move continuously through consecutive `G1`, `G2`, or `G3` motion commands when programmed with a `S` spindle speed (laser power). The spindle PWM pin will be updated instantaneously through each motion without stopping. Please read the [GRBL laser documentation](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Laser-Mode) and your laser device documentation prior to using this mode. Lasers are very dangerous. They can instantly damage your vision permanently and cause fires. Grbl does not assume any responsibility for any issues the firmware may cause, as defined by its GPL license. 
 
 When disabled, Grbl will operate as it always has, stopping motion with every `S` spindle speed command. This is the default operation of a milling machine to allow a pause to let the spindle change speeds.
 
@@ -251,7 +251,7 @@ Compute this value for every axis and write these settings to Grbl.
 
 This sets the maximum rate each axis can move. Whenever Grbl plans a move, it checks whether or not the move causes any one of these individual axes to exceed their max rate. If so, it'll slow down the motion to ensure none of the axes exceed their max rate limits. This means that each axis has its own independent speed, which is extremely useful for limiting the typically slower Z-axis.
 
-The simplest way to determine these values is to test each axis one at a time by slowly increasing max rate settings and moving it. For example, to test the X-axis, send Grbl something like `G0 X50` with enough travel distance so that the axis accelerates to its max speed. You'll know you've hit the max rate threshold when your steppers stall. It'll make a bit of noise, but shouldn't hurt your motors. Enter a setting a 10-20% below this value, so you can account for wear, friction, and the mass of your workpiece/tool. Then, repeat for your other axes.
+The simplest way to determine these values is to test each axis one at a time by slowly increasing max rate settings and moving it. For example, to test the X-axis, send Grbl something like `G0 X50` with enough travel distance so that the axis accelerates to its max speed. You'll know you've hit the max rate threshold when your steppers stall. It'll make a bit of noise, but shouldn't hurt your motors. Enter a setting at 10-20% below this value, so you can account for wear, friction, and the mass of your workpiece/tool. Then, repeat for your other axes.
 
 NOTE: This max rate setting also sets the G0 seek rates.
 
@@ -273,7 +273,7 @@ This sets the maximum travel from end to end for each axis in mm. This is only u
 Grbl's default configuration is intentionally very generic to help ensure users can see successful motion without having to tweak settings. Generally, the first thing you'll want to do is get your stepper motors running, usually without it connected to the CNC. Wire Grbl to your stepper drivers and stepper motors according to your manufacturer guidelines. Connect to Grbl through a serial terminal or one of many Grbl GUIs. Send some [`G1`](http://linuxcnc.org/docs/html/gcode/g-code.html#gcode:g1) or [`G0`](http://linuxcnc.org/docs/html/gcode/g-code.html#gcode:g0) commands to Grbl. You should see your stepper motor rotating. If you are having trouble with your stepper motors, try the following:
 - Ensure everything is wired and powered correctly per your stepper driver manufacturer guidelines.
 - If your steppers are mounted in your CNC already, ensure your axes move freely and don't obviously bind. If you can't easily tell, try removing your steppers and check if they run under no load.
-- Ensure your stepper motors and axes linear mechanisms are all tight and secure. Small set screws on drivetrain components becoming loose is a very common problem. Re-tighten and try applying some non-permenant thread locker (Loctite blue) if it continually loosens.
+- Ensure your stepper motors and axes linear mechanisms are all tight and secure. Small set screws on drivetrain components becoming loose is a very common problem. Re-tighten and try applying some non-permanent thread locker (Loctite blue) if it continually loosens.
 - For more difficult issues, try the process of elimination to quickly isolate the problem. Start by disconnecting everything from the Arduino. Test if Grbl is operating ok by itself. Then, add one thing at a time and test.
 - If your steppers are powered and making a grinding noise when trying to move, try lowering the '$' acceleration and max rate settings. This sound is a sign that your steppers is losing steps and not able to keep up due too much torque load or going too fast.
 - Grbl's default step pulse settings cover the vast majority of stepper drivers on the market. While very uncommon, check these settings if you are still experiencing problems or have a unusual setup.
