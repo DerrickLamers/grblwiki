@@ -109,8 +109,8 @@ In v1.1, Grbl's interface protocol has been tweaked in the attempt to make GUI d
 
 - **Response Messages:** Normal send command and execution response acknowledgement. Used for streaming.
 
-	- `ok` : Indicates the command line received was parsed and executed (or set to be executed).
-	- `error:x` : Indicated the command line received contained an error, with an error code `x`, and was purged. See error code section below for definitions.
+	- `ok` : Indicates that the command line received was parsed and executed (or set to be executed).
+	- `error:x` : Indicates that the command line received contained an error, with an error code `x`, and was purged. See error code section below for definitions.
 
 - **Push Messages:**
 	
