@@ -225,7 +225,7 @@ A realtime command:
 
 - May be tied to an input pin and may be operated with a button or switch.
 
-- Actions depends on state or what Grbl is doing. It may not do anything.
+- Actions depend on state or what Grbl is doing. It may not do anything.
 
 - Descriptions explain how they work and what to expect.
 
