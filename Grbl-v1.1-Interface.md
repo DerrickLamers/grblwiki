@@ -114,8 +114,8 @@ In v1.1, Grbl's interface protocol has been tweaked in the attempt to make GUI d
 
 - **Push Messages:**
 	
-	- `< >` : Enclosed chevrons contains status report data.
-	- `Grbl X.Xx ['$' for help]` : Welcome message indicates initialization.
+	- `< >` : Enclosed between chevrons. Contains status report data.
+	- `Grbl X.Xx ['$' for help]` : Welcome message; indicates initialization.
 	- `ALARM:x` : Indicates an alarm has been thrown. Grbl is now in an alarm state.	
 	- `$x=val` and `$Nx=line` indicate a settings printout from a `$` and `$N` user query, respectively.
 	- `[MSG:]` : Indicates a non-queried feedback message.
