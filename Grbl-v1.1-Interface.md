@@ -21,7 +21,7 @@ The primary way to talk to Grbl is performed by sending it a string of character
 
 To stream a g-code program to Grbl, the basic interface is to send Grbl a line of g-code, then wait for the proper **response message** starting with an `ok` or `error`. This signals Grbl has completed the parsing and executing the command. At times, Grbl may not respond immediately. This happens when Grbl is busy doing something else or waiting to place a commanded motion into the look-ahead planner buffer. Other times, usually at the start of a program, Grbl may quickly respond to several lines, but nothing happens. This occurs when Grbl places a series of commanded motions directly in the planner queue and will try to fill it up completely before starting.
 
-Along with **response messages**, Grbl has **push messages** to provide more feedback on what Grbl is doing and are also strings terminated by a return. These messages may be "pushed" from Grbl to the user in response to a query or to let the user know something important just happened. These can come at any time, but usually from something like a settings print out when asked to. **Push messages** are easily identified because they don't start with an `ok` or `error` like **response messages** do. They are typically placed in `[]` brackets, `<>` chevrons, start with a `$`, or a specific string of text. These are all defined and described later in this document.
+Along with **response messages**, Grbl has **push messages** to provide more feedback on what Grbl is doing and are also strings terminated by a return. These messages may be "pushed" from Grbl to the user in response to a query or to let the user know something important just happened. These can come at any time, but usually from something like a settings printout when asked to. **Push messages** are easily identified because they don't start with an `ok` or `error` like **response messages** do. They are typically placed in `[]` brackets, `<>` chevrons, start with a `$`, or a specific string of text. These are all defined and described later in this document.
 
 Finally, Grbl has **real-time commands** that are invoked by a set of special characters that may be sent at any time and are not part of the basic streaming send-response interface. These cause Grbl to immediately execute the command and typically don't generate a response. These include pausing the current motion, speed up/down everything, toggle the spindle during a job, reset Grbl, or query Grbl for a real-time status report. See the `Commands` document to see what they are and how they work.
 
@@ -34,22 +34,22 @@ The general interface for Grbl has been described above, but what's missing is h
 
 ## Streaming a G-Code Program to Grbl
 
-Here we will describe two different streaming methods for Grbl GUIs. One of the main problems with streaming to Grbl is the USB port itself. Arduinos and most all micro controllers use a USB-to-serial converter chip that, at times, behaves strangely and not typically how you'd expect, like USB packet buffering and delays that can wreak havoc to a streaming protocol. Another problem is how to deal with some of the latency and oddities of the PCs themselves, because none of them are truly real-time and always create micro-delays when executing other tasks. Regardless, we've come up with ways to ensure the G-code stream is reliable and simple. 
+Here we will describe two different streaming methods for Grbl GUIs. One of the main problems with streaming to Grbl is the USB port itself. Arduinos and most all microcontrollers use a USB-to-serial converter chip that, at times, behaves strangely and not typically how you'd expect, like USB packet buffering and delays that can wreak havoc to a streaming protocol. Another problem is how to deal with some of the latency and oddities of the PCs themselves, because none of them are truly real-time and always create micro-delays when executing other tasks. Regardless, we've come up with ways to ensure the G-code stream is reliable and simple. 
 
-The following streaming protocols require tracking the **response messages** to determine when to send the next g-code line. All **push messages** are not counted toward the streaming protocol and should be handled separately. All real-time command characters can be sent at any time and are never placed in Grbl's RX serial buffer. They are intercepted as they come in and simply sets  flags for Grbl to execute them.
+The following streaming protocols require tracking the **response messages** to determine when to send the next g-code line. All **push messages** are not counted toward the streaming protocol and should be handled separately. All real-time command characters can be sent at any time and are never placed in Grbl's RX serial buffer. They are intercepted as they come in and simply set flags for Grbl to execute them.
 
 #### Streaming Protocol: Simple Send-Response _[Recommended]_
 The send-response streaming protocol is the most fool-proof and simplest method to stream a G-code program to Grbl. The host PC interface simply sends a line of G-code to Grbl and waits for an `ok` or `error:` **response message** before sending the next line of G-code. So, no matter if Grbl needs to wait for room in the look-ahead planner buffer to finish parsing and executing the last line of G-code or if the host computer is busy doing something, this guarantees both to the host PC and Grbl, the programmed G-code has been sent and received properly. An example of this protocol is published in our `simple_stream.py` script in our repository.
 
 However, it's also the slowest of three outlined streaming protocols. Grbl essentially has two buffers between the execution of steps and the host PC interface. One of them is the serial receive buffer. This briefly stores up to 128 characters of data received from the host PC until Grbl has time to fetch and parse the line of G-code. The other buffer is the look-ahead planner buffer. This buffer stores up to 16 line motions that are acceleration-planned and optimized for step execution. Since the send-response protocol receives a line of G-code while the host PC waits for a response, Grbl's serial receive buffer is usually empty and under-utilized. If Grbl is actively running and executing steps, Grbl will immediately begin to execute and empty the look-ahead planner buffer, while it sends the response to the host PC, waits for the next line from the host PC, upon receiving it, parse and plan it, and add it to the end of the look-ahead buffer.
 
-Although this communication lag may take only a fraction of a second, there is a cumulative effect, because there is a lag with every G-code block sent to Grbl. In certain scenarios, like a G-code program containing lots of sequential, very short, line segments with high feed rates, the cumulative lag can be large enough to empty and starve the look-ahead planner buffer within this time. This could lead to start-stop motion when the streaming can't keep up with G-code program execution. Also, since Grbl can only plan and optimize what's in the look-ahead planner buffer, the performance through these types of motions will never be full-speed, because look-ahead buffer will always be partially full when using this streaming method. If your expected application doesn't contain a lot of these short line segments with high feed rates, this streaming protocol should be more than adequate for a vast majority of applications, is very robust, and is a quick way to get started.
+Although this communication lag may take only a fraction of a second, there is a cumulative effect, because there is a lag with every G-code block sent to Grbl. In certain scenarios, like a G-code program containing lots of sequential, very short, line segments with high feed rates, the cumulative lag can be large enough to empty and starve the look-ahead planner buffer within this time. This could lead to start-stop motion when the streaming can't keep up with G-code program execution. Also, since Grbl can only plan and optimize what's in the look-ahead planner buffer, the performance through these types of motions will never be full-speed, because the look-ahead buffer will always be partially full when using this streaming method. If your expected application doesn't contain a lot of these short line segments with high feed rates, this streaming protocol should be more than adequate for a vast majority of applications, is very robust, and is a quick way to get started.
 
 #### Streaming Protocol: Character-Counting _[**Recommended with Reservation**]_
 
-To get the best of both worlds, the simplicity and reliability of the send-response method and assurance of maximum performance with software flow control, we came up with a simple character-counting protocol for streaming a G-code program to Grbl. It works like the send-response method, where the host PC sends a line of G-code for Grbl to execute and waits for a `response message`, but, rather than needing special XON/XOFF characters for flow control, this protocol simply uses Grbl's responses as a way to reliably track how much room there is in Grbl's serial receive buffer. An example of this protocol is outlined in the `stream.py` streaming script in our repo. This protocol is particular useful for very fast machines like laser cutters. 
+To get the best of both worlds, the simplicity and reliability of the send-response method and assurance of maximum performance with software flow control, we came up with a simple character-counting protocol for streaming a G-code program to Grbl. It works like the send-response method, where the host PC sends a line of G-code for Grbl to execute and waits for a `response message`, but, rather than needing special XON/XOFF characters for flow control, this protocol simply uses Grbl's responses as a way to reliably track how much room there is in Grbl's serial receive buffer. An example of this protocol is outlined in the `stream.py` streaming script in our repo. This protocol is particularly useful for very fast machines like laser cutters. 
 
-The main difference between this protocol and the others is the host PC needs to maintain a standing count of how many characters it has sent to Grbl and then subtract the number of characters corresponding to the line executed with each Grbl response. Suppose there is a short G-code program that has 5 lines with 25, 40, 31, 58, and 20 characters (counting the line feed and carriage return characters too). We know Grbl has a 128 character serial receive buffer, and the host PC can send up to 128 characters without overflowing the buffer. If we let the host PC send as many complete lines as we can without over flowing Grbl's serial receive buffer, the first three lines of 25, 40, and 31 characters can be sent for a total of 96 characters. When Grbl sends a **response message**, we know the first line has been processed and is no longer in the serial read buffer. As it stands, the serial read buffer now has the 40 and 31 character lines in it for a total of 71 characters. The host PC needs to then determine if it's safe to send the next line without overflowing the buffer. With the next line at 58 characters and the serial buffer at 71 for a total of 129 characters, the host PC will need to wait until more room has cleared from the serial buffer. When the next Grbl **response message** comes in, the second line has been processed and only the third 31 character line remains in the serial buffer. At this point, it's safe to send the remaining last two 58 and 20 character lines of the g-code program for a total of 110.
+The main difference between this protocol and the others is the host PC needs to maintain a standing count of how many characters it has sent to Grbl and then subtract the number of characters corresponding to the line executed with each Grbl response. Suppose there is a short G-code program that has 5 lines with 25, 40, 31, 58, and 20 characters (counting the line feed and carriage return characters too). We know Grbl has a 128 character serial receive buffer, and the host PC can send up to 128 characters without overflowing the buffer. If we let the host PC send as many complete lines as we can without overflowing Grbl's serial receive buffer, the first three lines of 25, 40, and 31 characters can be sent for a total of 96 characters. When Grbl sends a **response message**, we know the first line has been processed and is no longer in the serial read buffer. As it stands, the serial read buffer now has the 40 and 31 character lines in it for a total of 71 characters. The host PC needs to then determine if it's safe to send the next line without overflowing the buffer. With the next line at 58 characters and the serial buffer at 71 for a total of 129 characters, the host PC will need to wait until more room has cleared from the serial buffer. When the next Grbl **response message** comes in, the second line has been processed and only the third 31 character line remains in the serial buffer. At this point, it's safe to send the remaining last two 58 and 20 character lines of the g-code program for a total of 110.
 
 While seemingly complicated, this character-counting streaming protocol is extremely effective in practice. It always ensures Grbl's serial read buffer is filled, while never overflowing it. It maximizes Grbl's performance by keeping the look-ahead planner buffer full by better utilizing the bi-directional data flow of the serial port, and it's fairly simple to implement as our `stream.py` script illustrates. We have stress-tested this character-counting protocol to extremes and it has not yet failed. Seemingly, only the speed of the serial connection is the limit.
 
@@ -59,7 +59,7 @@ _RESERVATION:_
 
 #### XON/XOFF Flow control
 
-XON/XOFF flow control proved to be problematic and did not work at all on boards using the Atmel 8U2 and 16U2 USB converter chips. As such XON/XOFF flow control cannot be used on UNO or Mega 2560 platforms using these chips. For this reason the XON/XOFF flow control was removed from the code.
+XON/XOFF flow control proved to be problematic and did not work at all on boards using the Atmel 8U2 and 16U2 USB converter chips. As such XON/XOFF flow control cannot be used on UNO or Mega 2560 platforms using these chips. For this reason, the XON/XOFF flow control was removed from the code.
 
 ## Interacting with Grbl's Systems
 
@@ -75,12 +75,12 @@ Grbl's status report is fairly simple in organization. It always starts with a w
 #### Real-Time Control Commands
 The real-time control commands, `~` cycle start/resume, `!` feed hold,  `^X` soft-reset, and all of the override commands, all immediately signal Grbl to change its running state. Just like `?` status reports, these control characters are picked-off and removed from the serial buffer when they are detected and do not require an additional line-feed or carriage-return character to operate.
 
-One important note are the override command characters. These are defined in the extended-ASCII character space and are generally not type-able on a keyboard. A GUI must be able to send these 8-bit values to support overrides. 
+One important note is about the override command characters. These are defined in the extended-ASCII character space and are generally not type-able on a keyboard. A GUI must be able to send these 8-bit values to support overrides. 
 
 #### EEPROM Issues
 EEPROM access on the Arduino AVR CPUs turns off all of the interrupts while the CPU _writes_ to EEPROM. This poses a problem for certain features in Grbl, particularly if a user is streaming and running a g-code program, since it can pause the main step generator interrupt from executing on time. Most of the EEPROM access is restricted by Grbl when it's in certain states, but there are some things that developers need to know.
 
-* Settings should not be streamed with the character-counting streaming protocols. Only the simple send-response protocol works. This is because during the EEPROM write, the AVR CPU also shuts-down the serial RX interrupt, which means data can get corrupted or lost. This is safe with the send-response protocol, because it's not sending data after commanding Grbl to save data.
+* Settings should not be streamed with the character-counting streaming protocols. Only the simple send-response protocol works. This is because during the EEPROM write, the AVR CPU also shuts down the serial RX interrupt, which means data can get corrupted or lost. This is safe with the send-response protocol, because it's not sending data after commanding Grbl to save data.
 
 For reference:
 * Grbl's EEPROM write commands: `G10 L2`, `G10 L20`, `G28.1`, `G30.1`, `$x=`, `$I=`, `$Nx=`, `$RST=`
@@ -96,21 +96,21 @@ As a service to GUIs, Grbl has a "check G-code" mode, enabled by the `$C` system
 
 #### Jogging
 
-As of Grbl v1.1, a new jogging feature is available that accepts incremental, absolute, or absolute override motions, along with a jog cancel real-time command that will automatically feed hold and purge the planner buffer. The most important aspect of the new jogging motion is that it is completely independent from the g-code parser, so GUIs no longer have to ensure the g-code modal states are set back correctly after jogging is complete. See the [jogging document](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging) for more details on how it works and how you can use it with an analog joystick or rotary dial.
+As of Grbl v1.1, a new jogging feature is available that accepts incremental, absolute, or absolute override motions, along with a jog cancel real-time command that will automatically feed-hold and purge the planner buffer. The most important aspect of the new jogging motion is that it is completely independent from the g-code parser, so GUIs no longer have to ensure the g-code modal states are set back correctly after jogging is complete. See the [jogging document](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging) for more details on how it works and how you can use it with an analog joystick or rotary dial.
 
 #### Synchronization
 
-For situations when a GUI needs to run a special set of commands for tool changes, auto-leveling, etc, there often needs to be a way to know when Grbl has completed a task and the planner buffer is empty. The absolute simplest way to do this is to insert a `G4 P0.01` dwell command, where P is in seconds and must be greater than 0.0. This acts as a quick force-synchronization and ensures the planner buffer is completely empty before the GUI sends the next task to execute.
+For situations when a GUI needs to run a special set of commands for tool changes, auto-leveling, etc, there often needs to be a way to know when Grbl has completed a task and the planner buffer is empty. The absolutely simplest way to do this is to insert a `G4 P0.01` dwell command, where P is in seconds and must be greater than 0.0. This acts as a quick force-synchronization and ensures the planner buffer is completely empty before the GUI sends the next task to execute.
 
 -----
 # Message Summary
 
-In v1.1, Grbl's interface protocol has been tweaked in the attempt to make GUI development cleaner, clearer, and hopefully easier. All messages are designed to be deterministic without needing to know the context of the message. Each can be inferred to a much greater degree than before just by the message type, which are all listed below.
+In v1.1, Grbl's interface protocol has been tweaked in an attempt to make GUI development cleaner, clearer, and hopefully easier. All messages are designed to be deterministic without needing to know the context of the message. Each can be inferred to a much greater degree than before just by their message types, which are all listed below.
 
 - **Response Messages:** Normal send command and execution response acknowledgement. Used for streaming.
 
 	- `ok` : Indicates that the command line received was parsed and executed (or set to be executed).
-	- `error:x` : Indicates that the command line received contained an error, with an error code `x`, and was purged. See error code section below for definitions.
+	- `error:x` : Indicates that the command line received contained an error, with an error code `x`, and was purged. See the error code section below for definitions.
 
 - **Push Messages:**
 	
@@ -128,12 +128,12 @@ In v1.1, Grbl's interface protocol has been tweaked in the attempt to make GUI d
 
 In addition, all `$x=val` settings, `error:`, and `ALARM:` messages no longer contain human-readable strings, but rather codes that are defined in other documents. The `$` help message is also reduced to just showing the available commands. Doing this saves incredible amounts of flash space. Otherwise, the new overrides features would not have fit.
 
-Other minor changes and bug fixes that may effect GUI parsing include:
+Other minor changes and bug fixes that may affect GUI parsing include:
 
-- Floating point values printed with zero precision do not show a decimal, or look like an integer. This includes spindle speed RPM and feed rate in mm mode.
-- `$G` reports fixed a long time bug with program modal state. It always showed `M0` program pause when running. Now during a normal program run, no program modal state is given until an `M0`, `M2`, or `M30` is active and then the appropriate state will be shown.
+- Floating-point values printed with zero precision do not show a decimal, or look like an integer. This includes spindle speed RPM and feed rate in mm mode.
+- `$G` reports fixed a long time bug with the program modal state. It always showed `M0` program pause when running. Now during a normal program run, no program modal state is given until an `M0`, `M2`, or `M30` is active and then the appropriate state will be shown.
 
-On a final note, this interface tweak came about out of necessity, as more data is being sent back from Grbl and it is capable of doing many more things. It's not intended to be altered again in the near future, if at all. This is likely the only and last major change to this. If you have any comments or suggestions before Grbl v1.1 goes to master, please do immediately so we can all vet the new alteration before its installed.
+On a final note, this interface tweak came about out of necessity, as more data is being sent back from Grbl and it is capable of doing many more things. It's not intended to be altered again in the near future, if at all. This is likely the only and last major change to this. If you have any comments or suggestions, please submit them so we can all vet the new alteration before it's installed.
 
 
 
@@ -346,7 +346,7 @@ ok
 
 #### Feedback Messages
 
-Feedback messages provide non-critical information on what Grbl is doing, what it needs, and/or provide some non-real-time data for the user when queried. Not too complicated. Feedback message are always enclosed in `[]` brackets, except for the startup line execution message which begins with an open chevron character `>`.
+Feedback messages provide non-critical information on what Grbl is doing, what it needs, and/or provide some non-real-time data for the user when queried. Not too complicated. Feedback messages are always enclosed in `[]` brackets, except for the startup line execution message which begins with an open chevron character `>`.
 
 - **Non-Queried Feedback Messages:** These feedback messages that may appear at any time and is not part of a query are listed and described below. They are usually sent as an additional helpful acknowledgement of some event or command executed. These always start with a `[MSG:` to denote their type.
 
@@ -360,12 +360,12 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
   - `[MSG:Disabled]` - Appears as a check-mode `$C` disabled acknowledgement. An 'ok' still appears immediately after to denote the `$C` was parsed and executed. Grbl is automatically reset afterwards to restore all default g-code parser states changed by the check-mode.
 
-  - `[MSG:Check Door]` - This message appears whenever the safety door detected as open. This includes immediately upon a safety door switch detects a pin change or appearing after the welcome message, if the safety door is ajar when Grbl initializes after a power-up/reset.
+  - `[MSG:Check Door]` - This message appears whenever the safety door is detected as open. This includes immediately upon a safety door switch detects a pin change or appearing after the welcome message, if the safety door is ajar when Grbl initializes after a power-up/reset.
 
     - If in motion and the safety door switch is triggered, Grbl will immediately send this message, start a feed hold, and place Grbl into a suspend with the DOOR state.
     - If not in motion and not at startup, the same process occurs without the feed hold.
     - If Grbl is in a DOOR state and already suspended, any detected door switch pin detected will generate this message, including a door close.
-    - If this message appears at startup, Grbl will suspended into immediately into the DOOR state. The startup lines are executed immediately after the DOOR state is exited by closing the door and sending Grbl a resume command.
+    - If this message appears at startup, Grbl will be suspended immediately into the DOOR state. The startup lines are executed immediately after the DOOR state is exited by closing the door and sending Grbl a resume command.
 
   - `[MSG:Check Limits]` - If Grbl detects a limit switch as triggered after a power-up/reset and hard limits are enabled, this will appear as a courtesy message immediately after the Grbl welcome message.
 
@@ -403,9 +403,9 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 	- _**NOTE:** Grbl v1.1's new override real-time commands are not included in the help message. They use the extended-ASCII character set, which are not easily type-able, and require a GUI that supports them. This is for two reasons: Establish enough characters for all of the overrides with extra for later growth, and prevent accidental keystrokes or characters in a g-code file from enacting an override inadvertently._
 
 
-  - The `$#` print parameter data query produces a large set of data which shown below and completed by an `ok` response message.
+  - The `$#` print parameter data query produces a large set of data which is shown below and completed by an `ok` response message.
 
-     - Each line of the printout is starts with the data type, a `:`, and followed by the data values. If there is more than one, the order is XYZ axes, separated by commas.
+     - Each line of the printout starts with the data type, a `:`, and followed by the data values. If there is more than one, the order is XYZ axes, separated by commas.
 
      ```
       [G54:0.000,0.000,0.000]
@@ -484,7 +484,7 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
     - There should always be an appended `:ok` because the startup line is checked for validity before it is stored in EEPROM. In the event that it's not, Grbl will print `>G54G20:error:X`, where `X` is the error code explaining why the startup line failed to execute.
 
-    - In the rare chance that there is an EEPROM read error, the startup line execution will print `>:error:7` with no startup line and a error code `7` for a read fail. Grbl will also automatically wipe and try to restore the problematic EEPROM.
+    - In the rare chance that there is an EEPROM read error, the startup line execution will print `>:error:7` with no startup line and an error code `7` for a read fail. Grbl will also automatically wipe and try to restore the problematic EEPROM.
 
 
 ------
@@ -507,13 +507,13 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
     - A soft-reset commanded clears the last status report query.
 
-    - When Grbl throws a critical alarm from a limit violation. A soft-reset is required to resume operation.
+    - When Grbl throws a critical alarm from a limit violation. A soft reset is required to resume operation.
 
     - During a homing cycle.
 
 - **Message Construction:**
 
-  - A message is a single line of ascii text, completed by a carriage return and line feed.
+  - A message is a single line of ASCII text, completed by a carriage return and line feed.
 
   - `< >` Chevrons uniquely enclose reports to indicate message type.
 
@@ -523,13 +523,13 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
   - All remaining data fields consist of a data type followed by a `:` colon delimiter and data values. `type:value(s)`
 
-  - Data values are given either as as one or more pre-defined character codes to indicate certain states/conditions or as numeric values, which are separated by a `,` comma delimiter when more than one is present. Numeric values are also in a pre-defined order and units of measure.
+  - Data values are given as one or more pre-defined character codes to indicate certain states/conditions or as numeric values, which are separated by a `,` comma delimiter when more than one is present. Numeric values are also in a pre-defined order and units of measure.
 
   - The first (Machine State) and second (Current Position) data fields are always included in every report.
 
   - Assume any following data field may or may not exist and can be in any order. The `$10` status report mask setting can alter what data is present and certain data fields can be reported intermittently (see descriptions for details.)
 
-  - The `$13` report inches settings alters the units of some data values. `$13=0` false indicates mm-mode, while `$13=1` true indicates inch-mode reporting. Keep note of this setting and which report values can be altered.
+  - The `$13` report inches settings; alters the units of some data values. `$13=0` false indicates mm-mode, while `$13=1` true indicates inch-mode reporting. Keep note of this setting and which report values can be altered.
 
 - **Data Field Descriptions:**
 
@@ -559,9 +559,9 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
         - **NOTE: Grbl v1.1 sends only one position vector because a GUI can easily compute the other position vector with the work coordinate offset `WCO:` data. See WCO description for details.**
 
-        - Three position values are given in the order of X, Y, and Z. A fourth position value may exist in later versions for the A-axis.
+        - Three-position values are given in the order of X, Y, and Z. A fourth position value may exist in later versions for the A-axis.
 
-        - `$13` report inches user setting effects these values and is given as either mm or inches.
+        - `$13` report inches user setting; affects these values and is given as either mm or inches.
 
         - This data field is always present as the second field.
 
@@ -576,9 +576,9 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
         		- If `MPos:` is given, use `WPos = MPos - WCO`.
 
         - Values are given in the order of the X,Y, and Z axes offsets. A fourth offset value may exist in later versions for the A-axis.
-        - `$13` report inches user setting effects these values and is given as either mm or inches.
+        - `$13` report inches user setting; affects these values and is given as either mm or inches.
 
-        - `WCO:` values don't change often during a job once set and only requires intermittent refreshing.
+        - `WCO:` values don't change often during a job once set and only require intermittent refreshing.
 
         - This data field appears:
 
@@ -588,16 +588,16 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
         - This data field will not appear if:
 
-          - It is disabled in the config.h file. No `$` mask setting available.
+          - It is disabled in the config.h file. No `$` mask setting is available.
           - The refresh counter is in-between intermittent reports.       
 
     - **Buffer State:**
 
-        - `Bf:15,128`. The first value is the number of available blocks in the planner buffer and the second is number of available bytes in the serial RX buffer.
+        - `Bf:15,128`. The first value is the number of available blocks in the planner buffer and the second is the number of available bytes in the serial RX buffer.
         
         - The usage of this data is generally for debugging an interface, but is known to be used to control some GUI-specific tasks. While this is disabled by default, GUIs should expect this data field to appear, but they may ignore it, if desired.
         
-        - NOTE: The buffer state values changed from showing "in-use" blocks or bytes to "available". This change does not require the GUI knowing how many block/bytes Grbl has been compiled with.
+        - NOTE: The buffer state values changed from showing "in-use" blocks or bytes to "available". This change does not require the GUI to know how many block/bytes Grbl has been compiled with.
 
         - This data field appears:
         
@@ -609,14 +609,14 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
     - **Line Number:**
 
-        - `Ln:99999` indicates line 99999 is currently being executed. This differs from the `$G` line `N` value since the parser is usually queued few blocks behind execution.
+        - `Ln:99999` indicates line 99999 is currently being executed. This differs from the `$G` line `N` value since the parser is usually queued a few blocks behind execution.
 
         - Compile-time option only because of memory requirements. However, if a GUI passes indicator line numbers onto Grbl, it's very useful to determine when Grbl is executing them.
 
         - This data field will not appear if:
 
-          - It is disabled in the config.h file. No `$` mask setting available.
-          - The line number reporting not enabled in config.h. Different option to reporting data field.
+          - It is disabled in the config.h file. No `$` mask setting is available.
+          - The line number reporting is not enabled in config.h. Different option to reporting the data field.
           - No line number or `N0` is passed with the g-code block.
           - Grbl is homing, jogging, parking, or performing a system task/motion.
           - There is no motion in the g-code block like a `G4P1` dwell. (May be fixed in later versions.)
@@ -633,7 +633,7 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
         
         - These values will often not be the programmed feed rate or spindle speed, because several situations can alter or limit them. For example, overrides directly scale the programmed values to a different running value, while machine settings, acceleration profiles, and even the direction traveled can also limit rates to maximum values allowable.
 
-        - As a operational note, reported rate is typically 30-50 msec behind actual position reported.
+        - As an operational note, the reported rate is typically 30-50 msec behind the actual position reported.
 
         - This data field will always appear, unless it was explicitly disabled in the config.h file.
 
@@ -674,9 +674,9 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
 
         - This data field will not appear if:
 
-          - It is disabled in the config.h file. No `$` mask setting available.
+          - It is disabled in the config.h file. No `$` mask setting is available.
           - The override refresh counter is in-between intermittent reports.
-          - `WCO:` exists in current report during refresh. Automatically set to try again on next report.
+          - `WCO:` exists in the current report during refresh. Automatically set to try again on next report.
 
 	- **Accessory State:**
 
@@ -701,6 +701,6 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
       - This data field will not appear if:
 
         	- No accessory state is active.
-        	- It is disabled in the config.h file. No `$` mask setting available.
-        	- If override refresh counter is in-between intermittent reports.
-        	- `WCO:` exists in current report during refresh. Automatically set to try again on next report.
+        	- It is disabled in the config.h file. No `$` mask setting is available.
+        	- If the override refresh counter is in-between intermittent reports.
+        	- `WCO:` exists in the current report during refresh. Automatically set to try again on next report.
