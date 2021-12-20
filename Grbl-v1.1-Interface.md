@@ -96,7 +96,7 @@ As a service to GUIs, Grbl has a "check G-code" mode, enabled by the `$C` system
 
 #### Jogging
 
-As of Grbl v1.1, a new jogging feature is available that accepts incremental, absolute, or absolute override motions, along with a jog cancel real-time command that will automatically feed hold and purge the planner buffer. The most important aspect of the new jogging motion is that it is completely independent from the g-code parser, so GUIs no longer have to ensure the g-code modal states are set back correctly after jogging is complete. See the jogging document for more details on how it works and how you can use it with an analog joystick or rotary dial.
+As of Grbl v1.1, a new jogging feature is available that accepts incremental, absolute, or absolute override motions, along with a jog cancel real-time command that will automatically feed hold and purge the planner buffer. The most important aspect of the new jogging motion is that it is completely independent from the g-code parser, so GUIs no longer have to ensure the g-code modal states are set back correctly after jogging is complete. See the [jogging document](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Jogging) for more details on how it works and how you can use it with an analog joystick or rotary dial.
 
 #### Synchronization
 
