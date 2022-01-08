@@ -22,8 +22,8 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
  * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
 5. Compile and upload Grbl to your Arduino.
- * Connect your Arduino Mega to your computer.
- * Make sure your board is set to the Arduino Mega in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
+ * Connect your Arduino Uno to your computer.
+ * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
 _**NOTE:**_ If your environment is clean and Arduino IDE compiler still throws "warning: [...] redefined" messages, you may need to _**uncheck**_ File -> Preferences -> "Aggressively cache compiled core".
@@ -102,7 +102,7 @@ _Last update: 2014-07-18 by gerritv (tested on Windows 8.1, 64bit)_
 * Install the Create From Makefile Extension (Tools/Extension Manager)
 * run Tools/Create Project From Makefil
 * select the Makefile from your grbl code directory
-* Select Device, use ATmega328p for the Arduino Mega
+* Select Device, use ATmega328p for the Arduino Uno
 * In Projects/Properties, uncheck Use External Makefile
 * Add -DF_CPU=16000000 -mmcu=atmega328p to Project/Properties/Toolchain/AVR Gnu Compiler/Miscellaneous Other Flags
 
@@ -147,7 +147,7 @@ quick and has worked for me.
 ## For Ubuntu:
 _Last updated: 2021-05-08 by ooxi, based upon the work of EliteEng._
 
-The following has been tested on Ubuntu 20.04 and an Arduino Mega.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of Debian too.
+The following has been tested on Ubuntu 20.04 and an Arduino Uno.  It will compile grbl from source code and flash it to your Arduino.  It should in theory work with other flavours of Debian too.
 
 On a brand new Ubuntu box, the install process goes like this:
 
@@ -165,7 +165,7 @@ cd grbl-master
 sudo make grbl.hex
 ```
 
-3) To flash the firmware to your Arduino Mega, plug the Arduino in using the USB cable (Confirm that the device is located at /dev/ttyACM0 and run the following command:
+3) To flash the firmware to your Arduino Uno, plug the Arduino in using the USB cable (Confirm that the device is located at /dev/ttyACM0 and run the following command:
 ```
 sudo PROGRAMMER="-c arduino -P /dev/ttyACM0" make flash
 ```
