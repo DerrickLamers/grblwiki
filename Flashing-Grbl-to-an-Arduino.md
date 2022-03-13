@@ -33,7 +33,15 @@ Next you will need to find the device path to your Arduino. First, connect your 
 
 **For v1.0 on the Duemilanove:** `$AVRPATH/bin/avrdude -C$AVRPATH/etc/avrdude.conf -pm328p -carduino -P$DEVPATH -b57600 -D -Uflash:w:$GRBLHEX`
 
-Note the only change between the two versions is the _-c_ flag from the _stk500v1_ programmer to the _arduino_ programmer. This programmer flag was updated in the v1.0 IDE. If all goes according to plan, you should see three sequential progress bars of reading, writing, and verifying and you're good to go! 
+Note the only change between the two versions is the _-c_ flag from the _stk500v1_ programmer to the _arduino_ programmer. This programmer flag was updated in the v1.0 IDE. If all goes according to plan, you should see three sequential progress bars of reading, writing, and verifying and you're good to go!
+
+Using the `avr-gcc` toolchain and `avrdude` installed from Homebrew, these lines simplify to: 
+
+    avrdude -pm328p -carduino -P$DEVPATH -b57600 -D -Uflash:w:$GRBLHEX   # for grbl
+    # or 
+    avrdude -p atmega2650 -c stk500 -P$DEVPATH -D -Uflash:w:$GRBLHEX   # for grbl-mega
+
+
 
 ### Additional Mac Resources:
 * **[DANK](http://dank.bengler.no/-/page/show/5471_gettinggrbl)** _(Last updated 2/2011)_
