@@ -61,6 +61,10 @@ _Last Updated: 2016-06-10 by Protoneer._
 [Raspberry Pi CNC board/hat](http://wiki.protoneer.co.nz/Raspberry_Pi_CNC) - 3 independent axes + 1 clonable drive and with removable screw terminals.Uses Pololu Stepper Drivers with all GRBL pins exposed. GRBL 0.9 Compatible. RC filters on end stops and Probe pins.
 ![Raspberry Pi CNC board/hat](http://wiki.protoneer.co.nz/images/5/56/RPI-CNC-V258-Front.jpg)
 
+The Protoneer CNC Shield V3 does not connect as neatly to an Arduino Mega with [grbl-Mega](https://github.com/gnea/grbl-Mega), (see https://github.com/gnea/grbl-Mega/issues/107#issuecomment-1066039958) but it is possible to use the 2-row header to connect to the Mega: 
+
+<img width="740" alt="image" src="https://user-images.githubusercontent.com/2236516/158049775-8e4d9034-e341-4a31-87a6-29bf76483b78.png">
+
 ***
 
 # NOT SUPPORTED: H-bridge drivers.
