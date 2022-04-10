@@ -40,6 +40,16 @@ _Last updated: 2018-03-04_
 ------
 # The following methods are for reference only. 
 
+## Build as a Normal Arduino IDE project:
+
+Per https://github.com/gnea/grbl/pull/716 and the discussion at https://github.com/gnea/grbl/issues/715 you can create an empty file `grbl.ino` in the grbl directory and compile as normal.
+
+1. Download and unpack grbl from https://github.com/gnea/grbl (e.g. `git clone git@github.com:gnea/grbl.git`)
+2. Create an empty `grbl.ino` file. (e.g. `touch path_to_grbl/grbl/grbl.ino`) 
+3. Open the grbl.ino file in the Arduino IDE
+4. 
+
+
 ## For Mac OS X: 
 _Last updated: 2012-01-29 by chamnit. (Tested on OS X 10.7, 10.6, 10.4 and the Arduino IDE r22,v1.0)_
 
