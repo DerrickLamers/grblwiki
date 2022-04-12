@@ -82,26 +82,6 @@ A full-featured GUI, developed by @wwinder, that streams, visualizes G-code, and
 Version 2.0 of UGS is required for full GRBL v1.1 compatibility.
 
 --------
-### [UltimateCNC] (https://ultimatecnc.softgon.net/)
-![UltimateCNC-Logo](https://ultimatecnc.softgon.net/img/screen_desktop.png)
-G-Code sender application for GRBL-based CNC-machines with G-Code visualizer
-for Windows, Linux and MacOS.
-
-Supported functions:
-
-* Monitoring cnc-machine state.
-* View g-code & trajectories in 2D and 3D.
-* Autoleveling Z-axis for PCB milling.
-* Support big files g-code.
-* Custom commands through macros.
-* Flashing Grbl to an Arduino.
-* Modern user interface for touchscreens and small screens.
-* Move your machine CNC using the keyboard.
-* Tool changes with automatic tool height measurement. 
-* Easy configuration of GRBL using menus.
-* Controlling GRBL-based cnc-machine via console commands (MDI).
-* No Java required.
---------
 ### [Easel](http://app.easel.com) [Browser-based CAD + CAM + Grbl controller]
 
 ![Easel Screenshot](http://cl.ly/image/0m3Q0w0u0c1F/Screen%20Shot%202014-10-07%20at%205.22.00%20PM.png)
