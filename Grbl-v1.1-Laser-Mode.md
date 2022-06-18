@@ -79,9 +79,9 @@ Describe below are the operational changes to Grbl when laser mode is enabled. P
 -----
 ### CAM Developer Implementation Notes
 
-TODO: Add some suggestions on how to write laser g-code for Grbl. 
+- For information on interfacing with Grbl to send G-code commands from custom developed software, see the [Grbl v1.1 Interface](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Interface) section of this Wiki.
 
-- When using `M3` constant laser power mode, try to avoid force-sync conditions during a job whenever possible. Basically every spindle speed change must be accompanied by a valid motion. Any motion is fine, since Grbl will automatically enable and disable the laser based on the modal state. Avoid a `G0` and `G1` command with no axis words in this mode and in the middle of a job.
+- When using `M3` constant laser power mode, try to avoid force-sync conditions during a job whenever possible. Basically, every spindle speed change must be accompanied by a valid motion. Any motion is fine, since Grbl will automatically enable and disable the laser based on the modal state. Avoid a `G0` and `G1` command with no axis words in this mode and in the middle of a job.
 
 - Ensure smooth motions throughout by turning the laser on and off without an `M3 M4 M5` spindle state command. There are two ways to do this:
 
