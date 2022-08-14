@@ -17,7 +17,7 @@ _But, if all you have is a pre-compiled .hex file, you will need to use one of t
 
 _Last updated: 2012-02-12 by gregrebholz. (Tested on OS X 10.7, 10.6, and 10.4 and the Arduino Uno and IDE v1.0/r22; and OS X 10.6 and the Arduino Duemilanove and IDE v1.0)_
 
-As with compiling grbl, the tools for flashing grbl to an Arduino are included in the Arduino IDE [software](https://tracker.iplocation.net/jccj/). All you need to do is directly access them through the Terminal.app. The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.
+As with compiling grbl, the tools for flashing grbl to an Arduino are included in the Arduino IDE [software](http://arduino.cc/en/Main/Software). All you need to do is directly access them through the Terminal.app. The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.
 
 For most people, the path to the Arduino compiler tools will be: _/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr_ (Note the absence of _/bin_ from the compiling grbl page.) Depending on where you place the Arduino IDE, the _/Applications/Arduino.app_ path may be different. So, lets call your compiler tools path _**$AVRPATH**_ to help shorten the following commands.
 
@@ -66,7 +66,7 @@ To Determine your Arduino's COM port:
 
 To flash a grbl hex to an Arduino:
 
-1. Download and extract [XLoader](https://tracker.iplocation.net/jccp/)
+1. Download and extract [XLoader](http://www.hobbytronics.co.uk/download/XLoader.zip)
 2. Open **XLoader** and select your Arduino's COM port from the drop down menu on the lower left.
 
 3. Select the appropriate device from the dropdown list titled "_Device_".
@@ -96,7 +96,7 @@ For those drawn to a CLI: Browse to the directory where you new hex files reside
 
 _Last updated: 2012-01-30 by Atrixium. (Tested on Linux Mint 9 (Ubuntu 10.04) and the Arduino Uno and IDE V1.0)_
 
-The tools for flashing grbl to an Arduino (called AVRDUDE) are included with the Arduino IDE [software](https://tracker.iplocation.net/jccj/). The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.  
+The tools for flashing grbl to an Arduino (called AVRDUDE) are included with the Arduino IDE [software](http://arduino.cc/en/Main/Software). The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.  
 
 **Linux users can now use the [Easy Flash](http://dl.dropbox.com/u/54312401/grbl/grblflash) script to simplify the process.**  
 
