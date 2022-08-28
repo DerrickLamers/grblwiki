@@ -73,7 +73,9 @@ Developers can use this data to provide an on-screen position digital-read-out (
 Grbl's status report is fairly simple in organization. It always starts with a word describing the machine state like `IDLE` (descriptions of these are available elsewhere in the Wiki). The following data values are usually in the order listed below and separated by `|` pipe characters, but may not be in the exact order or printed at all. For a complete description of status report formatting, read the _Real-time Status Reports_ section below.
 
 #### Real-Time Control Commands
-The real-time control commands, `~` cycle start/resume, `!` feed hold,  `^X` soft-reset, and all of the override commands, all immediately signal Grbl to change its running state. Just like `?` status reports, these control characters are picked-off and removed from the serial buffer when they are detected and do not require an additional line-feed or carriage-return character to operate.
+
+
+The [real-time control commands][rtc], `~` cycle start/resume, `!` feed hold,  `^X` soft-reset, and all of the override commands, all immediately signal Grbl to change its running state. Just like `?` status reports, these control characters are picked-off and removed from the serial buffer when they are detected and do not require an additional line-feed or carriage-return character to operate.
 
 One important note is about the override command characters. These are defined in the extended-ASCII character space and are generally not type-able on a keyboard. A GUI must be able to send these 8-bit values to support overrides. 
 
@@ -704,3 +706,6 @@ Feedback messages provide non-critical information on what Grbl is doing, what i
         	- It is disabled in the config.h file. No `$` mask setting is available.
         	- If the override refresh counter is in-between intermittent reports.
         	- `WCO:` exists in the current report during refresh. Automatically set to try again on next report.
+
+[rtc]: <https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands#grbl-v11-realtime-commands> "GRBL real time commands (wiki)"
+
