@@ -78,7 +78,7 @@ The [real-time control commands][rtc], `~` cycle start/resume, `!` feed hold,  `
 
 One important note is about the override command characters. These are defined in the extended-ASCII character space and are generally not type-able on a keyboard. A GUI must be able to send these 8-bit values to support overrides.
 
-The same principle can apply to scripts: control characters may not be recognized if sent as regular charachters the the serial interface. When using [pyserial][pyserial], one option is to encode the hex code as a Python3 byte string, and pass it directly to the serial object. For example `serial.write(b'\x18')` sends a `ctrl-x` control character.
+The same principle can apply to scripts: control characters may not be recognized if sent as regular characters to the serial interface. When using [pyserial][pyserial], one option is to encode the hex code as a Python3 byte string, and pass it directly to the serial object. For example `serial.write(b'\x18')` sends a `ctrl-x` control character.
 
 #### EEPROM Issues
 EEPROM access on the Arduino AVR CPUs turns off all of the interrupts while the CPU _writes_ to EEPROM. This poses a problem for certain features in Grbl, particularly if a user is streaming and running a g-code program, since it can pause the main step generator interrupt from executing on time. Most of the EEPROM access is restricted by Grbl when it's in certain states, but there are some things that developers need to know.
