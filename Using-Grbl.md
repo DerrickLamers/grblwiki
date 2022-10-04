@@ -311,7 +311,7 @@ All code provided is java, using only the Processing 3 included IDE. All GUI con
 
 Early alpha release
 
-![GRBLMASTER](https://github.com/carcanhol/cnc-interface/blob/90c4ebb78f577d57d008790769394e37434abd1d/GRBLMASTER.png)
+![GRBLMASTER](https://github.com/carcanhol/cnc-interface/blob/main/GRBLMASTER.png?raw=true)
 
 [Blog Download Links](https://grblmaster.blogspot.com)
 
