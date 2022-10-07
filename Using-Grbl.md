@@ -307,12 +307,4 @@ All code provided is java, using only the Processing 3 included IDE. All GUI con
 
  ***
 
-# GRBLMASTER: Gui created in Processing 4
-
-Early alpha release
-
-![GRBLMASTER](https://raw.githubusercontent.com/carcanhol/GRBLMASTER/main/GRBLMASTER.png)
-
-[Blog Download Links](https://grblmaster.blogspot.com)
-
 
