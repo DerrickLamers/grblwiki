@@ -29,17 +29,12 @@ The 'Dir' pin for the X,Y and Z axes is attached to digital pins 5, 6 and 7 resp
 
 ## Resources  
 
-![GRBL EasyDriver](http://dl.dropbox.com/u/54312401/grbl/GRBL%20EasyDriver_small.png)  
-[Big Version](http://dl.dropbox.com/u/54312401/grbl/GRBL%20EasyDriver_big.png)  
-[Fritzing File](http://dl.dropbox.com/u/54312401/grbl/GRBL%20EasyDriver.fz)  
 [EasyDriver Website](http://www.schmalzhaus.com/EasyDriver/)  
 
 # Method Two: grblshield
 _Last Updated: 2012-02-21 by aldenhart._  
 
 [grblshield](http://www.synthetos.com/wiki/index.php?title=Projects:grblShield) - plugs on to Arduino for 3 axes of motor control - up to 2.5 amps per winding. Drivers are thermally protected against overcurrent and are therefore extremely resistant to burnout or failure.
-![grblshield v2](http://dl.dropbox.com/u/45988398/6251974637_3aea9c2e08_z.jpg)
-
 
 ***
 
@@ -74,5 +69,4 @@ _Some early work on supporting this can be found [here](http://ssecganesh.blogsp
 ***
 
 ## Other Resources:
-* **[DANK](http://dank.bengler.no/-/page/show/5473_connectinggrbl)** Last updated 2/2011.
-* **[Connecting Grbl to an H-bridge Driver](https://github.com/grbl/grbl/wiki/H-Bridge-as-stepper-driver)**
+* **[DANK](https://web.archive.org/web/20190612020215/http://dank.bengler.no/-/page/show/5471_gettinggrbl)**
