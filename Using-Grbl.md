@@ -129,7 +129,7 @@ __NOTE: If you are having difficulties with streaming to Grbl, we will ask you t
 Included with the source code and officially supported by Grbl, two Python streaming scripts are supplied to illustrate simple and more complex streaming methods that work well cross-platform. These scripts don't fully support all of the Grbl's features, but are intended more as a way to compare or troubleshoot other garden variety or newly-written GUIs out there. These are located in the 'script' folder on the main repository. **Note:** The streaming scripts require the [pySerial](http://pyserial.sourceforge.net) module installed.
 
 * Install the [pySerial](http://pyserial.sourceforge.net) module.
-* Download [simple_stream.py](https://github.com/grbl/grbl/blob/master/doc/script/simple_stream.py) Python script.
+* Download [simple_stream.py](Update link pointing to wiki of old grbl/grbl repository) Python script.
 * Open the script in a plain text editor and change the following line to reflect your system:  
 
 `s = serial.Serial('/dev/tty.usbmodem1811',9600)`  
