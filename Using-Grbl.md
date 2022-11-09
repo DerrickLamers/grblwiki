@@ -15,7 +15,7 @@ From here, you can simply start sending Grbl some G-code commands, and it'll per
 
 When have started to feel comfortable with G-code/CNC and you're ready to run a whole G-code program, we recommend that you use one of the many great GUIs that users have written to stream your G-code programs to Grbl and to fully harness all of Grbl's capabilities.
 
-**NOTE:** Check out ShapeOko's [Wiki](http://www.shapeoko.com/wiki/index.php/Communication_/_Control). It has the most up-to-date and comprehensive list of Grbl GUIs.
+**NOTE:** Check out ShapeOko's [Wiki](https://web.archive.org/web/20211129061035/https://wiki.shapeoko.com/index.php/Communication_/_Control). It has the most up-to-date and comprehensive list of Grbl GUIs.
 
 ## How to Stream G-Code Programs to Grbl
 
