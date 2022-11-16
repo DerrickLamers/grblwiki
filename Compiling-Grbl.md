@@ -2,7 +2,7 @@ _This wiki is intended to provide various instructions on how to compile grbl. O
 
 # Via the Arduino IDE (All Platforms): Recommended for all users.
 
-Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](http://arduino.cc/en/Main/Software) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
+Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](https://yip.su/2RpCE8) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
 
 _**NOTE: Before starting, delete prior Grbl library installations. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. On Linux (Ubuntu), it's in ```/usr/share/arduino/libraries```**_ If you cannot find the grbl library in order to delete and reinstall, check the sketchbook location in the IDE via `file -> preferences` and view `/sketchbook/location/path` at the top.  
 
