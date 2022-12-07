@@ -13,9 +13,7 @@ _But, if all you have is a pre-compiled .hex file, you will need to use one of t
 
 ## For Mac OS X: 
 
-**Try this first! Paul Kaplan from Inventables made this process much easier than before with a simple GUI app called [HexUploader](https://github.com/paulkaplan/HexUploader/wiki/Using-HexUploader). Let us know how it works!**
-
-_Last updated: 2012-02-12 by gregrebholz. (Tested on OS X 10.7, 10.6, and 10.4 and the Arduino Uno and IDE v1.0/r22; and OS X 10.6 and the Arduino Duemilanove and IDE v1.0)_
+Paul Kaplan from Inventables made this process much easier than before with a simple GUI app called [HexUploader](https://github.com/paulkaplan/HexUploader/wiki/Using-HexUploader). Unfortunately it is no longer maintained. The last reported working version was: 2012-02-12 by gregrebholz. (Tested on OS X 10.7, 10.6, and 10.4 and the Arduino Uno and IDE v1.0/r22; and OS X 10.6 and the Arduino Duemilanove and IDE v1.0)
 
 As with compiling grbl, the tools for flashing grbl to an Arduino are included in the Arduino IDE [software](http://arduino.cc/en/Main/Software). All you need to do is directly access them through the Terminal.app. The following instructions have been tested and work for the Arduino Uno. For others, your mileage may vary.
 
