@@ -64,19 +64,17 @@ To Determine your Arduino's COM port:
 
 To flash a grbl hex to an Arduino:
 
-1. Download and extract [XLoader](https://github.com/toxor4/VideoCaptureUtility/releases/download/42/xLoader_V1_339.zip)
-2. Open **XLoader** and select your Arduino's COM port from the drop down menu on the lower left.
+1. Download latest release of [update](https://github.com/arrsoft312/update/releases/latest)
 
-3. Select the appropriate device from the dropdown list titled "_Device_".
+2. Open **update.exe** and use the browse button on the top right of the form to browse to your grbl hex file.
 
-4. Check that Xloader set the correct baud rate for the device: 57600 for Duemilanove/Nano (ATmega 328) or 115200 for Uno (ATmega 328).
+3. Then select your Arduino's COM port from the drop down menu on the lower left.
 
-5. Now use the browse button on the top right of the form to browse to your grbl hex file.
+4. Set the correct baud rate for your board: 57600 for Nano, 115200 for Uno (new genuine Nano boards also uses 115200 baud rate).
 
-6. Once your grbl hex file is selected, click "_Upload_"
+5. Now click "_Upload_" and wait until it finishes.
 
-After clicking upload, you'll see the RX/TX lights going wild on your Arduino. The upload process generally takes about 10 seconds to finish. Once completed, a message will appear in the bottom left corner of **XLoader** telling you how many bytes were uploaded. If there was an error, it would show instead of the total bytes uploaded.
-Steps should be similar and may be done through the command prompt.
+After clicking upload, you'll see the RX/TX lights going wild on your Arduino. The upload process generally takes about 10 seconds to finish. Once completed, a message box will be displayed, telling you about successful upload, or about the error.
 
 #### Additional Windows HexUploader
 
