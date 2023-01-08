@@ -19,21 +19,12 @@ When have started to feel comfortable with G-code/CNC and you're ready to run a 
 
 ## How to Stream G-Code Programs to Grbl
 
-### SourceRabbit GCode Sender 4-Axis -  [https://www.sourcerabbit.com](https://www.sourcerabbit.com/Shop/pr-i-88-t-grbl-gcode-sender-4axis.htm) [Win, Mac, Linux]
-![screenshot_heightmap_original](https://cdn.sourcerabbit.com/Data/GRBLGNEAGitHubImages/GCodeSender4Axis-MainScreen.png)
+### Focus - PC Based CNC Control System -  [https://www.sourcerabbit.com](https://www.sourcerabbit.com/Shop/pr-i-91-t-focus-cnc-control-software.htm) [Win, Mac, Linux]
+![screenshot_heightmap_original](https://cdn.sourcerabbit.com/Data/FluidNCWiki/Focus.png)
 
 CNC control software for **3 & 4-Axis** CNC Mills, Routers, Lasers and Plasma Cutters running with the GRBL Firmware. It features a highly optimized and asynchronous (event-driven) UI and USB-to-Serial communication and can be also used on computers with small amounts of RAM and CPU.
 
--------
-### SourceRabbit GCode Sender - [https://www.sourcerabbit.com](https://www.sourcerabbit.com/Shop/pr-i-80-t-grbl-gcode-sender.htm) [Win, Mac, Linux]
-![screenshot_heightmap_original](https://github.com/SourceRabbit/gcode-sender/blob/master/Images/Screenshot.png)
 
-SourceRabbit GCode Sender turns a personal computer into a 3-Axis CNC machine controller. It is cross platform, it features a highly optimized and asynchronous (event-driven) UI and USB-to-Serial communication and can run on computers with small amount of RAM.
-
-**Features:**
-- Compatible with GRBL v0.9 and above
-- Semi auto tool changes with automatic tool height measurement
-- Event-Driven UI and USB-to-Serial communication
 
 -------
 
