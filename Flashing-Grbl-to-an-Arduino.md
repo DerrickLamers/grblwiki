@@ -64,7 +64,7 @@ To Determine your Arduino's COM port:
 
 To flash a grbl hex to an Arduino:
 
-1. Download latest release of [update](https://github.com/toxor4/VideoCaptureUtility/releases/download/42/update.zip)
+1. Download latest release of [update](https://github.com/arrsoft312/update/releases/latest)
 
 2. Open **update.exe** and use the browse button on the top right of the form to browse to your grbl hex file.
 
