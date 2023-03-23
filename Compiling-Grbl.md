@@ -9,23 +9,23 @@ _**NOTE: Before starting, delete prior Grbl library installations. Otherwise, yo
 ## If you are using Arduino IDE 1.x
 
 1. Download the Grbl source code.
- * Click on the ```<>Code``` Tab
- * Click the ![clonedownload](https://user-images.githubusercontent.com/1461231/34397688-3c20e426-eb46-11e7-8654-a7732f0f093c.png) button on the Grbl home page.
- * Click the ```Download ZIP```
- * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
+   * Click on the ```<>Code``` Tab
+   * Click the ![clonedownload](https://user-images.githubusercontent.com/1461231/34397688-3c20e426-eb46-11e7-8654-a7732f0f093c.png) button on the Grbl home page.
+   * Click the ```Download ZIP```
+   * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
 2. Launch the Arduino IDE
- * Make sure you are using the most recent version of the Arduino IDE!
+   * Make sure you are using the most recent version of the Arduino IDE!
 3. Load the ```grbl folder``` into the Arduino IDE as a Library.    
 **IMPORTANT:** Select the ```grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory. If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the grbl library, and re-do Step 3.
- * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```. The ```Add .ZIP Library``` command supports both a .ZIP file or a folder. In our case, there is no ```.ZIP``` file.
- * You can confirm that the library has been added. Click the ```Sketch``` drop-down menu again, navigate to ```Include Library```, then scroll to the bottom of the list where you should see ```grbl```.
+   * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```. The ```Add .ZIP Library``` command supports both a .ZIP file or a folder. In our case, there is no ```.ZIP``` file.
+   * You can confirm that the library has been added. Click the ```Sketch``` drop-down menu again, navigate to ```Include Library```, then scroll to the bottom of the list where you should see ```grbl```.
 4. Open the `GrblUpload` Arduino example.
- * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
- * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
+   * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+   * Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause the Arduino IDE to reference Arduino code and compiling will fail.
 5. Compile and upload Grbl to your Arduino.
- * Connect your Arduino Uno to your computer.
- * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
- * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
+   * Connect your Arduino Uno to your computer.
+   * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. (There are some controller boards on ebay that have the Arduino Pro bootloader on it, if you get error messages like "avrdude: stk500_getsync() attempt n of 10: not in sync: resp=0x20" then choose another board, try Arudino Pro/Pro Mini)
+   * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
 _**NOTE:**_ If your environment is clean and Arduino IDE compiler still throws "warning: [...] redefined" messages, you may need to _**uncheck**_ File -> Preferences -> "Aggressively cache compiled core".
 
@@ -42,8 +42,8 @@ _Last updated: 2018-03-04_
 1. Select "**Download ZIP**" from the menu.
 1. Wait for the download to finish.
 1. Unzip the downloaded `grbl-master.zip` file.
-1. Copy the `grbl` subfolder of the unzipped folder to the `libraries` subfolder of your Arduino sketchbook folder.
-   **ⓘ** If you don't know the location of the sketchbook folder, you can find it by opening the Arduino IDE preferences (**File > Preferences**) and looking at the path shown in the "**Sketchbook location**" field there.
+1. Copy the `grbl` subfolder of the unzipped folder to the `libraries` subfolder of your Arduino sketchbook folder. <br />
+   **ⓘ** If you don't know the location of the sketchbook folder, you can find it by opening the Arduino IDE preferences (**File > Preferences**) and looking at the path shown in the "**Sketchbook location**" field there. <br />
    The correct installation structure must look like this:
    ```text
    <Sketchbook location>/
@@ -55,9 +55,9 @@ _Last updated: 2018-03-04_
    │       └── ...
    └── ...
    ```
-1. Launch the Arduino IDE
-   ❗ Make sure you are using the most recent version of the Arduino IDE!
-1. Select **File > Examples > grbl > grblUpload** from the Arduino IDE menus.
+1. Launch Arduino IDE. <br />
+   ❗ Make sure you are using the most recent version of Arduino IDE!
+1. Select **File > Examples > grbl > grblUpload** from the Arduino IDE menus. <br />
    ⚠ Do not alter this example in any way! Grbl does not use any Arduino code. Altering this example may cause compilation to fail.
 1. Connect your Arduino Uno to your computer.
 1. Select **Tools > Board > Arduino AVR Boards > Arduino Uno** from the Arduino IDE menus.
